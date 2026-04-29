@@ -14,6 +14,12 @@ const NAV_LINKS = [
     href: '/about-us',
     dropdown: [
       { name: 'Our Team', href: '/our-team' },
+      { name: 'Our Ethics', href: '/our-ethics' },
+      { name: 'Client Protocol', href: '/client-protocol' },
+      { name: 'Compliance Corner', href: '/compliance-corner' },
+      { name: 'Privacy is a Right', href: '/privacy-is-a-right' },
+      { name: 'Technical Counter-Surveillance', href: '/technical-counter-surveillance' },
+      { name: 'Technical Glossary', href: '/technical-glossary' },
       { name: 'Our Equipments', href: '/our-equipments' },
       { name: 'Industries we serve', href: '/industries-we-serve' },
       { name: 'Client Testimonial', href: '/client-testimonial' },
@@ -75,12 +81,24 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const getDropdownMeta = (name: string) => {
+    if (name === 'Our Company') {
+      return { eyebrow: 'Information Hub' };
+    }
+
+    if (name === 'TSCM Services') {
+      return { eyebrow: 'Technical Coverage' };
+    }
+
+    return { eyebrow: 'Debugging Services' };
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         useSolidHeader
-          ? 'border-b border-slate-200 bg-slate-50/88 shadow-lg shadow-cyan-900/10 backdrop-blur-md'
-          : 'bg-gradient-to-b from-slate-950/55 via-slate-950/20 to-transparent'
+          ? 'border-b border-slate-200/90 bg-white/96 shadow-lg shadow-slate-900/10 backdrop-blur-md'
+          : 'border-b border-white/10 bg-gradient-to-b from-slate-950/92 via-slate-950/58 to-slate-950/8 backdrop-blur-[2px]'
       }`}
     >
       <div className="mx-auto h-20 max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -102,7 +120,10 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
-              <div key={link.name} className="relative group">
+              <div
+                key={link.name}
+                className="group relative"
+              >
                 <Link
                   href={link.href}
                   className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors ${
@@ -123,17 +144,33 @@ export default function Navbar() {
 
                 {/* Desktop Dropdown */}
                 {link.dropdown && (
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
-                    <div className="w-56 bg-slate-50 border border-slate-200 rounded-xl shadow-xl overflow-hidden py-2">
-                       {link.dropdown.map((dropLink) => (
-                         <Link
-                           key={dropLink.name}
-                           href={dropLink.href}
-                           className="block px-4 py-3 text-sm text-slate-700 hover:bg-white hover:text-cyan-600 transition-colors"
-                         >
-                           {dropLink.name}
-                         </Link>
-                       ))}
+                  <div className="pointer-events-none absolute left-0 top-full z-50 pt-4 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                    <div className="w-72 overflow-hidden rounded-[1.4rem] border border-slate-200/90 bg-white/96 shadow-[0_24px_60px_rgba(15,23,42,0.14)] backdrop-blur-xl">
+                      <div className="border-b border-slate-200 bg-slate-50/90 px-4 py-3">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-700">
+                          {getDropdownMeta(link.name).eyebrow}
+                        </p>
+                      </div>
+
+                      <div className="grid gap-1.5 p-2.5">
+                        {link.dropdown.map((dropLink, index) => (
+                          <Link
+                            key={dropLink.name}
+                            href={dropLink.href}
+                            className="group/item flex items-center justify-between rounded-xl border border-transparent bg-white px-3.5 py-3 text-sm text-slate-700 transition-all hover:border-cyan-200 hover:bg-slate-50 hover:shadow-sm"
+                          >
+                            <div className="flex items-center gap-3">
+                              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 transition-colors group-hover/item:bg-cyan-50 group-hover/item:text-cyan-700">
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                              <span className="font-medium">{dropLink.name}</span>
+                            </div>
+                            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 transition-all group-hover/item:translate-x-1 group-hover/item:text-cyan-600">
+                              Open
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -201,17 +238,31 @@ export default function Navbar() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-6 space-y-1 overflow-hidden"
+                              className="mt-1 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/80 px-3 py-2"
                            >
-                              {link.dropdown.map(dropLink => (
-                                 <Link
+                              <div className="px-2 pb-2 pt-1">
+                                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-700">
+                                  {getDropdownMeta(link.name).eyebrow}
+                                </p>
+                              </div>
+                              {link.dropdown.map((dropLink, index) => (
+                                 <motion.div
                                     key={dropLink.name}
-                                    href={dropLink.href}
-                                    className="block px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-cyan-600 rounded-lg transition-colors"
-                                    onClick={() => setMobileMenuOpen(false)}
+                                    initial={{ opacity: 0, x: -6 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.16, delay: index * 0.02 }}
                                  >
-                                    {dropLink.name}
-                                 </Link>
+                                   <Link
+                                      href={dropLink.href}
+                                      className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white hover:text-cyan-600"
+                                      onClick={() => setMobileMenuOpen(false)}
+                                   >
+                                      <span>{dropLink.name}</span>
+                                      <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                                        Go
+                                      </span>
+                                   </Link>
+                                 </motion.div>
                               ))}
                            </motion.div>
                         )}

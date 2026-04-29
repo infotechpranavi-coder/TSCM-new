@@ -103,8 +103,8 @@ export default function Home() {
               />
             </div>
           ))}
-          <div className="absolute inset-0 bg-[linear-gradient(118deg,rgba(2,6,23,0.95)_10%,rgba(2,6,23,0.82)_38%,rgba(2,6,23,0.48)_70%,rgba(2,6,23,0.78)_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.22),transparent_32%),radial-gradient(circle_at_80%_24%,rgba(244,114,182,0.18),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.24),transparent_28%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(118deg,rgba(2,6,23,0.97)_8%,rgba(2,6,23,0.9)_34%,rgba(2,6,23,0.68)_64%,rgba(2,6,23,0.86)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_30%),radial-gradient(circle_at_80%_24%,rgba(59,130,246,0.12),transparent_20%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.18),transparent_24%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:5rem_5rem] opacity-20" />
         </div>
 
@@ -116,12 +116,12 @@ export default function Home() {
               variants={staggerContainer}
               className="max-w-3xl"
             >
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-cyan-100 shadow-sm backdrop-blur-md">
+              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/50 px-4 py-2 text-sm font-medium text-cyan-50 shadow-sm backdrop-blur-md">
                 <ShieldAlert className="w-4 h-4" />
                 <span>Premier Intelligence & Counter-Surveillance</span>
               </motion.div>
 
-              <motion.div variants={fadeIn} className="mt-6 inline-flex items-center rounded-full border border-cyan-300/20 bg-slate-950/30 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-100 backdrop-blur-md">
+              <motion.div variants={fadeIn} className="mt-6 inline-flex items-center rounded-full border border-cyan-300/25 bg-slate-950/55 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-50 backdrop-blur-md">
                 {activeHero.eyebrow}
               </motion.div>
               
@@ -137,7 +137,7 @@ export default function Home() {
                 </span>
               </motion.h1>
               
-              <motion.p variants={fadeIn} className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
+              <motion.p variants={fadeIn} className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">
                 {activeHero.text} We deliver international-standard TSCM and bug sweep support for boardrooms,
                 residences, travel stays, and executive spaces where privacy cannot be left to chance.
               </motion.p>
@@ -146,7 +146,7 @@ export default function Home() {
                 {activeHero.highlights.map((item) => (
                   <div
                     key={item}
-                    className="rounded-2xl border border-white/12 bg-white/8 px-4 py-3 text-sm font-medium text-white shadow-sm backdrop-blur-md"
+                    className="rounded-2xl border border-white/16 bg-slate-950/45 px-4 py-3 text-sm font-medium text-white shadow-sm backdrop-blur-md"
                   >
                     {item}
                   </div>
@@ -171,10 +171,10 @@ export default function Home() {
 
               <motion.div variants={fadeIn} className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                 <div className="grid gap-4 sm:max-w-sm">
-                  <div className="rounded-2xl border border-white/10 bg-white/8 px-5 py-4 backdrop-blur-md">
+                  <div className="rounded-2xl border border-white/14 bg-slate-950/45 px-5 py-4 backdrop-blur-md">
                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">Rapid Support</p>
                     <p className="mt-2 text-2xl font-black text-white">24-48 hrs</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                    <p className="mt-2 text-sm leading-6 text-slate-200">
                       Coordinated response for sensitive homes, offices, and business travel environments.
                     </p>
                   </div>
@@ -225,7 +225,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="lg:justify-self-end"
             >
-              <div className="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 text-white shadow-[0_24px_80px_rgba(2,6,23,0.3)] backdrop-blur-xl">
+              <div className="overflow-hidden rounded-[2rem] border border-white/18 bg-slate-950/45 text-white shadow-[0_24px_80px_rgba(2,6,23,0.36)] backdrop-blur-xl">
                 <div className="relative h-56">
                   <Image
                     src={activeHero.image}
@@ -245,13 +245,13 @@ export default function Home() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-sm leading-7 text-slate-200">{activeHero.text}</p>
+                  <p className="text-sm leading-7 text-slate-100">{activeHero.text}</p>
 
                   <div className="mt-6 grid gap-3">
                     {activeHero.highlights.map((item) => (
                       <div
                         key={item}
-                        className="rounded-2xl border border-white/10 bg-slate-950/25 px-4 py-3 text-sm font-medium text-white"
+                        className="rounded-2xl border border-white/12 bg-slate-950/45 px-4 py-3 text-sm font-medium text-white"
                       >
                         {item}
                       </div>
@@ -261,7 +261,7 @@ export default function Home() {
                   <div className="mt-6 rounded-2xl border border-cyan-300/15 bg-slate-950/30 px-4 py-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">Response Window</p>
                     <p className="mt-2 text-3xl font-extrabold text-white">24-48 hrs</p>
-                    <p className="mt-2 text-sm text-slate-300">Fast field deployment with discreet operational handling.</p>
+                    <p className="mt-2 text-sm text-slate-200">Fast field deployment with discreet operational handling.</p>
                   </div>
                 </div>
               </div>
@@ -271,14 +271,53 @@ export default function Home() {
       </section>
 
       {/* THREE PILLARS SECTION */}
-      <section className="py-24 bg-white border-y border-slate-200 relative z-10">
+      <section className="relative z-10 overflow-hidden border-y border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f5fbff_48%,#eef7fb_100%)] py-24">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-[-6rem] top-10 h-56 w-56 rounded-full bg-cyan-200/45 blur-3xl" />
+          <div className="absolute right-[-4rem] top-1/3 h-64 w-64 rounded-full bg-sky-200/35 blur-3xl" />
+          <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:72px_72px]" />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="relative mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+          >
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-700">Core Response Tracks</p>
+              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+                Three focused ways we secure exposed environments.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+                Each service line is built for a different stage of risk: proactive detection, targeted device discovery,
+                and rapid on-site response when the situation needs immediate control.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3 lg:min-w-[420px]">
+              {[
+                { label: 'Coverage', value: 'Pan-India' },
+                { label: 'Response', value: '24-48 hrs' },
+                { label: 'Focus', value: 'TSCM + Debugging' },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-2xl border border-white/70 bg-white/80 px-4 py-4 shadow-[0_16px_45px_rgba(15,23,42,0.06)] backdrop-blur"
+                >
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">{item.label}</p>
+                  <p className="mt-2 text-lg font-black text-slate-950">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-8"
+            className="relative grid gap-8 md:grid-cols-3"
           >
             {[
               {
@@ -286,26 +325,42 @@ export default function Home() {
                 icon: <Radio className="w-8 h-8 text-indigo-600" />,
                 desc: "Technical surveillance countermeasures (TSCM) describes the action of sweeping for devices that may be spying on you.",
                 image: "/images/tscm.jpg",
-                href: "/tscm-services-in-delhi"
+                href: "/tscm-services-in-delhi",
+                tone: "from-indigo-500 via-sky-500 to-cyan-400",
+                accent: "bg-indigo-50 text-indigo-700 border-indigo-200/80",
+                kicker: "Signal Intelligence",
+                stat: "24GHz Scan Range",
               },
               {
                 title: "BUG SWEEP",
                 icon: <Search className="w-8 h-8 text-emerald-500" />,
                 desc: "Bug Sweeping is all about debugging. It's a physical and technical countermeasures survey used to locate illicit electronic devices.",
                 image: "/images/bug.jpg",
-                href: "/business-bug-sweep"
+                href: "/business-bug-sweep",
+                tone: "from-emerald-500 via-teal-500 to-cyan-400",
+                accent: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+                kicker: "Targeted Discovery",
+                stat: "Room-by-Room Sweep",
               },
               {
                 title: "SUPPORT",
                 icon: <ShieldCheck className="w-8 h-8 text-rose-500" />,
                 desc: "We can be on-site within 24 to 48 hours after receipt of your Service Agreement to secure your critical environments.",
                 image: "/images/support.jpg",
-                href: "/contact-us"
+                href: "/contact-us",
+                tone: "from-rose-500 via-orange-500 to-amber-400",
+                accent: "bg-rose-50 text-rose-700 border-rose-200/80",
+                kicker: "Rapid Deployment",
+                stat: "24-48 Hr Response",
               }
             ].map((feature, i) => (
-              <motion.div key={i} variants={fadeIn} className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-cyan-500/40 hover:shadow-xl transition-all duration-300 group">
-                {/* Card image */}
-                <div className="relative h-44 overflow-hidden">
+              <motion.article
+                key={i}
+                variants={fadeIn}
+                className="group relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/92 shadow-[0_20px_55px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_75px_rgba(14,116,144,0.16)]"
+              >
+                <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${feature.tone}`} />
+                <div className="relative h-52 overflow-hidden">
                   <Image
                     src={feature.image}
                     alt={feature.title}
@@ -313,23 +368,50 @@ export default function Home() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.08)_0%,rgba(15,23,42,0.75)_100%)]" />
+                  <div className="absolute left-5 top-5">
+                    <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur ${feature.accent}`}>
+                      <span className="h-2 w-2 rounded-full bg-current opacity-70" />
+                      {feature.kicker}
+                    </div>
+                  </div>
+                  <div className="absolute bottom-5 left-5">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-slate-950/35 text-white backdrop-blur-md">
                       {feature.icon}
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm">
+                <div className="p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-black tracking-tight text-slate-950">{feature.title}</h3>
+                      <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+                        Structured protection service
+                      </p>
+                    </div>
+                    <div className="rounded-full bg-slate-100 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">
+                      {feature.stat}
+                    </div>
+                  </div>
+                  <p className="mt-5 min-h-[96px] text-sm leading-7 text-slate-600">
                     {feature.desc}
                   </p>
-                  <Link href={feature.href} className="inline-flex items-center gap-2 mt-5 text-cyan-600 font-semibold text-sm hover:gap-3 transition-all">
-                    Read More <ChevronRight className="w-4 h-4" />
-                  </Link>
+                  <div className="mt-6 flex items-center justify-between gap-4 border-t border-slate-100 pt-5">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700">Readiness</p>
+                      <p className="mt-1 text-sm text-slate-500">Discreet field support and technical reporting</p>
+                    </div>
+                    <Link
+                      href={feature.href}
+                      className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-cyan-600 hover:gap-3"
+                    >
+                      Explore
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-              </motion.div>
+                <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-transparent transition-all duration-300 group-hover:ring-cyan-200/70" />
+              </motion.article>
             ))}
           </motion.div>
         </div>
@@ -577,56 +659,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-20 relative overflow-hidden bg-indigo-900 border-t border-slate-200">
-        <div className="absolute inset-0 z-0">
-          <motion.div
-            animate={{ opacity: [0.35, 0.7, 0.4], scale: [0.92, 1.06, 0.96] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-[-120px] right-[-60px] h-[420px] w-[420px] rounded-full bg-cyan-400/20 blur-[120px] mix-blend-screen"
-          />
-          <motion.div
-            animate={{ opacity: [0.3, 0.6, 0.35], scale: [1, 1.1, 0.98] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-            className="absolute bottom-[-140px] left-[-80px] h-[460px] w-[460px] rounded-full bg-fuchsia-500/20 blur-[130px] mix-blend-screen"
-          />
-          <motion.div
-            animate={{ opacity: [0.2, 0.45, 0.25], y: [0, -18, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-            className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/8 blur-[100px]"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(49,46,129,0.9)_0%,rgba(67,56,202,0.84)_52%,rgba(76,29,149,0.92)_100%)]" />
-          <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:90px_90px]" />
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div
-            animate={{ y: [0, -6, 0], filter: ['drop-shadow(0 0 0px rgba(251,113,133,0.0))', 'drop-shadow(0 0 16px rgba(251,113,133,0.65))', 'drop-shadow(0 0 0px rgba(251,113,133,0.0))'] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-            className="mx-auto mb-6 flex w-fit items-center justify-center"
-          >
-            <ShieldAlert className="h-16 w-16 text-rose-400" />
-          </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Need Immediate Security Assistance?</h2>
-          <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto">
-            Our teams are available 24/7. Don&apos;t let your sensitive corporate information be compromised. Secure your premises today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:9967107077" 
-              className="flex items-center justify-center gap-2 rounded-lg bg-rose-500 px-8 py-4 font-bold text-white shadow-[0_0_22px_rgba(244,63,94,0.4)] transition-all hover:-translate-y-0.5 hover:bg-rose-400 hover:shadow-[0_0_32px_rgba(244,63,94,0.65)]"
-            >
-              Call Now: +91 9967107077
-            </a>
-            <Link 
-              href="/contact-us" 
-              className="flex items-center justify-center rounded-lg border border-white/20 bg-white/95 px-8 py-4 font-bold text-indigo-900 shadow-[0_0_24px_rgba(255,255,255,0.12)] transition-all hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.22)]"
-            >
-              Request Assessment
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

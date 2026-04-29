@@ -34,9 +34,9 @@ export default function CaseStudyDetail({
 
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#020617_0%,#0f172a_22%,#eff6ff_22%,#f8fafc_100%)]">
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative overflow-hidden border-b border-white/10 pt-24 sm:pt-28 lg:pt-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.14),_transparent_30%)]" />
-        <div className="relative max-w-6xl mx-auto px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <Link
               href="/case-study"

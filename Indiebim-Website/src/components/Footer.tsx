@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 group">
@@ -52,6 +52,17 @@ export default function Footer() {
             </ul>
           </div>
 
+          <div>
+            <h3 className="text-slate-900 font-semibold text-lg mb-4">Resources</h3>
+            <ul className="space-y-3">
+              <li><Link href="/privacy-is-a-right" className="text-slate-600 hover:text-cyan-600 text-sm transition-colors">Privacy is a Right</Link></li>
+              <li><Link href="/client-protocol" className="text-slate-600 hover:text-cyan-600 text-sm transition-colors">Client Protocol</Link></li>
+              <li><Link href="/compliance-corner" className="text-slate-600 hover:text-cyan-600 text-sm transition-colors">Compliance Corner</Link></li>
+              <li><Link href="/technical-counter-surveillance" className="text-slate-600 hover:text-cyan-600 text-sm transition-colors">Technical Counter-Surveillance</Link></li>
+              <li><Link href="/technical-glossary" className="text-slate-600 hover:text-cyan-600 text-sm transition-colors">Technical Glossary</Link></li>
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h3 className="text-slate-900 font-semibold text-lg mb-4">Contact Us</h3>
@@ -72,6 +83,24 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div className="mb-10 overflow-hidden rounded-[1.8rem] border border-slate-200 bg-slate-950 px-6 py-6 text-white shadow-[0_18px_50px_rgba(15,23,42,0.12)] sm:px-8 sm:py-7">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">Public Interest Resource</p>
+              <h3 className="mt-3 text-2xl font-black leading-tight">The &ldquo;Privacy is a Right&rdquo; Manifesto</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                Read IndieBim&apos;s statement on privacy, safe living, victim support, and why technical protection should never be used to invade another person&apos;s life.
+              </p>
+            </div>
+            <Link
+              href="/privacy-is-a-right"
+              className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:-translate-y-0.5 hover:bg-cyan-300"
+            >
+              Privacy is a Right
+            </Link>
           </div>
         </div>
 
