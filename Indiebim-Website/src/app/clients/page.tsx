@@ -22,18 +22,6 @@ const chipLabels = [
   'National',
 ];
 
-function getInitials(name: string) {
-  const initials = name
-    .replace(/[^a-zA-Z0-9& ]/g, '')
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('');
-
-  return initials || name.slice(0, 2).toUpperCase();
-}
-
 export default function ClientsPage() {
   return (
     <div className="relative overflow-hidden bg-[linear-gradient(180deg,#eef8ff_0%,#ffffff_38%,#f8fafc_100%)] pb-24 pt-32">
@@ -125,10 +113,6 @@ export default function ClientsPage() {
                   <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${gradient}`} />
                   <div className="absolute right-3 top-3 h-16 w-16 rounded-full bg-slate-100/70 blur-2xl transition-transform duration-300 group-hover:scale-125" />
 
-                  <div className={`relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-lg font-black text-white shadow-lg`}>
-                    {getInitials(client)}
-                  </div>
-
                   <div className="mt-4">
                     <div className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
                       {chip}
@@ -136,7 +120,6 @@ export default function ClientsPage() {
                     <h3 className="mt-3 line-clamp-2 min-h-[3.5rem] text-base font-black leading-7 text-slate-950">
                       {client}
                     </h3>
-                    <p className="mt-2 text-sm text-slate-500">Logo-style client marker with animated reveal and hover lift.</p>
                   </div>
 
                   <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-700">

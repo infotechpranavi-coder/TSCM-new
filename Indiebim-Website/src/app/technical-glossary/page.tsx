@@ -94,32 +94,34 @@ const glossaryTerms = [
 export default function TechnicalGlossaryPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#eef7fb_52%,#f8fafc_100%)] pt-32 pb-24 text-slate-900">
-      <section className="relative overflow-hidden border-b border-slate-200 bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.14),transparent_26%),linear-gradient(180deg,#020617_0%,#0f172a_100%)]" />
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:88px_88px]" />
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] text-slate-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_28%),radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_26%)]" />
+        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:88px_88px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100">
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-800">
                 <ShieldCheck className="h-4 w-4" />
                 Client Guide
               </div>
-              <h1 className="mt-6 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 TSCM Technical Glossary
-                <span className="block text-cyan-200">A Client&apos;s Guide to Professional Counter-Measures</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+                  A Client&apos;s Guide to Professional Counter-Measures
+                </span>
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                 At IndieBim Technology Solutions Private Limited, we use international military-grade terminology and
                 equipment. This glossary is designed to help our corporate and private clients in Mumbai, Delhi, and
                 Bangalore understand the technical concepts behind our elite debugging services.
               </p>
-              <div className="mt-8 flex items-center gap-2 text-sm text-slate-400">
-                <Link href="/" className="transition hover:text-cyan-300">
+              <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
+                <Link href="/" className="transition hover:text-cyan-700">
                   Home
                 </Link>
                 <ArrowRight className="h-4 w-4" />
-                <span className="text-cyan-300">Technical Glossary</span>
+                <span className="text-cyan-700">Technical Glossary</span>
               </div>
             </div>
 
@@ -131,10 +133,10 @@ export default function TechnicalGlossaryPage() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
+                  className="rounded-[1.6rem] border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur-sm"
                 >
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-200">{item.label}</p>
-                  <p className="mt-3 text-lg font-black text-white">{item.value}</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-800">{item.label}</p>
+                  <p className="mt-3 text-lg font-black text-slate-950">{item.value}</p>
                 </div>
               ))}
             </div>

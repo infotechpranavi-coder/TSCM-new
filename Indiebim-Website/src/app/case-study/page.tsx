@@ -12,9 +12,9 @@ export default function CaseStudyPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <section className="relative overflow-hidden border-b border-white/10 bg-slate-950 pt-24 sm:pt-28 lg:pt-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_32%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.14),_transparent_30%),linear-gradient(180deg,_#020617_0%,_#0f172a_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] pt-24 text-slate-900 sm:pt-28 lg:pt-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_30%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -22,17 +22,17 @@ export default function CaseStudyPage() {
             className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,440px)]"
           >
             <div className="max-w-4xl">
-              <p className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-sm font-medium text-cyan-200">
+              <p className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1.5 text-sm font-medium text-cyan-800">
                 <ShieldCheck className="w-4 h-4" />
                 Real-World Investigations
               </p>
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Counter-Surveillance
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-300">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
                   Case Studies
                 </span>
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
                 Explore real-world TSCM, bug sweeping, and espionage response operations across finance,
                 law, infrastructure, advanced R&D, executive residences, hospitality, and critical
                 national assets.
@@ -51,11 +51,11 @@ export default function CaseStudyPage() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
+                    className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm backdrop-blur-sm"
                   >
-                    <item.icon className="w-5 h-5 text-cyan-300" />
-                    <p className="mt-4 text-sm font-medium text-slate-400">{item.label}</p>
-                    <p className="mt-1 text-2xl font-semibold text-white">{item.value}</p>
+                    <item.icon className="w-5 h-5 text-cyan-600" />
+                    <p className="mt-4 text-sm font-medium text-slate-600">{item.label}</p>
+                    <p className="mt-1 text-2xl font-semibold text-slate-950">{item.value}</p>
                   </div>
                 ))}
               </motion.div>
@@ -63,7 +63,7 @@ export default function CaseStudyPage() {
 
             <div className="relative hidden lg:block">
               <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-cyan-400/20 via-sky-500/10 to-transparent blur-2xl" />
-              <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-3 shadow-[0_24px_80px_rgba(2,8,23,0.45)] backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-3 shadow-[0_24px_80px_rgba(15,23,42,0.1)] backdrop-blur-sm">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[22px]">
                   <Image
                     src="/images/banner-2-5-1.jpg"
@@ -73,7 +73,7 @@ export default function CaseStudyPage() {
                     sizes="(max-width: 1024px) 100vw, 440px"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
                       Security Intelligence

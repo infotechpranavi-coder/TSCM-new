@@ -304,20 +304,20 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-[#f7fafc] pb-24 text-slate-900">
-      <section className="relative overflow-hidden border-b border-white/10 bg-slate-950 pt-32 text-white">
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] pt-32 text-slate-900">
         <motion.div
-          animate={{ opacity: [0.7, 1, 0.8], scale: [1, 1.03, 1] }}
+          animate={{ opacity: [0.85, 1, 0.9], scale: [1, 1.02, 1] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(6,182,212,0.24),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.18),transparent_24%),linear-gradient(180deg,#020617_0%,#0f172a_50%,#020617_100%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_90%_80%_at_15%_-20%,rgba(34,211,238,0.16),transparent),radial-gradient(ellipse_70%_55%_at_95%_5%,rgba(99,102,241,0.09),transparent)]"
         />
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:88px_88px]" />
+        <div className="absolute inset-0 opacity-[0.45] [background-image:linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:88px_88px]" />
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8">
           <div className="max-w-3xl pt-2">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-800"
             >
               <ShieldCheck className="h-4 w-4" />
               2026 TSCM FAQ
@@ -327,7 +327,7 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08 }}
-              className="mt-6 text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl"
+              className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl"
             >
               50 answers on bug sweeping, TSCM, privacy threats, and secure response.
             </motion.h1>
@@ -336,7 +336,7 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.14 }}
-              className="mt-6 text-base leading-8 text-slate-300 sm:text-lg"
+              className="mt-6 text-base leading-8 text-slate-600 sm:text-lg"
             >
               This FAQ is organized for decision-makers, executives, HNIs, and security teams looking for clear answers
               on modern surveillance risks, corporate espionage, residential privacy, and professional debugging support
@@ -349,13 +349,13 @@ export default function FAQPage() {
               transition={{ delay: 0.2 }}
               className="mt-7 flex flex-wrap gap-3"
             >
-              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm">
                 Mumbai, Delhi, Bangalore, Pune
               </div>
-              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm">
                 Corporate, residential, cyber, VIP
               </div>
-              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+              <div className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm">
                 Searchable 50-question knowledge base
               </div>
             </motion.div>
@@ -364,13 +364,13 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.26 }}
-              className="mt-8 flex items-center gap-2 text-sm text-slate-400"
+              className="mt-8 flex items-center gap-2 text-sm text-slate-500"
             >
-              <Link href="/" className="transition hover:text-cyan-300">
+              <Link href="/" className="transition hover:text-cyan-700">
                 Home
               </Link>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-cyan-300">FAQ</span>
+              <ChevronRight className="h-4 w-4 text-slate-400" />
+              <span className="font-medium text-cyan-700">FAQ</span>
             </motion.div>
           </div>
 
@@ -380,26 +380,26 @@ export default function FAQPage() {
             transition={{ delay: 0.18 }}
             className="grid gap-4 self-start sm:grid-cols-2"
           >
-            <div className="sm:col-span-2 rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">Quick Stats</p>
+            <div className="sm:col-span-2 rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700">Quick Stats</p>
               <div className="mt-5 grid gap-4 sm:grid-cols-3">
                 <div>
-                  <p className="text-3xl font-black text-white">50</p>
-                  <p className="mt-1 text-sm text-slate-400">Total questions</p>
+                  <p className="text-3xl font-black text-slate-950">50</p>
+                  <p className="mt-1 text-sm text-slate-600">Total questions</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-white">5</p>
-                  <p className="mt-1 text-sm text-slate-400">Core categories</p>
+                  <p className="text-3xl font-black text-slate-950">5</p>
+                  <p className="mt-1 text-sm text-slate-600">Core categories</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-white">2026</p>
-                  <p className="mt-1 text-sm text-slate-400">Knowledge edition</p>
+                  <p className="text-3xl font-black text-slate-950">2026</p>
+                  <p className="mt-1 text-sm text-slate-600">Knowledge edition</p>
                 </div>
               </div>
             </div>
 
-            <div className="sm:col-span-2 rounded-[2rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-              <label htmlFor="faq-search" className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
+            <div className="sm:col-span-2 rounded-[2rem] border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
+              <label htmlFor="faq-search" className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700">
                 Search FAQ
               </label>
               <input
@@ -408,7 +408,7 @@ export default function FAQPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search spyware, NLJD, Mumbai, pricing..."
-                className="mt-4 w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-cyan-400/40"
+                className="mt-4 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 shadow-inner focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
               />
             </div>
           </motion.div>

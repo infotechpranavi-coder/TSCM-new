@@ -291,14 +291,14 @@ export default function OurEquipments() {
               transition={{ ...heroFade.transition, delay: 0.18 }}
               className="grid gap-4"
             >
-              <div className="overflow-hidden rounded-[30px] border border-white/80 bg-slate-950 text-white shadow-[0_24px_80px_rgba(15,23,42,0.16)]">
-                <div className="border-b border-white/10 px-6 py-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">Command Snapshot</p>
+              <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white text-slate-900 shadow-[0_24px_80px_rgba(15,23,42,0.1)]">
+                <div className="border-b border-slate-200 px-6 py-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-800">Command Snapshot</p>
                 </div>
                 <div className="grid gap-6 p-6 sm:p-7">
-                  <div className="rounded-[24px] border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.14),rgba(255,255,255,0.04))] p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Why this matters</p>
-                    <p className="mt-3 text-2xl font-semibold leading-tight text-white">
+                  <div className="rounded-[24px] border border-cyan-100 bg-[linear-gradient(135deg,#ecfeff_0%,#ffffff_100%)] p-6">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-800">Why this matters</p>
+                    <p className="mt-3 text-2xl font-semibold leading-tight text-slate-950">
                       Professional sweeps depend on different tools for different threat behaviors.
                     </p>
                   </div>
@@ -307,10 +307,10 @@ export default function OurEquipments() {
                     {quickStats.map((stat) => (
                       <div
                         key={stat.label}
-                        className="rounded-[20px] border border-white/10 bg-white/5 p-4"
+                        className="rounded-[20px] border border-slate-200 bg-slate-50 p-4"
                       >
-                        <p className="text-lg font-semibold text-white">{stat.value}</p>
-                        <p className="mt-1 text-sm leading-6 text-slate-300">{stat.label}</p>
+                        <p className="text-lg font-semibold text-slate-950">{stat.value}</p>
+                        <p className="mt-1 text-sm leading-6 text-slate-600">{stat.label}</p>
                       </div>
                     ))}
                   </div>
@@ -319,10 +319,10 @@ export default function OurEquipments() {
                     {trustMarkers.map((item) => (
                       <div
                         key={item}
-                        className="flex items-start gap-3 rounded-[18px] border border-white/10 bg-white/5 px-4 py-3"
+                        className="flex items-start gap-3 rounded-[18px] border border-slate-200 bg-slate-50/80 px-4 py-3"
                       >
-                        <div className="mt-0.5 h-2.5 w-2.5 rounded-full bg-cyan-300" />
-                        <p className="text-sm leading-7 text-slate-200">{item}</p>
+                        <div className="mt-0.5 h-2.5 w-2.5 rounded-full bg-cyan-500" />
+                        <p className="text-sm leading-7 text-slate-700">{item}</p>
                       </div>
                     ))}
                   </div>

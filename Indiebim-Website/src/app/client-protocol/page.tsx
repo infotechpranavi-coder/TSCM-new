@@ -77,51 +77,55 @@ const protocolSteps = [
 export default function ClientProtocolPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#edf7fb_52%,#f8fafc_100%)] pt-32 pb-24 text-slate-900">
-      <section className="relative overflow-hidden border-b border-slate-200 bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.16),transparent_26%),radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_26%),linear-gradient(180deg,#020617_0%,#0f172a_100%)]" />
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:88px_88px]" />
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#fff1f2_0%,#f0f9ff_45%,#ffffff_100%)] text-slate-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.12),transparent_26%),radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_26%)]" />
+        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:88px_88px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-rose-300/20 bg-rose-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-rose-100">
+              <div className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-rose-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-rose-800">
                 <Siren className="h-4 w-4" />
                 High Priority Guide
               </div>
-              <h1 className="mt-6 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Client Protocol
-                <span className="block text-cyan-200">What to Do if You Suspect Eavesdropping</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+                  What to Do if You Suspect Eavesdropping
+                </span>
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                 This is the most important piece of content for a worried client. It is designed to move people from
                 panic to professional action. In the 2026 security landscape, an adversary may remotely wipe a device
                 if they know it is being hunted, so the first 60 minutes matter.
               </p>
-              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                 Follow the IndieBim Silent Response Protocol to protect the integrity of the space, preserve evidence,
                 and keep your team one step ahead.
               </p>
-              <div className="mt-8 flex items-center gap-2 text-sm text-slate-400">
-                <Link href="/" className="transition hover:text-cyan-300">
+              <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
+                <Link href="/" className="transition hover:text-cyan-700">
                   Home
                 </Link>
                 <ArrowRight className="h-4 w-4" />
-                <span className="text-cyan-300">Client Protocol</span>
+                <span className="text-cyan-700">Client Protocol</span>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rose-200">Silent Response Protocol</p>
-              <h2 className="mt-4 text-2xl font-black text-white">First-response discipline determines investigative success.</h2>
+            <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rose-700">Silent Response Protocol</p>
+              <h2 className="mt-4 text-2xl font-black text-slate-950">
+                First-response discipline determines investigative success.
+              </h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {[
                   { label: 'Reaction Window', value: 'First 60 Minutes' },
                   { label: 'Safe Distance', value: '200+ Meters' },
                   { label: 'Trusted Contacts', value: '1-2 People Max' },
                 ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-white/10 bg-slate-950/35 p-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">{item.label}</p>
-                    <p className="mt-2 text-lg font-black text-white">{item.value}</p>
+                  <div key={item.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">{item.label}</p>
+                    <p className="mt-2 text-lg font-black text-slate-950">{item.value}</p>
                   </div>
                 ))}
               </div>
