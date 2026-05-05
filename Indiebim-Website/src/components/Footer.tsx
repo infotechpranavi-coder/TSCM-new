@@ -115,6 +115,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/membership" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Membership
+                </Link>
+              </li>
+              <li>
+                <Link href="/certification" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Certification
+                </Link>
+              </li>
+              <li>
                 <Link href="/industries-we-serve" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
                   Industries We Serve
                 </Link>

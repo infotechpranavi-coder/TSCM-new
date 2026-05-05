@@ -48,6 +48,8 @@ const NAV_LINKS: Array<{
     dropdown: [
       { name: 'Our Team', href: '/our-team' },
       { name: 'Our Ethics', href: '/our-ethics' },
+      { name: 'Membership', href: '/membership' },
+      { name: 'Certification', href: '/certification' },
       { name: 'Client Protocol', href: '/client-protocol' },
       { name: 'Compliance Corner', href: '/compliance-corner' },
       { name: 'Privacy is a Right', href: '/privacy-is-a-right' },
@@ -158,27 +160,18 @@ const NAV_LINKS: Array<{
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   /** Which parent nav + nested label is expanded (e.g. "TSCM Services::Personal investigation") */
   const [nestedMenuKey, setNestedMenuKey] = useState<string | null>(null);
-  const isHomePage = pathname === '/';
-  const useLightNav = isHomePage && !isScrolled && !mobileMenuOpen;
-  const useSolidHeader = !isHomePage || isScrolled || mobileMenuOpen;
+  /** Light hero on home: solid header + dark nav text from first paint */
+  const useLightNav = false;
+  const useSolidHeader = true;
 
   const isActiveLink = (href: string) => {
     if (href === '/') return pathname === '/';
     return pathname === href || pathname.startsWith(`${href}/`);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (!mobileMenuOpen) setNestedMenuKey(null);
@@ -257,7 +250,7 @@ export default function Navbar() {
                       <div className="flex min-w-0 max-w-full max-h-[min(70vh,520px)] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
                         <div className="min-w-0 w-80 max-w-[min(20rem,100%)] shrink-0 overflow-x-hidden overflow-y-auto border-r border-slate-200 py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                           {link.dropdown.map((dropLink, index) => {
-                            const prev = index > 0 ? link.dropdown[index - 1] : undefined;
+                            const prev = index > 0 ? link.dropdown![index - 1] : undefined;
                             const afterNested =
                               prev !== undefined && hasNested(prev) && !hasNested(dropLink);
                             if (hasNested(dropLink)) {
@@ -351,7 +344,7 @@ export default function Navbar() {
                     ) : (
                       <div className="w-80 min-w-0 max-w-[min(20rem,100%)] max-h-[min(70vh,520px)] overflow-y-auto overflow-x-hidden rounded-xl border border-slate-200 bg-white shadow-lg [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                         <div className="min-w-0 py-2">
-                          {link.dropdown.map((dropLink) => {
+                          {(link.dropdown as NavDropdownLeaf[]).map((dropLink) => {
                             if (dropLink.external) {
                               return (
                                 <a
@@ -448,7 +441,7 @@ export default function Navbar() {
                               className="mt-1 overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
                            >
                               {link.dropdown.map((dropLink, index) => {
-                                 const prevM = index > 0 ? link.dropdown[index - 1] : undefined;
+                                 const prevM = index > 0 ? link.dropdown![index - 1] : undefined;
                                  const afterNestedM =
                                     prevM !== undefined && hasNested(prevM) && !hasNested(dropLink);
                                  return (

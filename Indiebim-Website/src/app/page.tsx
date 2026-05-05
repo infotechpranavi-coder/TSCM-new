@@ -1,12 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
+import {
   ShieldAlert,
-  ChevronLeft, ChevronRight, Radio, Search, Lock, ShieldCheck, Star
+  ChevronLeft,
+  ChevronRight,
+  Radio,
+  Search,
+  Lock,
+  ShieldCheck,
+  Star,
+  Building2,
+  Home as HomeIcon,
+  EyeOff,
 } from 'lucide-react';
 
 const fadeIn = {
@@ -72,6 +81,14 @@ export default function Home() {
 
   const [activeSlide, setActiveSlide] = useState(0);
   const activeHero = heroSlides[activeSlide];
+  const servicesScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollServices = (dir: 'left' | 'right') => {
+    const el = servicesScrollRef.current;
+    if (!el) return;
+    const delta = dir === 'left' ? -320 : 320;
+    el.scrollBy({ left: delta, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -83,185 +100,176 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* HERO SECTION */}
-      <section className="relative isolate overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 z-0 bg-slate-950">
-          {heroSlides.map((slide, index) => (
-            <div
-              key={slide.title}
-              className={`absolute inset-0 transition-all duration-1000 ${
-                activeSlide === index ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
-              }`}
-            >
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={index === 0}
-              />
-            </div>
-          ))}
-          <div className="absolute inset-0 bg-[linear-gradient(118deg,rgba(2,6,23,0.97)_8%,rgba(2,6,23,0.9)_34%,rgba(2,6,23,0.68)_64%,rgba(2,6,23,0.86)_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_30%),radial-gradient(circle_at_80%_24%,rgba(59,130,246,0.12),transparent_20%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.18),transparent_24%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:5rem_5rem] opacity-20" />
-        </div>
+      {/* HERO — light, minimal */}
+      <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#f8fafc_0%,#ffffff_42%,#f0f9ff_100%)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_20%_-10%,rgba(34,211,238,0.16),transparent),radial-gradient(ellipse_60%_40%_at_90%_20%,rgba(99,102,241,0.08),transparent)]" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] [background-size:64px_64px]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent" />
 
-        <div className="relative z-10">
-          <div className="mx-auto grid min-h-[92vh] max-w-7xl items-center gap-12 px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:min-h-screen lg:grid-cols-[minmax(0,1.1fr)_380px] lg:px-8 lg:pb-24">
-            <motion.div 
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-              className="max-w-3xl"
-            >
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/50 px-4 py-2 text-sm font-medium text-cyan-50 shadow-sm backdrop-blur-md">
-                <ShieldAlert className="w-4 h-4" />
-                <span>Premier Intelligence & Counter-Surveillance</span>
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 sm:pb-24 sm:pt-28 lg:px-8 lg:pb-28 lg:pt-32">
+          <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+                className="inline-flex items-center gap-2 rounded-full border border-cyan-200/90 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-800 shadow-sm"
+              >
+                <ShieldAlert className="h-4 w-4" />
+                TSCM · Counter-surveillance · Debugging
               </motion.div>
 
-              <motion.div variants={fadeIn} className="mt-6 inline-flex items-center rounded-full border border-cyan-300/25 bg-slate-950/55 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-50 backdrop-blur-md">
-                {activeHero.eyebrow}
-              </motion.div>
-              
-              <motion.h1 variants={fadeIn} className="mt-7 max-w-4xl text-5xl font-black leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-7xl">
-                Protect confidential
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-rose-100">
-                  conversations with
-                </span>
-                <br />
-                <span className="text-cyan-200/95">
-                  {activeHero.title}
-                </span>
+              <motion.h1
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.06 }}
+                className="mt-6 max-w-3xl text-4xl font-black leading-[1.05] tracking-tight text-slate-950 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.02]"
+              >
+                Privacy that holds up where it matters—starting with{' '}
+                <span className="text-cyan-600">professional</span>{' '}
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={activeHero.title}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-sky-700"
+                  >
+                    {activeHero.title.toLowerCase()}
+                  </motion.span>
+                </AnimatePresence>
+                .
               </motion.h1>
-              
-              <motion.p variants={fadeIn} className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">
-                {activeHero.text} We deliver international-standard TSCM and bug sweep support for boardrooms,
-                residences, travel stays, and executive spaces where privacy cannot be left to chance.
+
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={activeSlide}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.25 }}
+                  className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg"
+                >
+                  {activeHero.text}
+                </motion.p>
+              </AnimatePresence>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="mt-4 max-w-xl text-sm leading-7 text-slate-500"
+              >
+                International-standard sweeps for boardrooms, residences, travel, and executive spaces—handled with
+                discretion from first call to final report.
               </motion.p>
 
-              <motion.div variants={fadeIn} className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
+              <div className="mt-8 flex flex-wrap gap-2">
                 {activeHero.highlights.map((item) => (
-                  <div
+                  <span
                     key={item}
-                    className="rounded-2xl border border-white/16 bg-slate-950/45 px-4 py-3 text-sm font-medium text-white shadow-sm backdrop-blur-md"
+                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
                   >
                     {item}
-                  </div>
+                  </span>
                 ))}
-              </motion.div>
-              
-              <motion.div variants={fadeIn} className="mt-9 flex flex-wrap gap-4">
-                <Link 
-                  href="/contact-us" 
-                  className="group flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-500 px-8 py-4 font-bold text-slate-950 shadow-[0_20px_45px_rgba(34,211,238,0.28)] transition-all hover:from-cyan-300 hover:to-sky-400"
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact-us"
+                  className="group inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition hover:bg-cyan-700"
                 >
-                  Secure Your Premise
-                  <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  Get a confidential quote
+                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
-                <Link 
+                <Link
                   href={activeHero.href}
-                  className="rounded-2xl border border-white/15 bg-white/10 px-8 py-4 font-medium text-white transition-all hover:bg-white/20 backdrop-blur-md"
+                  className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-cyan-300 hover:text-cyan-800"
                 >
-                  Explore Services
+                  {activeHero.eyebrow} — learn more
                 </Link>
-              </motion.div>
+              </div>
 
-              <motion.div variants={fadeIn} className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-                <div className="grid gap-4 sm:max-w-sm">
-                  <div className="rounded-2xl border border-white/14 bg-slate-950/45 px-5 py-4 backdrop-blur-md">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">Rapid Support</p>
-                    <p className="mt-2 text-2xl font-black text-white">24-48 hrs</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-200">
-                      Coordinated response for sensitive homes, offices, and business travel environments.
-                    </p>
-                  </div>
+              <div className="mt-12 flex flex-wrap items-center gap-6 border-t border-slate-200/80 pt-8">
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Typical response</p>
+                  <p className="mt-1 text-2xl font-black text-slate-950">24–48 hrs</p>
                 </div>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <div className="flex items-center gap-3">
+                <div className="hidden h-10 w-px bg-slate-200 sm:block" aria-hidden />
+                <div className="flex items-center gap-3">
                   {heroSlides.map((slide, index) => (
                     <button
                       key={slide.title}
                       type="button"
                       onClick={() => setActiveSlide(index)}
-                      className={`h-2.5 rounded-full transition-all ${
-                        activeSlide === index ? 'w-10 bg-white' : 'w-2.5 bg-white/40'
+                      className={`h-2 rounded-full transition-all ${
+                        activeSlide === index ? 'w-8 bg-cyan-600' : 'w-2 bg-slate-300 hover:bg-slate-400'
                       }`}
-                      aria-label={`Show ${slide.title} slide`}
+                      aria-label={`Show ${slide.title}`}
                     />
                   ))}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setActiveSlide((activeSlide - 1 + heroSlides.length) % heroSlides.length)}
-                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white/20"
-                      aria-label="Previous slide"
-                    >
-                      <ChevronLeft className="h-5 w-5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setActiveSlide((activeSlide + 1) % heroSlides.length)}
-                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white/20"
-                      aria-label="Next slide"
-                    >
-                      <ChevronRight className="h-5 w-5" />
-                    </button>
-                  </div>
-                  <p className="text-sm font-medium text-slate-200">
-                    {String(activeSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
-                  </p>
                 </div>
-              </motion.div>
-            </motion.div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setActiveSlide((activeSlide - 1 + heroSlides.length) % heroSlides.length)}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-800"
+                    aria-label="Previous"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveSlide((activeSlide + 1) % heroSlides.length)}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-800"
+                    aria-label="Next"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                  <span className="pl-1 text-sm tabular-nums text-slate-500">
+                    {String(activeSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="lg:justify-self-end"
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="relative mx-auto w-full max-w-md lg:max-w-none lg:justify-self-end"
             >
-              <div className="overflow-hidden rounded-[2rem] border border-white/18 bg-slate-950/45 text-white shadow-[0_24px_80px_rgba(2,6,23,0.36)] backdrop-blur-xl">
-                <div className="relative h-56">
-                  <Image
-                    src={activeHero.image}
-                    alt={activeHero.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 380px"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05)_0%,rgba(2,6,23,0.72)_100%)]" />
-                  <div className="absolute left-5 top-5 inline-flex rounded-full border border-white/15 bg-slate-950/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-100 backdrop-blur-md">
-                    Live Coverage
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-cyan-200/50 via-transparent to-indigo-200/40 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/90 bg-white shadow-[0_28px_80px_-20px_rgba(15,23,42,0.2)]">
+                <div className="relative aspect-[4/5] max-h-[min(72vh,520px)] w-full sm:aspect-[5/6]">
+                  <AnimatePresence initial={false}>
+                    <motion.div
+                      key={activeSlide}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.45 }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={activeHero.image}
+                        alt={activeHero.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 44vw"
+                        priority={activeSlide === 0}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/10 to-transparent" />
+                  <div className="absolute left-5 top-5 rounded-full border border-white/25 bg-white/15 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                    {activeHero.eyebrow}
                   </div>
-                  <div className="absolute bottom-5 left-5 right-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">Current Focus</p>
-                    <h2 className="mt-2 text-2xl font-bold">{activeHero.title}</h2>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <p className="text-sm leading-7 text-slate-100">{activeHero.text}</p>
-
-                  <div className="mt-6 grid gap-3">
-                    {activeHero.highlights.map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-2xl border border-white/12 bg-slate-950/45 px-4 py-3 text-sm font-medium text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 rounded-2xl border border-cyan-300/15 bg-slate-950/30 px-4 py-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">Response Window</p>
-                    <p className="mt-2 text-3xl font-extrabold text-white">24-48 hrs</p>
-                    <p className="mt-2 text-sm text-slate-200">Fast field deployment with discreet operational handling.</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-cyan-200">Focus</p>
+                    <p className="mt-2 text-2xl font-bold leading-tight">{activeHero.title}</p>
                   </div>
                 </div>
               </div>
@@ -490,115 +498,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SPECIALITIES */}
-      <section className="overflow-hidden border-y border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] py-24 content-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-cyan-700">Core Capabilities</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-5">We Are Specialists In...</h2>
-            <p className="mx-auto max-w-2xl text-base leading-8 text-slate-600">
-              Purpose-built protection services for executives, private clients, corporate teams, and environments
-              where information exposure creates real operational risk.
-            </p>
+      {/* SERVICES — minimal horizontal strip */}
+      <section className="border-y border-slate-100 bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45 }}
+              className="max-w-2xl"
+            >
+              <h2 className="text-5xl font-black tracking-tight text-cyan-600 md:text-6xl lg:text-7xl lg:leading-[0.95]">
+                Services
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-600 md:text-xl md:leading-9">
+                Discreet TSCM, debugging, and counter-surveillance for boardrooms, homes, and travel—where a single leak
+                costs more than a sweep ever will.
+              </p>
+            </motion.div>
+            <div className="flex shrink-0 items-center gap-2 md:pb-1">
+              <button
+                type="button"
+                onClick={() => scrollServices('left')}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700"
+                aria-label="Scroll services left"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollServices('right')}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700"
+                aria-label="Scroll services right"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div
+            ref={servicesScrollRef}
+            className="mt-12 flex gap-4 overflow-x-auto pb-2 pt-1 scroll-smooth snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             {[
               {
-                title: "Eavesdropping Detection",
-                desc: "Information is extremely valuable and vulnerable, yet many organisations do very little to protect their data.",
-                image: "/images/3-1-1.jpg",
-                tone: "from-amber-500/90 to-orange-500/90",
-                accent: "text-amber-600",
-                badge: "Signal Risk",
-                href: "/eavesdropping-detection"
+                title: 'Eavesdropping detection',
+                desc: 'RF, lines, and venue checks when sensitive conversations need a clean bill of health.',
+                href: '/eavesdropping-detection',
+                icon: Radio,
+                iconWrap: 'bg-violet-50 text-violet-600',
               },
               {
-                title: "Corporate Espionage Detection",
-                desc: "Are you a potential victim to corporate Espionage? Also known as Industrial and Economic espionage.",
-                image: "/images/4-1.jpg",
-                tone: "from-violet-500/90 to-fuchsia-500/90",
-                accent: "text-violet-600",
-                badge: "Corporate Threat",
-                href: "/corporate-tscm-service"
+                title: 'Corporate TSCM',
+                desc: 'Boardrooms and offices swept for illicit transmitters, dormant devices, and hybrid threats.',
+                href: '/corporate-tscm-service',
+                icon: Building2,
+                iconWrap: 'bg-sky-50 text-sky-600',
               },
               {
-                title: "Counter Surveillance",
-                desc: "Are you worried about being a victim of eavesdropping? Do you feel being followed or under the eye of a spy?",
-                image: "/images/8-1.jpg",
-                tone: "from-rose-500/90 to-pink-500/90",
-                accent: "text-rose-600",
-                badge: "Active Monitoring",
-                href: "/counter-surveillance"
+                title: 'Counter-surveillance',
+                desc: 'When you need clarity on hostile observation, travel risk, or compromised meetings.',
+                href: '/counter-surveillance',
+                icon: EyeOff,
+                iconWrap: 'bg-rose-50 text-rose-600',
               },
               {
-                title: "Debugging Services",
-                desc: "Secure your Privacy! Debugging is an essential part of TSCM, and Indiebim experts use only advanced methods.",
-                image: "/images/13-1.jpg",
-                tone: "from-teal-500/90 to-cyan-500/90",
-                accent: "text-teal-600",
-                badge: "Privacy Recovery",
-                href: "/debugging-services"
-              }
-            ].map((spec, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_18px_45px_-35px_rgba(15,23,42,0.35)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_70px_-35px_rgba(8,145,178,0.35)]"
-              >
-                <div className={`absolute inset-x-6 top-0 h-1 rounded-full bg-gradient-to-r ${spec.tone} opacity-90`} />
-
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={spec.image}
-                    alt={spec.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${spec.tone} opacity-35`} />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.02)_0%,rgba(15,23,42,0.75)_100%)]" />
-                  <div className="absolute left-5 top-5">
-                    <div className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-md">
-                      {spec.badge}
-                    </div>
-                  </div>
-                  <div className="absolute bottom-5 left-5 right-5">
-                    <h4 className="text-xl font-black leading-tight text-white">{spec.title}</h4>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <p className="min-h-[108px] text-sm leading-7 text-slate-600">{spec.desc}</p>
-
-                  <div className="mt-6 flex items-center justify-between">
-                    <Link
-                      href={spec.href}
-                      className={`inline-flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3 ${spec.accent}`}
+                title: 'Debugging & sweeps',
+                desc: 'Structured bug sweeps using professional-grade gear—not consumer spy toys.',
+                href: '/debugging-services',
+                icon: Search,
+                iconWrap: 'bg-teal-50 text-teal-600',
+              },
+              {
+                title: 'Residential TSCM',
+                desc: 'Homes and private spaces checked with the same rigour as corporate sites.',
+                href: '/residential-tscm-service',
+                icon: HomeIcon,
+                iconWrap: 'bg-amber-50 text-amber-600',
+              },
+              {
+                title: 'Cyber TSCM',
+                desc: 'Network-adjacent and hybrid threats reviewed alongside physical sweep coverage.',
+                href: '/cyber-tscm-service',
+                icon: Lock,
+                iconWrap: 'bg-cyan-50 text-cyan-700',
+              },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.article
+                  key={item.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="min-w-[min(100%,280px)] max-w-[280px] snap-start"
+                >
+                  <Link
+                    href={item.href}
+                    className="group flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:border-cyan-200/80 hover:shadow-[0_20px_40px_-18px_rgba(8,145,178,0.2)]"
+                  >
+                    <div
+                      className={`flex h-11 w-11 items-center justify-center rounded-xl ${item.iconWrap} transition group-hover:scale-105`}
                     >
-                      Explore service <ChevronRight className="w-4 h-4" />
-                    </Link>
-                    <div className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      24/7
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
                     </div>
-                  </div>
-
-                  <div className="mt-5 h-px w-full bg-gradient-to-r from-slate-200 via-slate-100 to-transparent" />
-
-                  <div className="mt-4 flex items-center justify-between text-xs font-medium text-slate-500">
-                    <span>Professional assessment</span>
-                    <span className={spec.accent}>Field ready</span>
-                  </div>
-                </div>
-
-                <div className="pointer-events-none absolute inset-0 rounded-[1.75rem] ring-1 ring-transparent transition-all duration-300 group-hover:ring-cyan-200/60">
-                </div>
-              </motion.div>
-            ))}
+                    <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900">{item.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-7 text-slate-600">{item.desc}</p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-700 transition group-hover:gap-2">
+                      View
+                      <ChevronRight className="h-4 w-4" />
+                    </span>
+                  </Link>
+                </motion.article>
+              );
+            })}
           </div>
+
+          <p className="mt-8 text-center text-sm text-slate-500 md:text-left">
+            Pan-India deployment · Typical response window 24–48 hrs · Confidential by default
+          </p>
         </div>
       </section>
 
