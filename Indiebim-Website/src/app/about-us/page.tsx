@@ -152,6 +152,20 @@ const trustStats = [
   { value: 'Mumbai', label: 'Headquartered' },
 ];
 
+const founderProfile = {
+  name: 'Wahid Shaikh',
+  role: 'Private Investigation and Strategic Security',
+  cardImage: '/IMG_20260506_005820.jpg.jpeg',
+  portraitImage: '/HI-28%20(2)_page-0001.jpg',
+  teamImage: '/IMG-20260425-WA0040.jpg%20(2).jpeg',
+  fallbackImage: '/images/wahib.png',
+  paragraphs: [
+    'Wahid Shaikh is an experienced professional in private investigation and strategic security, with over 15 years of expertise in handling complex and sensitive assignments. He has built a strong reputation for delivering accurate, intelligence-driven solutions while maintaining the highest standards of confidentiality and professionalism.',
+    'Over the years, he has worked with individuals, legal advisors, and corporate organizations, helping them navigate risk, verify information, and make informed decisions. His approach combines practical field experience with a structured understanding of evolving security challenges.',
+    'Through his leadership, he continues to focus on building reliable, technology-supported solutions that bring clarity and certainty to modern security and investigation needs.',
+  ],
+};
+
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -401,6 +415,84 @@ export default function AboutUs() {
         </div>
       </section>
 
+      <section className="border-t border-slate-200 bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            {...fadeUp}
+            className="bg-[#f3f6fb] px-5 py-8 sm:px-6"
+          >
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="flex items-center justify-center">
+                <img
+                  src={founderProfile.portraitImage}
+                  alt={`${founderProfile.name} portrait`}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = founderProfile.fallbackImage;
+                  }}
+                  className="h-[420px] w-full object-contain object-center md:h-[520px]"
+                />
+              </div>
+
+              <div className="flex items-center justify-center">
+                <img
+                  src={founderProfile.teamImage}
+                  alt={`${founderProfile.name} team`}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = founderProfile.fallbackImage;
+                  }}
+                  className="h-[420px] w-full object-contain object-center md:h-[520px]"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            {...fadeUp}
+            className="space-y-10"
+          >
+            <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] shadow-sm">
+              <div className="grid gap-0 lg:grid-cols-[0.7fr_1.3fr] lg:items-stretch">
+                <div className="border-b border-slate-200 bg-slate-100 lg:border-b-0 lg:border-r">
+                  <img
+                    src={founderProfile.cardImage}
+                    alt={founderProfile.name}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = founderProfile.fallbackImage;
+                    }}
+                    className="h-[360px] w-full object-contain object-center p-4 sm:h-[440px] lg:h-full lg:min-h-[460px]"
+                  />
+                </div>
+
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700">Leadership Profile</p>
+                  <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 sm:text-4xl">
+                    {founderProfile.name}
+                  </h2>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                    {founderProfile.role}
+                  </p>
+
+                  <div className="mt-6 space-y-4">
+                    {founderProfile.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="border-t border-slate-200 bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -498,28 +590,17 @@ export default function AboutUs() {
                   key={step.title}
                   {...fadeUp}
                   transition={{ ...fadeUp.transition, delay: index * 0.06 }}
-                  whileHover={{ y: -8 }}
+                  whileHover={{ y: -4 }}
                   className="group relative h-full"
                 >
-                  <div className="absolute inset-x-5 top-3 h-24 rounded-full bg-cyan-400/12 blur-3xl opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
-
-                  <div className="relative aspect-square overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))] p-5 shadow-[0_22px_50px_rgba(2,6,23,0.26)] backdrop-blur sm:p-6">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_34%)] opacity-80" />
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent" />
-                    <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-cyan-300/0 via-cyan-300/30 to-cyan-300/0" />
+                  <div className="relative flex min-h-[320px] flex-col overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(19,30,54,0.96),rgba(12,20,40,0.94))] p-5 shadow-[0_18px_40px_rgba(2,6,23,0.22)] sm:p-6">
+                    <div className="absolute inset-x-0 top-0 h-px bg-cyan-300/40" />
 
                     <div className="relative flex h-full flex-col">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="relative">
-                            <motion.div
-                              animate={{ opacity: [0.45, 0.95, 0.45], scale: [0.96, 1.08, 0.96] }}
-                              transition={{ duration: 3.2, repeat: Infinity, delay: index * 0.18, ease: 'easeInOut' }}
-                              className="absolute inset-0 rounded-2xl bg-cyan-400/40 blur-md"
-                            />
-                            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/25 bg-cyan-400/10 text-cyan-300">
-                              <span className="text-sm font-black">0{index + 1}</span>
-                            </div>
+                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.12)]">
+                            <span className="text-sm font-black">0{index + 1}</span>
                           </div>
                           <div>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-300">
@@ -532,38 +613,28 @@ export default function AboutUs() {
                         </div>
 
                         {index < processSteps.length - 1 && (
-                          <div className="hidden xl:flex flex-col items-end gap-2 text-cyan-300/70">
-                            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                              Next
-                            </p>
-                            <div className="flex items-center gap-2">
-                              <div className="h-px w-8 bg-gradient-to-r from-cyan-300/70 to-transparent" />
-                              <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </div>
+                          <div className="hidden xl:flex items-center gap-2 text-cyan-300/60">
+                            <div className="h-px w-8 bg-gradient-to-r from-cyan-300/60 to-transparent" />
+                            <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                           </div>
                         )}
                       </div>
 
-                      <div className="mt-6 min-h-[76px]">
-                        <h3 className="max-w-[12rem] text-[1.55rem] font-black leading-[1.08] tracking-tight text-white">
+                      <div className="mt-8">
+                        <h3 className="max-w-[12rem] text-[1.45rem] font-black leading-[1.08] tracking-tight text-white sm:text-[1.6rem]">
                           {step.title}
                         </h3>
                       </div>
 
-                      <div className="mt-4 flex flex-1 items-start gap-3 border-t border-white/8 pt-4">
-                        <div className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.95)]" />
-                        <p className="text-[14px] leading-7 text-slate-300">{step.detail}</p>
+                      <div className="mt-6 flex flex-1 items-start gap-3 border-t border-white/8 pt-5">
+                        <div className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-cyan-300" />
+                        <p className="text-sm leading-7 text-slate-300">{step.detail}</p>
                       </div>
 
-                      <div className="mt-4 flex items-center justify-between gap-4 border-t border-white/8 pt-4">
-                        <div className="inline-flex min-w-[84px] justify-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      <div className="mt-5 border-t border-white/8 pt-4">
+                        <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                           Stage {index + 1}
                         </div>
-                        <motion.div
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ duration: 1.8, repeat: Infinity, delay: index * 0.12, ease: 'easeInOut' }}
-                          className="h-px flex-1 bg-gradient-to-r from-cyan-300/30 to-transparent"
-                        />
                       </div>
                     </div>
                   </div>

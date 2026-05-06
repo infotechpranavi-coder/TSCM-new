@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   Activity,
@@ -16,7 +15,6 @@ import {
   ShieldAlert,
   ShieldCheck,
   Smartphone,
-  Users,
   Waves,
   Wifi,
 } from 'lucide-react';
@@ -163,49 +161,6 @@ const checklist = [
   {
     title: 'Thermal and optical checks',
     text: 'Adds visibility into concealed active circuits and pinhole cameras that may not reveal themselves through RF alone.',
-  },
-];
-
-const teamMembers = [
-  {
-    name: 'Wahid Shaikh',
-    role: 'CEO and TSCM Expert',
-    image: '/images/wahib.png',
-    summary:
-      'Brings 12+ years of experience across data leakage prevention, privacy protection, cyber security, and technical counter-surveillance.',
-    label: 'Executive Lead',
-  },
-  {
-    name: 'RK Chaudhry',
-    role: 'Senior TSCM Expert',
-    image: '/images/rk.png',
-    summary:
-      'A veteran field specialist with 15+ years of experience in bug sweeping, corporate investigation, and technical counter-intelligence.',
-    label: 'Field Operations',
-  },
-  {
-    name: 'Prasanna Venkatesan',
-    role: 'Cyber Security and Risk',
-    image: '/images/author-5.png',
-    summary:
-      'Adds cyber risk depth with 13+ years of experience and a profile shaped by information security and audit discipline.',
-    label: 'Cyber Risk',
-  },
-  {
-    name: 'Munir Ahmed',
-    role: 'Technical and Tactical Sweep Support',
-    image: '/images/munir.png',
-    summary:
-      'Focused on physical and electronic sweep execution, with specialized experience in debugging and corporate security support.',
-    label: 'Tactical Support',
-  },
-  {
-    name: 'Dev Dhankar',
-    role: 'Ethical Hacker',
-    image: '/images/author-6.png',
-    summary:
-      'Brings a red-team perspective by identifying how attackers exploit network and web application weaknesses to plant digital surveillance paths.',
-    label: 'Red Team',
   },
 ];
 
@@ -489,74 +444,6 @@ export default function OurEquipments() {
 
       <section className="border-y border-slate-200 bg-white py-18">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <SectionIntro
-              label="Our Team"
-              title="The people behind the equipment matter just as much as the hardware."
-              text="Advanced TSCM tools only create value when experienced operators know how to deploy them, interpret the signals, and connect physical and digital risk into one coherent sweep strategy."
-            />
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {teamMembers.map((member, index) => (
-                <motion.article
-                  key={member.name}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: index * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="overflow-hidden rounded-[28px] border border-slate-200 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] shadow-[0_18px_60px_rgba(15,23,42,0.05)]"
-                >
-                  <div className="border-b border-slate-200 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.14),transparent_55%)] px-6 pt-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="inline-flex rounded-full border border-cyan-200 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-700">
-                        {member.label}
-                      </div>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-cyan-300 shadow-sm">
-                        <Users className="h-5 w-5" />
-                      </div>
-                    </div>
-
-                    <div className="relative mx-auto mt-6 h-[260px] w-full max-w-[210px]">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-contain object-bottom"
-                        sizes="(max-width: 1280px) 33vw, 210px"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-slate-950">{member.name}</h3>
-                    <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700">
-                      {member.role}
-                    </p>
-                    <p className="mt-4 text-sm leading-7 text-slate-600">{member.summary}</p>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-
-            <motion.div
-              {...fadeUp}
-              className="mt-8 flex flex-col gap-4 rounded-[28px] border border-slate-200 bg-[#f8fbfd] p-6 sm:flex-row sm:items-center sm:justify-between"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Full Team Profile</p>
-                <p className="mt-2 text-lg font-semibold text-slate-950">
-                  Explore the broader leadership, tactical support, and specialization breakdown.
-                </p>
-              </div>
-              <Link
-                href="/our-team"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-cyan-700"
-              >
-                View Our Team
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-          </div>
-
           <div className="grid gap-8 lg:grid-cols-[0.44fr_0.56fr] lg:items-start">
             <motion.div
               {...fadeUp}
