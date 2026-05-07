@@ -43,8 +43,8 @@ const categories: FaqCategory[] = [
     icon: Sparkles,
     faqs: [
       {
-        q: 'Can IndieBim detect Pegasus or other zero-click spyware in India?',
-        a: 'Yes. IndieBim Technology Solutions Private Limited uses advanced forensic protocols to detect zero-click spyware like Pegasus. We support high-profile clients in Mumbai and Delhi who need deep inspection of mobile device integrity against state-level surveillance risks.',
+        q: 'Can Indiebim detect Pegasus or other zero-click spyware in India?',
+        a: 'Yes. Indiebim Technology Solutions Private Limited uses advanced forensic protocols to detect zero-click spyware like Pegasus. We support high-profile clients in Mumbai and Delhi who need deep inspection of mobile device integrity against state-level surveillance risks.',
       },
       {
         q: 'How does 5G-enabled bugging differ from 4G threats?',
@@ -52,7 +52,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'What is a store-and-forward bug?',
-        a: 'These devices record audio or video, compress it, and then burst the data to a satellite or remote server at irregular intervals. IndieBim uses specialized equipment to identify these devices even when they are not actively transmitting.',
+        a: 'These devices record audio or video, compress it, and then burst the data to a satellite or remote server at irregular intervals. Indiebim uses specialized equipment to identify these devices even when they are not actively transmitting.',
       },
       {
         q: 'Can AI be used for eavesdropping?',
@@ -68,7 +68,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'Are laser microphones a real threat in high-rises?',
-        a: 'Yes. In cities like Mumbai and Bangalore, glass-heavy high-rises can be vulnerable to laser microphones that read window vibration. IndieBim provides countermeasures such as window treatment guidance and acoustic masking strategies.',
+        a: 'Yes. In cities like Mumbai and Bangalore, glass-heavy high-rises can be vulnerable to laser microphones that read window vibration. Indiebim provides countermeasures such as window treatment guidance and acoustic masking strategies.',
       },
       {
         q: 'Do I still need a sweep if I use Signal or Telegram?',
@@ -92,10 +92,10 @@ const categories: FaqCategory[] = [
     faqs: [
       {
         q: 'Why is TSCM critical during mergers and acquisitions in India?',
-        a: 'During high-stakes negotiations in Nariman Point, Gurgaon, and similar business districts, information leaks can damage valuations and expose strategic plans. IndieBim secures boardrooms so trade secrets and deal discussions remain confidential.',
+        a: 'During high-stakes negotiations in Nariman Point, Gurgaon, and similar business districts, information leaks can damage valuations and expose strategic plans. Indiebim secures boardrooms so trade secrets and deal discussions remain confidential.',
       },
       {
-        q: 'Does IndieBim offer continuous spectrum monitoring?',
+        q: 'Does Indiebim offer continuous spectrum monitoring?',
         a: 'Yes. For ultra-secure zones such as diplomatic or executive facilities, we can deploy continuous monitoring systems that alert security teams when an unauthorized signal appears.',
       },
       {
@@ -111,7 +111,7 @@ const categories: FaqCategory[] = [
         a: 'Yes. We inspect physical network infrastructure for unauthorized hardware taps and devices that mirror traffic directly from local servers.',
       },
       {
-        q: 'How does IndieBim handle shadow IT threats?',
+        q: 'How does Indiebim handle shadow IT threats?',
         a: 'We scan for unauthorized Wi-Fi hotspots, Bluetooth bridges, and similar bypass devices that employees or intruders may use to work around the corporate firewall.',
       },
       {
@@ -135,15 +135,15 @@ const categories: FaqCategory[] = [
   {
     id: 'methodology',
     title: 'Methodology and Expertise',
-    description: 'Explains equipment, RF mapping, vehicle sweeps, digital integrity checks, and how IndieBim works discreetly.',
+    description: 'Explains equipment, RF mapping, vehicle sweeps, digital integrity checks, and how Indiebim works discreetly.',
     icon: Target,
     faqs: [
       {
-        q: 'Where is the IndieBim team trained?',
+        q: 'Where is the Indiebim team trained?',
         a: 'Our lead specialists are trained in the USA and Israel, bringing international counter-intelligence standards into the Indian market.',
       },
       {
-        q: 'What equipment does IndieBim use for bug sweeping?',
+        q: 'What equipment does Indiebim use for bug sweeping?',
         a: 'We use military-grade tools such as REI OSCOR spectrum analyzers, Non-Linear Junction Detectors, and FLIR thermal imagers, which go far beyond standard handheld consumer detectors.',
       },
       {
@@ -188,7 +188,7 @@ const categories: FaqCategory[] = [
     faqs: [
       {
         q: 'I am a high-net-worth individual in Mumbai. How do I protect my privacy?',
-        a: 'IndieBim provides bespoke residential sweeps for HNIs, focusing on private offices, bedrooms, study areas, and home Wi-Fi systems to reduce the risk of blackmail, monitoring, or information theft.',
+        a: 'Indiebim provides bespoke residential sweeps for HNIs, focusing on private offices, bedrooms, study areas, and home Wi-Fi systems to reduce the risk of blackmail, monitoring, or information theft.',
       },
       {
         q: 'Can you find hidden cameras in luxury hotels or Airbnbs?',
@@ -196,7 +196,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'What should I do if I find a bug in my house?',
-        a: 'Stop speaking immediately. Do not touch the device, since that may disturb fingerprints or other evidence. Leave the room and contact IndieBim from a safer location.',
+        a: 'Stop speaking immediately. Do not touch the device, since that may disturb fingerprints or other evidence. Leave the room and contact Indiebim from a safer location.',
       },
       {
         q: 'Can nanny cams be used for spying?',
@@ -212,7 +212,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'How do I know if my Wi-Fi is being used for spying?',
-        a: 'Unexpected upload activity when you are not actively using the network can be a warning sign. IndieBim performs Wi-Fi traffic analysis to identify hidden devices, exfiltration patterns, and rogue access behavior.',
+        a: 'Unexpected upload activity when you are not actively using the network can be a warning sign. Indiebim performs Wi-Fi traffic analysis to identify hidden devices, exfiltration patterns, and rogue access behavior.',
       },
       {
         q: 'Can you find trackers on high-end motorcycles?',
@@ -236,7 +236,7 @@ const categories: FaqCategory[] = [
     faqs: [
       {
         q: 'How much does a professional TSCM sweep cost in India?',
-        a: 'Pricing depends on site size, threat profile, scope of work, and the type of environment involved. IndieBim provides transparent pricing for both SMEs and larger enterprise clients.',
+        a: 'Pricing depends on site size, threat profile, scope of work, and the type of environment involved. Indiebim provides transparent pricing for both SMEs and larger enterprise clients.',
       },
       {
         q: 'How long does a sweep take for a standard 2BHK or small office?',
@@ -248,7 +248,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'Do you provide a certificate of clearance?',
-        a: 'Yes. After a completed sweep, IndieBim can issue a professional report and a clearance certificate for client records where appropriate.',
+        a: 'Yes. After a completed sweep, Indiebim can issue a professional report and a clearance certificate for client records where appropriate.',
       },
       {
         q: 'Can you travel to Bangalore or Hyderabad for a sweep?',
@@ -264,14 +264,14 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'How do I book a sweep securely?',
-        a: 'You can contact IndieBim through `tscm.in` or the company phone line. If you believe a location is compromised, it is better to make contact from a clean phone and outside the suspected area.',
+        a: 'You can contact Indiebim through `tscm.in` or the company phone line. If you believe a location is compromised, it is better to make contact from a clean phone and outside the suspected area.',
       },
       {
-        q: 'What is the IndieBim guarantee?',
-        a: 'IndieBim positions its service around military-grade sweep methodology, current technology, and internationally informed counter-espionage standards.',
+        q: 'What is the Indiebim guarantee?',
+        a: 'Indiebim positions its service around military-grade sweep methodology, current technology, and internationally informed counter-espionage standards.',
       },
       {
-        q: 'Why is IndieBim considered a leading TSCM firm in Mumbai?',
+        q: 'Why is Indiebim considered a leading TSCM firm in Mumbai?',
         a: 'The company combines USA and Israel training, high-grade equipment, and a practical understanding of local Indian threat conditions, which makes it a strong fit for demanding commercial and private security work.',
       },
     ],
@@ -340,7 +340,7 @@ export default function FAQPage() {
             >
               This FAQ is organized for decision-makers, executives, HNIs, and security teams looking for clear answers
               on modern surveillance risks, corporate espionage, residential privacy, and professional debugging support
-              from IndieBim Technology Solutions Private Limited.
+              from Indiebim Technology Solutions Private Limited.
             </motion.p>
 
             <motion.div
@@ -475,7 +475,7 @@ export default function FAQPage() {
                       {visibleCategory.description}
                     </h2>
                     <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
-                      Browse these answers for quick decision support, then contact IndieBim if your situation involves
+                      Browse these answers for quick decision support, then contact Indiebim if your situation involves
                       a live concern, executive privacy exposure, or a location you suspect may already be compromised.
                     </p>
                   </div>
@@ -543,3 +543,4 @@ export default function FAQPage() {
     </div>
   );
 }
+

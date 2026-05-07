@@ -15,9 +15,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Technical Counter-Surveillance Warning Signs | IndieBim',
+  title: 'Technical Counter-Surveillance Warning Signs | Indiebim',
   description:
-    'Learn the warning signs of bugging in 2026, understand modern surveillance risks, and follow IndieBim protocol for secure response.',
+    'Learn the warning signs of bugging in 2026, understand modern surveillance risks, and follow Indiebim protocol for secure response.',
 };
 
 const threatLandscape = [
@@ -90,7 +90,7 @@ const warningGroups = [
 
 const nextSteps = [
   'Stop Talking: Do not discuss your suspicions in the suspected area.',
-  'Use a Clean Line: Contact IndieBim from a location at least 100 meters away from the suspected site.',
+  'Use a Clean Line: Contact Indiebim from a location at least 100 meters away from the suspected site.',
   'Use a Secure Device: Use a new prepaid phone or a public line to initiate contact.',
   'Request a Professional Audit: Our USA and Israel-trained specialists deploy military-grade spectrum analyzers for scientific clearance.',
 ];
@@ -120,7 +120,7 @@ export default function WarningSignsOfBuggingPage() {
               high-asset divorce in South Mumbai, the threat is real and the technology is affordable for adversaries.
             </p>
             <p className="mt-4 max-w-4xl text-base leading-8 text-slate-600 sm:text-lg">
-              The sale of stolen intelligence is a multi-billion dollar industry. IndieBim Technology Solutions Private
+              The sale of stolen intelligence is a multi-billion dollar industry. Indiebim Technology Solutions Private
               Limited provides the technical shield you need to identify these threats before they cause irreparable
               damage to your reputation, competitiveness, and bottom line.
             </p>
@@ -205,7 +205,7 @@ export default function WarningSignsOfBuggingPage() {
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600">
                 <BatteryWarning className="h-6 w-6" />
               </div>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-rose-600">The IndieBim Protocol</p>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-rose-600">The Indiebim Protocol</p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950">What to do next?</h2>
               <p className="mt-4 text-sm leading-8 text-slate-600 sm:text-base">
                 If you identify even two signs, your privacy may already be at risk. Do not attempt to find the device
@@ -237,3 +237,4 @@ export default function WarningSignsOfBuggingPage() {
     </div>
   );
 }
+

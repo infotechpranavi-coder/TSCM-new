@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'TSCM Technical Glossary | IndieBim',
+  title: 'TSCM Technical Glossary | Indiebim',
   description:
     'A client guide to professional counter-measures, explaining RF spectrum, NLJD, burst transmission, carrier current bugs, TDR, thermal imaging, and more.',
 };
@@ -112,7 +112,7 @@ export default function TechnicalGlossaryPage() {
                 </span>
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                At IndieBim Technology Solutions Private Limited, we use international military-grade terminology and
+                At Indiebim Technology Solutions Private Limited, we use international military-grade terminology and
                 equipment. This glossary is designed to help our corporate and private clients in Mumbai, Delhi, and
                 Bangalore understand the technical concepts behind our elite debugging services.
               </p>
@@ -190,3 +190,4 @@ export default function TechnicalGlossaryPage() {
     </div>
   );
 }
+

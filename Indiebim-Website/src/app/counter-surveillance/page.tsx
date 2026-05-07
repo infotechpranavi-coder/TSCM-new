@@ -109,7 +109,7 @@ export default function CounterSurveillancePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">How it helps</p>
             <h2 className="mt-3 text-3xl font-bold text-slate-950">Our experts help protect your interests and your peace of mind.</h2>
             <p className="mt-5 text-base leading-8 text-slate-600">
-              IndieBim experts have the answer to these problems. Our counter-surveillance services are designed to help protect your interests and restore confidence in the security of your surroundings, whether the concern is criminal intrusion, competitor-led monitoring, or other hostile surveillance activity.
+              Indiebim experts have the answer to these problems. Our counter-surveillance services are designed to help protect your interests and restore confidence in the security of your surroundings, whether the concern is criminal intrusion, competitor-led monitoring, or other hostile surveillance activity.
             </p>
             <p className="mt-5 text-base leading-8 text-slate-600">
               We guide and support you in securing your privacy, assets, conversations, and sensitive information against unwanted threats. The goal is not only to detect suspicious activity, but to create a stronger defensive posture around the environments and communication channels you rely on.
@@ -201,3 +201,4 @@ export default function CounterSurveillancePage() {
     </div>
   );
 }
+

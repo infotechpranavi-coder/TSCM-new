@@ -9,7 +9,7 @@ const sections = [
     number: '01',
     title: 'Scope of Services',
     paragraphs: [
-      'IndieBim provides specialized Technical Surveillance Counter Measures, Bug Sweeping, and Cyber Security Audits.',
+      'Indiebim provides specialized Technical Surveillance Counter Measures, Bug Sweeping, and Cyber Security Audits.',
       'Our services are strictly defensive. We do not provide illegal wiretapping, active spying, or hacker-for-hire services.',
       'While our experts, including USA and Israel-trained specialists, use military-grade equipment, the client acknowledges that TSCM is a point-in-time assessment. Security can be compromised after our team leaves if new threats are introduced.',
     ],
@@ -18,7 +18,7 @@ const sections = [
     number: '02',
     title: 'Client Representations and Warranties',
     paragraphs: [
-      'By engaging IndieBim Technology Solutions Private Limited, the client warrants that they have the legal authority or ownership of the premises and devices being swept, whether in Mumbai, Pune, Delhi NCR, or elsewhere in India.',
+      'By engaging Indiebim Technology Solutions Private Limited, the client warrants that they have the legal authority or ownership of the premises and devices being swept, whether in Mumbai, Pune, Delhi NCR, or elsewhere in India.',
       'The client further warrants that the service is not being sought to obstruct any ongoing legal investigation by Indian law enforcement agencies, including the Crime Branch or CBI.',
       'The client agrees to provide our team with safe and unhindered access to the target area at the scheduled time.',
     ],
@@ -27,7 +27,7 @@ const sections = [
     number: '03',
     title: 'Confidentiality and Non-Disclosure',
     paragraphs: [
-      'Both parties agree to keep all aspects of the engagement confidential. This includes IndieBim proprietary search and detection methodologies and the client’s sensitive security findings.',
+      'Both parties agree to keep all aspects of the engagement confidential. This includes Indiebim proprietary search and detection methodologies and the client’s sensitive security findings.',
       'The client shall not disclose the identities or technical tactics of our specialists, including cyber security experts and ex-law enforcement consultants, to any third party without written consent.',
     ],
   },
@@ -44,7 +44,7 @@ const sections = [
     number: '05',
     title: 'Limitation of Liability',
     paragraphs: [
-      'IndieBim uses international-standard equipment such as NLJD systems and spectrum analyzers, but we are not liable for security breaches occurring after a clearance certificate has been issued.',
+      'Indiebim uses international-standard equipment such as NLJD systems and spectrum analyzers, but we are not liable for security breaches occurring after a clearance certificate has been issued.',
       'We are not responsible for pre-existing damage to hardware or infrastructure discovered during inspection of cables, wall plates, furniture, or related fixtures.',
     ],
   },
@@ -53,15 +53,15 @@ const sections = [
     title: 'Legal Compliance and Governing Law',
     paragraphs: [
       'These terms are governed by the laws of the Republic of India and the Information Technology Act, 2000.',
-      'Any disputes arising from services provided by IndieBim shall be subject to the exclusive jurisdiction of the courts in Mumbai, Maharashtra.',
+      'Any disputes arising from services provided by Indiebim shall be subject to the exclusive jurisdiction of the courts in Mumbai, Maharashtra.',
     ],
   },
   {
     number: '07',
     title: 'Reporting and Evidence',
     paragraphs: [
-      'Upon completion, IndieBim provides a Technical Vulnerability Report.',
-      'If illegal devices are found, IndieBim will follow standard evidence-handling protocols. However, the decision to report findings to the police remains the client’s responsibility unless otherwise mandated by Indian law.',
+      'Upon completion, Indiebim provides a Technical Vulnerability Report.',
+      'If illegal devices are found, Indiebim will follow standard evidence-handling protocols. However, the decision to report findings to the police remains the client’s responsibility unless otherwise mandated by Indian law.',
     ],
   },
 ];
@@ -102,7 +102,7 @@ export default function TermsOfServicePage() {
               transition={{ delay: 0.14 }}
               className="mt-6 text-base leading-8 text-slate-600 sm:text-lg"
             >
-              These terms and conditions define the professional relationship between IndieBim Technology Solutions
+              These terms and conditions define the professional relationship between Indiebim Technology Solutions
               Private Limited and clients engaging our services through `tscm.in`.
             </motion.p>
 
@@ -197,3 +197,4 @@ export default function TermsOfServicePage() {
     </div>
   );
 }
+

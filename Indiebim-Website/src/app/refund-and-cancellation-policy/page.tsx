@@ -20,7 +20,7 @@ const sections = [
     paragraphs: [
       'If you cancel at least 48 hours before the scheduled sweep, any amount paid above mobilization and logistics costs will be refunded.',
       'If cancellation occurs within 24 to 48 hours of the scheduled service, a cancellation fee of 25 percent of the total project value will be charged to cover the opportunity cost of the technical team.',
-      'If cancellation occurs within 24 hours of the scheduled time, or once the IndieBim team has arrived on site in Mumbai, Pune, Gurgaon, or another location, no refund will be issued.',
+      'If cancellation occurs within 24 hours of the scheduled time, or once the Indiebim team has arrived on site in Mumbai, Pune, Gurgaon, or another location, no refund will be issued.',
     ],
   },
   {
@@ -36,7 +36,7 @@ const sections = [
     title: 'Refund Eligibility and Process',
     paragraphs: [
       'Once a TSCM sweep has been conducted and a Technical Vulnerability Report has been issued, the service is considered fulfilled. Refunds cannot be claimed based on the findings of the sweep, including cases where no bugs are found. The fee covers the expert audit process and the technical assurance delivered.',
-      'If a technical malfunction on our end prevents completion of the sweep, IndieBim will either reschedule the engagement at our cost or provide a full refund of the unearned portion of the fee.',
+      'If a technical malfunction on our end prevents completion of the sweep, Indiebim will either reschedule the engagement at our cost or provide a full refund of the unearned portion of the fee.',
       'Approved refunds will be processed through the original payment method within 7 to 10 working days in line with Indian banking standards.',
     ],
   },
@@ -44,7 +44,7 @@ const sections = [
     number: '05',
     title: 'Force Majeure',
     paragraphs: [
-      'IndieBim Technology Solutions Private Limited is not liable for delays or cancellations caused by acts of God, government restrictions such as sudden lockdowns in Indian cities, or civil unrest.',
+      'Indiebim Technology Solutions Private Limited is not liable for delays or cancellations caused by acts of God, government restrictions such as sudden lockdowns in Indian cities, or civil unrest.',
       'In such cases, we will work with the client to reschedule the mission at the earliest safe opportunity.',
     ],
   },
@@ -94,7 +94,7 @@ export default function RefundPolicyPage() {
               transition={{ delay: 0.14 }}
               className="mt-6 text-base leading-8 text-slate-600 sm:text-lg"
             >
-              Because IndieBim operates with high-demand specialists and calibrated international-grade equipment, our
+              Because Indiebim operates with high-demand specialists and calibrated international-grade equipment, our
               refund and cancellation process follows a structured deployment policy.
             </motion.p>
 
@@ -189,3 +189,4 @@ export default function RefundPolicyPage() {
     </div>
   );
 }
+

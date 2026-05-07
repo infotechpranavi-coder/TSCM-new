@@ -16,7 +16,9 @@ import {
   Building2,
   Home as HomeIcon,
   EyeOff,
+  ArrowRight,
 } from 'lucide-react';
+import { galleryImages } from '@/data/galleryImages';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -76,18 +78,53 @@ export default function Home() {
       name: "Tanveer Solanki",
       text: "Highly professional team and good knowledge about the work. Very helpful and very supportive.",
       tag: "Professional Support"
+    },
+    {
+      name: "Sourav Bijlani",
+      text: "Very helpful and supportive. Highly recommended for everyone.",
+      tag: "Client Confidence"
     }
   ];
 
   const [activeSlide, setActiveSlide] = useState(0);
+  const [canScrollServicesLeft, setCanScrollServicesLeft] = useState(false);
+  const [canScrollServicesRight, setCanScrollServicesRight] = useState(true);
   const activeHero = heroSlides[activeSlide];
   const servicesScrollRef = useRef<HTMLDivElement>(null);
+  const servicesAutoScrollFrameRef = useRef<number | null>(null);
+  const servicesAutoScrollPauseUntilRef = useRef(0);
+  const servicesHoveredRef = useRef(false);
+  const pauseServicesAutoScroll = (duration = 2200) => {
+    servicesAutoScrollPauseUntilRef.current = Date.now() + duration;
+  };
+
+  const updateServicesScrollState = () => {
+    const el = servicesScrollRef.current;
+    if (!el) return;
+
+    const maxScrollLeft = el.scrollWidth - el.clientWidth;
+    const hasOverflow = maxScrollLeft > 8;
+    setCanScrollServicesLeft(hasOverflow);
+    setCanScrollServicesRight(hasOverflow);
+  };
 
   const scrollServices = (dir: 'left' | 'right') => {
     const el = servicesScrollRef.current;
     if (!el) return;
-    const delta = dir === 'left' ? -320 : 320;
+    pauseServicesAutoScroll();
+    const delta = dir === 'left' ? -Math.min(el.clientWidth * 0.8, 360) : Math.min(el.clientWidth * 0.8, 360);
     el.scrollBy({ left: delta, behavior: 'smooth' });
+  };
+
+  const handleServicesWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    const el = servicesScrollRef.current;
+    if (!el) return;
+
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+    event.preventDefault();
+    pauseServicesAutoScroll();
+    el.scrollBy({ left: event.deltaY, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -97,6 +134,52 @@ export default function Home() {
 
     return () => window.clearInterval(interval);
   }, [heroSlides.length]);
+
+  useEffect(() => {
+    const el = servicesScrollRef.current;
+    if (!el) return;
+
+    updateServicesScrollState();
+    el.addEventListener('scroll', updateServicesScrollState, { passive: true });
+    window.addEventListener('resize', updateServicesScrollState);
+
+    return () => {
+      el.removeEventListener('scroll', updateServicesScrollState);
+      window.removeEventListener('resize', updateServicesScrollState);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = servicesScrollRef.current;
+    if (!el) return;
+
+    let previousTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const maxScrollLeft = el.scrollWidth - el.clientWidth;
+      const isPaused = servicesHoveredRef.current || Date.now() < servicesAutoScrollPauseUntilRef.current;
+      const delta = currentTime - previousTime;
+      previousTime = currentTime;
+
+      if (!isPaused && maxScrollLeft > 0) {
+        el.scrollLeft += delta * 0.035;
+
+        if (el.scrollLeft >= maxScrollLeft) {
+          el.scrollLeft = 0;
+        }
+      }
+
+      servicesAutoScrollFrameRef.current = window.requestAnimationFrame(step);
+    };
+
+    servicesAutoScrollFrameRef.current = window.requestAnimationFrame(step);
+
+    return () => {
+      if (servicesAutoScrollFrameRef.current !== null) {
+        window.cancelAnimationFrame(servicesAutoScrollFrameRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -521,7 +604,8 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => scrollServices('left')}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700"
+                disabled={!canScrollServicesLeft}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700 disabled:cursor-not-allowed disabled:opacity-40"
                 aria-label="Scroll services left"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -529,7 +613,8 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => scrollServices('right')}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700"
+                disabled={!canScrollServicesRight}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700 disabled:cursor-not-allowed disabled:opacity-40"
                 aria-label="Scroll services right"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -537,11 +622,24 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            ref={servicesScrollRef}
-            className="mt-12 flex gap-4 overflow-x-auto pb-2 pt-1 scroll-smooth snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {[
+          <div className="relative mt-12">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white via-white/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white via-white/80 to-transparent" />
+            <div
+              ref={servicesScrollRef}
+              onWheel={handleServicesWheel}
+              onMouseEnter={() => {
+                servicesHoveredRef.current = true;
+              }}
+              onMouseLeave={() => {
+                servicesHoveredRef.current = false;
+                pauseServicesAutoScroll(500);
+              }}
+              onTouchStart={() => pauseServicesAutoScroll(2800)}
+              onPointerDown={() => pauseServicesAutoScroll(2800)}
+              className="flex cursor-grab gap-4 overflow-x-auto pb-2 pt-1 scroll-smooth pr-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden active:cursor-grabbing"
+            >
+              {[
               {
                 title: 'Eavesdropping detection',
                 desc: 'RF, lines, and venue checks when sensitive conversations need a clean bill of health.',
@@ -584,41 +682,100 @@ export default function Home() {
                 icon: Lock,
                 iconWrap: 'bg-cyan-50 text-cyan-700',
               },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.article
-                  key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="min-w-[min(100%,280px)] max-w-[280px] snap-start"
-                >
-                  <Link
-                    href={item.href}
-                    className="group flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:border-cyan-200/80 hover:shadow-[0_20px_40px_-18px_rgba(8,145,178,0.2)]"
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.article
+                    key={item.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    className="min-w-[min(100%,280px)] max-w-[280px] snap-start"
                   >
-                    <div
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl ${item.iconWrap} transition group-hover:scale-105`}
+                    <Link
+                      href={item.href}
+                      className="group flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:border-cyan-200/80 hover:shadow-[0_20px_40px_-18px_rgba(8,145,178,0.2)]"
                     >
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900">{item.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-7 text-slate-600">{item.desc}</p>
-                    <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-700 transition group-hover:gap-2">
-                      View
-                      <ChevronRight className="h-4 w-4" />
-                    </span>
-                  </Link>
-                </motion.article>
-              );
-            })}
+                      <div
+                        className={`flex h-11 w-11 items-center justify-center rounded-xl ${item.iconWrap} transition group-hover:scale-105`}
+                      >
+                        <Icon className="h-5 w-5" strokeWidth={1.75} />
+                      </div>
+                      <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900">{item.title}</h3>
+                      <p className="mt-2 flex-1 text-sm leading-7 text-slate-600">{item.desc}</p>
+                      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-700 transition group-hover:gap-2">
+                        View
+                        <ChevronRight className="h-4 w-4" />
+                      </span>
+                    </Link>
+                  </motion.article>
+                );
+              })}
+            </div>
           </div>
 
           <p className="mt-8 text-center text-sm text-slate-500 md:text-left">
             Pan-India deployment · Typical response window 24–48 hrs · Confidential by default
           </p>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="relative overflow-hidden border-y border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_46%,#ecfeff_100%)] py-24">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-[-3rem] top-16 h-48 w-48 rounded-full bg-cyan-200/40 blur-3xl" />
+          <div className="absolute right-[-4rem] bottom-12 h-56 w-56 rounded-full bg-sky-200/30 blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-700">Gallery</p>
+              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+                A quick look inside our media gallery.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+                Browse recent visuals from our counter-surveillance, bug sweep, and technical security environments.
+              </p>
+            </div>
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 self-start rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700 lg:self-auto"
+            >
+              View Full Media
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {galleryImages.map((image, index) => (
+              <motion.article
+                key={image.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group overflow-hidden rounded-[1.5rem] border border-white/80 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.08)]"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-200">
+                      Photo {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold leading-6">{image.title}</p>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -642,10 +799,17 @@ export default function Home() {
                 </div>
                 <span className="text-slate-600 text-sm">Based on 22 reviews</span>
               </div>
+              <Link
+                href="/clienttestimonial"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700"
+              >
+                View Full Client Testimonial
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {testimonials.map((review, i) => (
               <motion.div 
                 key={i}
@@ -653,23 +817,23 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm"
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
               >
-                <div className="mb-6 inline-flex rounded-full border border-cyan-100 bg-cyan-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-700">
+                <div className="mb-4 inline-flex rounded-full border border-cyan-100 bg-cyan-50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-700">
                   {review.tag}
                 </div>
-                  <div className="flex text-yellow-500 mb-6">
+                  <div className="mb-4 flex text-yellow-500">
                     {[...Array(5)].map((_, idx) => (
-                      <Star key={idx} className="w-5 h-5 fill-current" />
+                      <Star key={idx} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-slate-700 mb-8 italic">&ldquo;{review.text}&rdquo;</p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center text-cyan-600 font-bold">
+                  <p className="mb-6 text-sm leading-7 text-slate-700 italic">&ldquo;{review.text}&rdquo;</p>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500/20 text-sm font-bold text-cyan-600">
                       {review.name.charAt(0)}
                     </div>
                     <div>
-                      <h5 className="text-slate-900 font-bold">{review.name}</h5>
+                      <h5 className="text-sm font-bold text-slate-900">{review.name}</h5>
                       <p className="text-slate-500 text-xs">Verified by Google</p>
                     </div>
                   </div>

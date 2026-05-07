@@ -6,13 +6,13 @@ import { publications } from '@/data/publications';
 import { headlineFromPublicationUrl } from '@/lib/publicationTitle';
 
 export const metadata: Metadata = {
-  title: 'Publications | IndieBim',
+  title: 'Publications | Indiebim',
   description:
-    'Press mentions and articles featuring IndieBim Technology Solutions — TSCM, counter-surveillance, and corporate security.',
+    'Press mentions and articles featuring Indiebim Technology Solutions — TSCM, counter-surveillance, and corporate security.',
 };
 
 const PLACEHOLDER_DESCRIPTION =
-  'External article and press mention covering IndieBim TSCM and corporate security services.';
+  'External article and press mention covering Indiebim TSCM and corporate security services.';
 
 export default function PublicationsPage() {
   return (
@@ -30,7 +30,7 @@ export default function PublicationsPage() {
             Press &amp; industry coverage
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Curated links to articles and listings featuring IndieBim. Open any item in a new tab to read the full piece
+            Curated links to articles and listings featuring Indiebim. Open any item in a new tab to read the full piece
             on the publisher site.
           </p>
           <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
@@ -59,3 +59,4 @@ export default function PublicationsPage() {
     </div>
   );
 }
+

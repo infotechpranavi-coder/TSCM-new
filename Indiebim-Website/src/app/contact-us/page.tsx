@@ -80,7 +80,7 @@ export default function ContactUs() {
                 transition={{ ...heroFade.transition, delay: 0.1 }}
                 className="mt-6 text-balance text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.06]"
               >
-                Reach IndieBim the way your situation demands.
+                Reach Indiebim the way your situation demands.
               </motion.h1>
 
               <motion.p
@@ -385,3 +385,4 @@ export default function ContactUs() {
     </div>
   );
 }
+

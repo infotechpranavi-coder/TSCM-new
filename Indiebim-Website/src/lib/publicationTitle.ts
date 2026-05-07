@@ -2,7 +2,7 @@ const SMALL_WORDS = new Set(['a', 'an', 'and', 'or', 'for', 'in', 'on', 'at', 't
 
 function formatWord(raw: string, index: number): string {
   const lower = raw.toLowerCase();
-  if (lower === 'indiebim') return 'IndieBim';
+  if (lower === 'indiebim') return 'Indiebim';
   if (lower === 'tscm') return 'TSCM';
   if (lower === 'mumbais') return "Mumbai's";
   if (index > 0 && SMALL_WORDS.has(lower)) return lower;
@@ -31,3 +31,4 @@ export function headlineFromPublicationUrl(url: string): string {
     return 'Publication';
   }
 }
+

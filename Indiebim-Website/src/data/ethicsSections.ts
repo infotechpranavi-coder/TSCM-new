@@ -31,7 +31,7 @@ export const ethicsSections = [
     points: [
       'We uphold the Supreme Court of India recognition of privacy as a fundamental right, and our work helps citizens and corporations exercise that right.',
       'Our debugging processes are compliant with the Information Technology Act, 2000 and structured so technical evidence of illegal espionage is gathered in a legally supportable manner.',
-      'IndieBim is strictly a counter-measures firm. We do not provide hacker-for-hire services or illegal surveillance; our ethics demand we build defenses, never tools for intrusion.',
+      'Indiebim is strictly a counter-measures firm. We do not provide hacker-for-hire services or illegal surveillance; our ethics demand we build defenses, never tools for intrusion.',
       'Our recommendations help clients protect themselves without crossing legal or ethical boundaries.',
     ],
   },
@@ -48,7 +48,7 @@ export const ethicsSections = [
     title: 'Professionalism Without Borders',
     points: [
       'We maintain a strict policy against representing opposing parties in corporate or legal disputes within the same jurisdiction.',
-      'Whether we are sweeping a startup in Pune or a government-affiliated entity in Delhi, the IndieBim standard of excellence remains the same.',
+      'Whether we are sweeping a startup in Pune or a government-affiliated entity in Delhi, the Indiebim standard of excellence remains the same.',
       'Every project is overseen by our central command in Mumbai, ensuring a single point of high-level accountability for pan-India operations.',
       'Our reputation is built on consistent service, calm communication, and respect for client sensitivity from North to South India.',
     ],
@@ -63,3 +63,4 @@ export const ethicsCommitments = [
   'Respect legal boundaries while helping clients defend privacy and intellectual property.',
   'Deliver reports that are practical, professional, and suitable for decision-making in sensitive Indian environments.',
 ];
+

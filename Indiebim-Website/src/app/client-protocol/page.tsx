@@ -12,9 +12,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Client Protocol | IndieBim Silent Response Guide',
+  title: 'Client Protocol | Indiebim Silent Response Guide',
   description:
-    'What to do if you suspect eavesdropping in your boardroom, residence, or vehicle. Follow IndieBim’s Silent Response Protocol to protect evidence and avoid alerting an adversary.',
+    'What to do if you suspect eavesdropping in your boardroom, residence, or vehicle. Follow Indiebim’s Silent Response Protocol to protect evidence and avoid alerting an adversary.',
 };
 
 const protocolSteps = [
@@ -41,7 +41,7 @@ const protocolSteps = [
   },
   {
     id: '03',
-    title: 'Strategic Contact with IndieBim',
+    title: 'Strategic Contact with Indiebim',
     icon: PhoneCall,
     tone: 'from-indigo-500 to-violet-500',
     points: [
@@ -100,7 +100,7 @@ export default function ClientProtocolPage() {
                 if they know it is being hunted, so the first 60 minutes matter.
               </p>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                Follow the IndieBim Silent Response Protocol to protect the integrity of the space, preserve evidence,
+                Follow the Indiebim Silent Response Protocol to protect the integrity of the space, preserve evidence,
                 and keep your team one step ahead.
               </p>
               <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
@@ -189,3 +189,4 @@ export default function ClientProtocolPage() {
     </div>
   );
 }
+

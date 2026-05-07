@@ -19,9 +19,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'TSCM Myths vs. Reality | IndieBim',
+  title: 'TSCM Myths vs. Reality | Indiebim',
   description:
-    'Separate Hollywood fiction from 2026 TSCM reality. Pre-sweep protocol, ITSAR and DoT regulatory context, and how IndieBim approaches scientific counter-surveillance.',
+    'Separate Hollywood fiction from 2026 TSCM reality. Pre-sweep protocol, ITSAR and DoT regulatory context, and how Indiebim approaches scientific counter-surveillance.',
 };
 
 const mythRealityPairs = [
@@ -54,7 +54,7 @@ const preSweepSteps = [
   },
   {
     title: 'Secure communication',
-    body: 'Contact IndieBim from a public location or using a brand-new burner phone and SIM card.',
+    body: 'Contact Indiebim from a public location or using a brand-new burner phone and SIM card.',
     icon: Phone,
     tone: 'from-cyan-500 to-sky-500',
   },
@@ -217,7 +217,7 @@ export default function TscmMythsVsRealityPage() {
               <div className="flex items-start gap-3">
                 <BadgeCheck className="mt-1 h-6 w-6 shrink-0 text-cyan-400" />
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">IndieBim value</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Indiebim value</p>
                   <p className="mt-3 text-lg font-bold leading-snug text-white">
                     We do not only hunt bugs—we help audit whether your hardware posture aligns with{' '}
                     <span className="text-cyan-200">2026 Department of Telecommunications (DoT)</span> expectations.
@@ -254,3 +254,4 @@ export default function TscmMythsVsRealityPage() {
     </div>
   );
 }
+

@@ -1,6 +1,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Globe, MessageSquare, Briefcase } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M13.5 21v-7h2.3l.4-3h-2.7V9.1c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M6.94 8.5A1.94 1.94 0 1 0 6.94 4.62a1.94 1.94 0 0 0 0 3.88ZM5.25 9.75h3.38V21H5.25V9.75Zm5.5 0h3.24v1.54h.05c.45-.85 1.55-1.74 3.2-1.74 3.42 0 4.06 2.25 4.06 5.17V21h-3.38v-5.56c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94V21h-3.38V9.75Z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
@@ -12,17 +28,17 @@ export default function Footer() {
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {/* Brand */}
           <div className="space-y-4 xl:col-span-2">
-            <Link href="/" className="group inline-flex flex-col items-start gap-1.5">
-              <div className="relative block leading-none">
+            <Link href="/" className="group inline-flex flex-col items-center gap-1.5 text-center">
+              <div className="relative block leading-none text-center">
                 <Image
                   src="/images/logo-1.png"
-                  alt="IndieBim"
+                  alt="Indiebim"
                   width={140}
                   height={50}
-                  className="h-10 w-auto object-contain object-left"
+                  className="mx-auto h-10 w-auto object-contain"
                 />
               </div>
-              <span className="text-[11px] font-medium uppercase leading-tight tracking-[0.24em] text-slate-400">
+              <span className="text-center text-[11px] font-medium uppercase leading-tight tracking-[0.24em] text-slate-400">
                 Since 2019
               </span>
             </Link>
@@ -30,27 +46,24 @@ export default function Footer() {
               International-standard TSCM and bug sweep services delivered by professionals trained in the USA and Israel.
             </p>
             <div className="flex gap-3 pt-1">
-              <Link
-                href="/"
+              <a
+                href="https://www.facebook.com/bugsweepers"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200/80 transition-colors hover:bg-cyan-50 hover:text-cyan-700"
-                aria-label="Home"
+                aria-label="Facebook"
               >
-                <Globe className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/contact-us"
+                <FacebookIcon className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/indiebim/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200/80 transition-colors hover:bg-cyan-50 hover:text-cyan-700"
-                aria-label="Contact"
+                aria-label="LinkedIn"
               >
-                <MessageSquare className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/about-us"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200/80 transition-colors hover:bg-cyan-50 hover:text-cyan-700"
-                aria-label="About IndieBim"
-              >
-                <Briefcase className="h-5 w-5" />
-              </Link>
+                <LinkedInIcon className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -72,6 +85,31 @@ export default function Footer() {
                   Cyber TSCM Services
                 </Link>
               </li>
+              <li>
+                <Link href="/tscm-services-in-mumbai" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  TSCM Services in Mumbai
+                </Link>
+              </li>
+              <li>
+                <Link href="/tscm-services-in-delhi" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  TSCM Services in Delhi
+                </Link>
+              </li>
+              <li>
+                <Link href="/tscm-services-in-bangalore" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  TSCM Services in Bangalore
+                </Link>
+              </li>
+              <li>
+                <Link href="/tscm-services-in-ahmedabad" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  TSCM Services in Ahmedabad
+                </Link>
+              </li>
+              <li>
+                <Link href="/tscm-services-in-pune" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  TSCM Services in Pune
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -91,6 +129,31 @@ export default function Footer() {
               <li>
                 <Link href="/debugging-services" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
                   Debugging Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/bug-sweeping-services-in-mumbai" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Bug Sweeping Services in Mumbai
+                </Link>
+              </li>
+              <li>
+                <Link href="/bug-sweeping-services-in-pune" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Bug Sweeping Services in Pune
+                </Link>
+              </li>
+              <li>
+                <Link href="/bug-sweeping-services-in-delhi" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Bug Sweeping Services in Delhi
+                </Link>
+              </li>
+              <li>
+                <Link href="/bug-sweeping-services-in-bangalore" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Bug Sweeping Services in Bangalore
+                </Link>
+              </li>
+              <li>
+                <Link href="/bug-sweeping-services-in-ahmedabad" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Bug Sweeping Services in Ahmedabad
                 </Link>
               </li>
             </ul>
@@ -191,6 +254,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/gallery" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Gallery
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
                   Blog
                 </Link>
@@ -212,7 +280,7 @@ export default function Footer() {
         <div className="mb-10 grid gap-8 rounded-[1.8rem] border border-slate-200 bg-slate-950 px-6 py-7 text-white shadow-[0_18px_50px_rgba(15,23,42,0.12)] sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">Contact</p>
-            <h3 className="mt-3 text-xl font-bold">IndieBim Technology Solutions Private Limited</h3>
+            <h3 className="mt-3 text-xl font-bold">Indiebim Technology Solutions Private Limited</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-300">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" />
@@ -245,7 +313,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 md:flex-row">
           <p className="text-center text-sm text-slate-500 md:text-left">
-            © {new Date().getFullYear()} IndieBim. All rights reserved.
+            © {new Date().getFullYear()} Indiebim. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
             <Link href="/privacy-policy" className="transition-colors hover:text-slate-900">
@@ -263,3 +331,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+

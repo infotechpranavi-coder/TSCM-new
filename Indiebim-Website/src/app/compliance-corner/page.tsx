@@ -30,7 +30,7 @@ const complianceSections = [
     points: [
       'Effective April 1, 2026, only CCTV cameras that meet Essential Requirements and carry both STQC and BIS certification can be legally sold, manufactured, or imported in India.',
       'Older systems may contain hardcoded backdoors or unencrypted firmware. The 2026 rules are intended to ensure surveillance hardware is secure by design.',
-      'IndieBim provides compliance audits for existing infrastructure to identify hardware that may become unsupported or illegal for expansion after the deadline.',
+      'Indiebim provides compliance audits for existing infrastructure to identify hardware that may become unsupported or illegal for expansion after the deadline.',
     ],
   },
   {
@@ -42,7 +42,7 @@ const complianceSections = [
       'Surveillance footage is treated as digital personal data under the DPDP framework, making legal and technical safeguards essential.',
       'If you record employees or the public, you act as a data fiduciary and are required to implement reasonable security safeguards to prevent data breaches.',
       'Non-compliance or a data breach linked to negligent security can expose an organization to penalties up to Rs 250 crore.',
-      'IndieBim includes a privacy perimeter audit in TSCM-led engagements to identify ghost signals, unauthorized network taps, and surveillance leakage risks.',
+      'Indiebim includes a privacy perimeter audit in TSCM-led engagements to identify ghost signals, unauthorized network taps, and surveillance leakage risks.',
     ],
   },
   {
@@ -54,7 +54,7 @@ const complianceSections = [
       'DoT security updates in 2026 have tightened ITSAR expectations for telecom and connected enterprise hardware.',
       'Routers, Wi-Fi access points, and VoIP systems used in corporate boardrooms and sensitive environments increasingly require security certification alignment.',
       'Many generic network devices are being flagged for unauthorized data exfiltration behavior, including foreign-server traffic patterns.',
-      'IndieBim verifies that communication hardware is not only operational, but aligned with ITSAR-era security expectations for high-risk environments.',
+      'Indiebim verifies that communication hardware is not only operational, but aligned with ITSAR-era security expectations for high-risk environments.',
     ],
   },
 ];
@@ -249,12 +249,12 @@ export default function ComplianceCornerPage() {
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-50 text-cyan-700">
               <Shield className="h-6 w-6" />
             </div>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700">IndieBim advantage</p>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700">Indiebim advantage</p>
             <h3 className="mt-2 text-3xl font-black leading-tight text-slate-950">
               From vendor to strategic compliance advisor.
             </h3>
             <p className="mt-4 text-sm leading-8 text-slate-600 sm:text-base">
-              We do not only identify technical threats. IndieBim delivers a technical compliance report that helps
+              We do not only identify technical threats. Indiebim delivers a technical compliance report that helps
               teams make procurement, legal, and security decisions with confidence before an audit or incident.
             </p>
           </div>
@@ -305,3 +305,4 @@ export default function ComplianceCornerPage() {
     </div>
   );
 }
+

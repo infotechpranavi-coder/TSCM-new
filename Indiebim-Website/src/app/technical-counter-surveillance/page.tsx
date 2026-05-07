@@ -127,7 +127,7 @@ export default function TechnicalCounterSurveillancePage() {
                 adversaries.
               </p>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                The sale of stolen intelligence is a multi-billion dollar industry. IndieBim provides the technical
+                The sale of stolen intelligence is a multi-billion dollar industry. Indiebim provides the technical
                 shield needed to identify these threats before they damage your reputation, competitiveness, or bottom line.
               </p>
               <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
@@ -248,7 +248,7 @@ export default function TechnicalCounterSurveillancePage() {
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600">
                 <BatteryWarning className="h-6 w-6" />
               </div>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-rose-600">IndieBim Protocol</p>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-rose-600">Indiebim Protocol</p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950">
                 What to do next if even two warning signs are present.
               </h2>
@@ -278,3 +278,4 @@ export default function TechnicalCounterSurveillancePage() {
     </div>
   );
 }
+

@@ -26,7 +26,7 @@ export default function EthicsSection({ className = '' }: EthicsSectionProps) {
             The national standard for technical security in India.
           </h2>
           <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
-            At IndieBim Technology Solutions Private Limited, our mission is to provide a shield of privacy across
+            At Indiebim Technology Solutions Private Limited, our mission is to provide a shield of privacy across
             the Indian subcontinent. We do not just clear rooms. We protect the intellectual property and confidential
             conversations that drive India&apos;s economy.
           </p>
@@ -181,7 +181,7 @@ export default function EthicsSection({ className = '' }: EthicsSectionProps) {
         >
           <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-cyan-400/10 blur-3xl" />
           <p className="text-sm leading-8 text-slate-300 sm:text-base">
-            From the Himalayas to the Indian Ocean, IndieBim is committed to securing the conversations that shape
+            From the Himalayas to the Indian Ocean, Indiebim is committed to securing the conversations that shape
             India&apos;s future. Our ethics are as robust as our technology.
           </p>
         </motion.div>
@@ -189,3 +189,4 @@ export default function EthicsSection({ className = '' }: EthicsSectionProps) {
     </section>
   );
 }
+

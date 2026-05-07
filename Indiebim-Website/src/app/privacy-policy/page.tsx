@@ -28,7 +28,7 @@ const sections = [
     number: '03',
     title: 'Absolute Confidentiality and Data Retention',
     paragraphs: [
-      'All information shared with IndieBim is treated as top secret. Our staff, including our Cyber Security Experts and Strategic Consultants, are bound by strict non-disclosure obligations.',
+      'All information shared with Indiebim is treated as top secret. Our staff, including our Cyber Security Experts and Strategic Consultants, are bound by strict non-disclosure obligations.',
       'Upon successful completion of a TSCM project and delivery of the final report, we offer a zero-trace option under which project-specific digital footprints can be permanently purged from our secure servers.',
       'All digital communication and stored reports are protected using military-grade AES-256 encryption.',
     ],
@@ -37,7 +37,7 @@ const sections = [
     number: '04',
     title: 'Third-Party Disclosure',
     paragraphs: [
-      'IndieBim Technology Solutions Private Limited does not sell, trade, or otherwise transfer personally identifiable information to outside parties.',
+      'Indiebim Technology Solutions Private Limited does not sell, trade, or otherwise transfer personally identifiable information to outside parties.',
       'This does not include trusted third parties who assist us in operating our website or servicing you, provided they agree to keep this information confidential and operate under the same high ethical standards.',
     ],
   },
@@ -71,7 +71,7 @@ const sections = [
     title: 'Contact Our Privacy Officer',
     paragraphs: [
       'For any questions regarding this Privacy Policy or to discuss a sensitive security matter, please contact us through a secure and clean line as advised in our FAQ.',
-      'IndieBim Technology Solutions Private Limited.',
+      'Indiebim Technology Solutions Private Limited.',
       'Headquarters: Mumbai, Maharashtra, India.',
       'Web: `tscm.in`.',
     ],
@@ -105,7 +105,7 @@ export default function PrivacyPolicyPage() {
               transition={{ delay: 0.08 }}
               className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl"
             >
-              How IndieBim collects, protects, and manages client information.
+              How Indiebim collects, protects, and manages client information.
             </motion.h1>
 
             <motion.p
@@ -114,7 +114,7 @@ export default function PrivacyPolicyPage() {
               transition={{ delay: 0.14 }}
               className="mt-6 text-base leading-8 text-slate-600 sm:text-lg"
             >
-              At IndieBim Technology Solutions Private Limited, accessible via `tscm.in`, we recognize that privacy is
+              At Indiebim Technology Solutions Private Limited, accessible via `tscm.in`, we recognize that privacy is
               the core of our business. This policy outlines how we collect, protect, and manage client information
               across India in line with the Information Technology Act, 2000 and the Digital Personal Data Protection Act.
             </motion.p>
@@ -210,3 +210,4 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
+

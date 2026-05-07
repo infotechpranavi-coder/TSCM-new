@@ -12,9 +12,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy is a Right Manifesto | IndieBim',
+  title: 'Privacy is a Right Manifesto | Indiebim',
   description:
-    'Explore IndieBim Technology Solutions Private Limited’s Privacy is a Right Manifesto, safe living guide, privacy literacy advocacy, and support framework for victims of corporate and domestic espionage.',
+    'Explore Indiebim Technology Solutions Private Limited’s Privacy is a Right Manifesto, safe living guide, privacy literacy advocacy, and support framework for victims of corporate and domestic espionage.',
 };
 
 const manifestoSections = [
@@ -26,8 +26,8 @@ const manifestoSections = [
     intro:
       'In 2026, privacy is no longer a luxury reserved for the elite; it is a fundamental constitutional right protected under the Digital Personal Data Protection framework.',
     points: [
-      '**IndieBim Technology Solutions Private Limited** believes every individual across Mumbai, Delhi, and all of India deserves a life free from illegal intrusion and covert monitoring.',
-      '**IndieBim Technology Solutions Private Limited** operates strictly as a technical shield focused on the detection, identification, and neutralization of surveillance threats.',
+      '**Indiebim Technology Solutions Private Limited** believes every individual across Mumbai, Delhi, and all of India deserves a life free from illegal intrusion and covert monitoring.',
+      '**Indiebim Technology Solutions Private Limited** operates strictly as a technical shield focused on the detection, identification, and neutralization of surveillance threats.',
       'We do not provide services to plant bugs, conduct illegal eavesdropping, or assist in unauthorized spying. Our technology and expertise are built solely to protect, never to invade.',
     ],
   },
@@ -42,7 +42,7 @@ const manifestoSections = [
       'The flashlight test: inspect hotel rooms, changing areas, or private rentals for the tell-tale reflection of a hidden camera lens using simple light-source techniques.',
       'App hygiene: audit mobile devices for stalkerware or applications with unauthorized background access to your microphone, camera, and location.',
       'The new gift rule: be cautious of unsolicited electronic gifts. Trojan Horse listening devices are frequently hidden in digital clocks, power banks, or USB chargers.',
-      'The IndieBim community promise: if you are a victim of stalking or harassment and lack the resources for a professional sweep, **IndieBim Technology Solutions Private Limited** offers a free 10-minute safety consultation to help secure your immediate environment.',
+      'The Indiebim community promise: if you are a victim of stalking or harassment and lack the resources for a professional sweep, **Indiebim Technology Solutions Private Limited** offers a free 10-minute safety consultation to help secure your immediate environment.',
     ],
   },
   {
@@ -53,7 +53,7 @@ const manifestoSections = [
     intro:
       'As leaders in technical security, we believe in teaching the next generation about digital and physical boundaries to foster a safer future.',
     points: [
-      '**IndieBim Technology Solutions Private Limited** advocates for privacy literacy in Indian schools and homes.',
+      '**Indiebim Technology Solutions Private Limited** advocates for privacy literacy in Indian schools and homes.',
       'Education over fear: children should understand that their personal space is their own and recognize when privacy may be compromised without consent.',
       'Building a culture of consent: recording or monitoring someone without explicit permission, whether in a classroom, home, or private setting, is a violation of human respect and dignity.',
     ],
@@ -67,7 +67,7 @@ const manifestoSections = [
       'Behind every unauthorized device there is usually a human story of broken trust. The objective is not only technical recovery, but emotional and legal restoration.',
     points: [
       'Restoring peace of mind: our goal is not just to find a hidden piece of silicon, but to restore the sense of safety that was stolen from you.',
-      'Legal empowerment: following a sweep, **IndieBim Technology Solutions Private Limited** provides detailed technical forensic reports that can support legal teams with scientific evidence and professional findings.',
+      'Legal empowerment: following a sweep, **Indiebim Technology Solutions Private Limited** provides detailed technical forensic reports that can support legal teams with scientific evidence and professional findings.',
       'We help clients move from uncertainty and fear toward clarity, documentation, and decisive action.',
     ],
   },
@@ -128,7 +128,7 @@ export default function PrivacyIsARightPage() {
                 </span>
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                <strong className="font-semibold text-slate-950">IndieBim Technology Solutions Private Limited</strong>{' '}
+                <strong className="font-semibold text-slate-950">Indiebim Technology Solutions Private Limited</strong>{' '}
                 believes privacy is not a luxury product. It is a basic human and constitutional right that deserves active
                 protection.
               </p>
@@ -250,7 +250,7 @@ export default function PrivacyIsARightPage() {
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300 sm:text-base">
               Whether you need a professional sweep, a safety consultation, or technical evidence for legal support,
-              <strong className="font-semibold text-white"> IndieBim Technology Solutions Private Limited</strong> is ready
+              <strong className="font-semibold text-white"> Indiebim Technology Solutions Private Limited</strong> is ready
               to help you act calmly and professionally.
             </p>
             <div className="mt-8">
@@ -268,3 +268,4 @@ export default function PrivacyIsARightPage() {
     </div>
   );
 }
+

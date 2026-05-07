@@ -124,7 +124,7 @@ const ethicsSections = [
     points: [
       'We uphold the Supreme Court of India recognition of privacy as a fundamental right and help clients exercise that right.',
       'Our debugging processes are aligned with the Information Technology Act, 2000 and structured to support proper evidence handling.',
-      'IndieBim is strictly a counter-measures firm and does not provide hacker-for-hire services or illegal surveillance support.',
+      'Indiebim is strictly a counter-measures firm and does not provide hacker-for-hire services or illegal surveillance support.',
     ],
   },
   {
@@ -139,7 +139,7 @@ const ethicsSections = [
     title: 'Professionalism Without Borders',
     points: [
       'We maintain a strict no-conflict policy against representing opposing parties in the same corporate or legal dispute.',
-      'The same IndieBim standard applies whether the project involves a startup in Pune or a government-affiliated environment in Delhi.',
+      'The same Indiebim standard applies whether the project involves a startup in Pune or a government-affiliated environment in Delhi.',
       'Every project is overseen from Mumbai to maintain a single point of high-level accountability for pan-India operations.',
     ],
   },
@@ -156,8 +156,6 @@ const founderProfile = {
   name: 'Wahid Shaikh',
   role: 'Private Investigation and Strategic Security',
   cardImage: '/IMG_20260506_005820.jpg.jpeg',
-  portraitImage: '/HI-28%20(2)_page-0001.jpg',
-  teamImage: '/IMG-20260425-WA0040.jpg%20(2).jpeg',
   fallbackImage: '/images/wahib.png',
   paragraphs: [
     'Wahid Shaikh is an experienced professional in private investigation and strategic security, with over 15 years of expertise in handling complex and sensitive assignments. He has built a strong reputation for delivering accurate, intelligence-driven solutions while maintaining the highest standards of confidentiality and professionalism.',
@@ -307,7 +305,7 @@ export default function AboutUs() {
               className="sm:col-span-2 overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl"
             >
               <Image
-                src="/images/why-us.jpeg"
+                src="/images/tscm.jpg"
                 alt="Indiebim surveillance inspection"
                 width={900}
                 height={620}
@@ -412,41 +410,6 @@ export default function AboutUs() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="border-t border-slate-200 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            {...fadeUp}
-            className="bg-[#f3f6fb] px-5 py-8 sm:px-6"
-          >
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div className="flex items-center justify-center">
-                <img
-                  src={founderProfile.portraitImage}
-                  alt={`${founderProfile.name} portrait`}
-                  onError={(event) => {
-                    event.currentTarget.onerror = null;
-                    event.currentTarget.src = founderProfile.fallbackImage;
-                  }}
-                  className="h-[420px] w-full object-contain object-center md:h-[520px]"
-                />
-              </div>
-
-              <div className="flex items-center justify-center">
-                <img
-                  src={founderProfile.teamImage}
-                  alt={`${founderProfile.name} team`}
-                  onError={(event) => {
-                    event.currentTarget.onerror = null;
-                    event.currentTarget.src = founderProfile.fallbackImage;
-                  }}
-                  className="h-[420px] w-full object-contain object-center md:h-[520px]"
-                />
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -650,7 +613,7 @@ export default function AboutUs() {
           <SectionHeading
             tag="Our Ethics"
             title="The national standard for technical security in India."
-            description="At IndieBim Technology Solutions Private Limited, our mission is to provide a shield of privacy across the Indian subcontinent. We do not just clear rooms. We protect the intellectual property and confidential conversations that drive India’s economy."
+            description="At Indiebim Technology Solutions Private Limited, our mission is to provide a shield of privacy across the Indian subcontinent. We do not just clear rooms. We protect the intellectual property and confidential conversations that drive India’s economy."
           />
 
           <div className="relative mt-12">
@@ -728,7 +691,7 @@ export default function AboutUs() {
           >
             <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-cyan-400/10 blur-3xl" />
             <p className="text-sm leading-8 text-slate-300 sm:text-base">
-              From the Himalayas to the Indian Ocean, IndieBim is committed to securing the conversations that shape India&apos;s future. Our ethics are as robust as our technology.
+              From the Himalayas to the Indian Ocean, Indiebim is committed to securing the conversations that shape India&apos;s future. Our ethics are as robust as our technology.
             </p>
           </motion.div>
         </div>
@@ -737,3 +700,4 @@ export default function AboutUs() {
     </div>
   );
 }
+

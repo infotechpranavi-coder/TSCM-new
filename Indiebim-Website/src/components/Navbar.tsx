@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -46,27 +46,24 @@ const NAV_LINKS: Array<{
     name: 'Our Company', 
     href: '/about-us',
     dropdown: [
+      { name: 'About Us', href: '/about-us' },
       { name: 'Our Team', href: '/our-team' },
-      { name: 'Our Ethics', href: '/our-ethics' },
-      { name: 'Membership', href: '/membership' },
-      { name: 'Certification', href: '/certification' },
-      { name: 'Client Protocol', href: '/client-protocol' },
-      { name: 'Compliance Corner', href: '/compliance-corner' },
-      { name: 'Privacy is a Right', href: '/privacy-is-a-right' },
-      { name: 'Technical Counter-Surveillance', href: '/technical-counter-surveillance' },
-      { name: 'Warning Signs of Bugging', href: '/warning-signs-of-bugging' },
-      { name: 'TSCM Myths vs. Reality', href: '/tscm-myths-vs-reality' },
-      { name: 'Technical Glossary', href: '/technical-glossary' },
       { name: 'Our Equipments', href: '/our-equipments' },
-      { name: 'Industries we serve', href: '/industries-we-serve' },
-      { name: 'Clients', href: '/clients' },
-      { name: 'Client Testimonial', href: '/client-testimonial' },
+      { name: 'TSCM Myths vs. Reality', href: '/tscm-myths-vs-reality' },
     ]
   },
   { 
     name: 'TSCM Services', 
     href: '/tscm-services',
     dropdown: [
+      { name: 'TSCM Services in Mumbai', href: '/tscm-services-in-mumbai' },
+      { name: 'TSCM Services in Delhi', href: '/tscm-services-in-delhi' },
+      { name: 'TSCM Services in Bangalore', href: '/tscm-services-in-bangalore' },
+      { name: 'TSCM Services in Ahmedabad', href: '/tscm-services-in-ahmedabad' },
+      { name: 'TSCM Services in Pune', href: '/tscm-services-in-pune' },
+      { name: 'Corporate tscm service', href: '/corporate-tscm-service' },
+      { name: 'Residential TSCM Service', href: '/residential-tscm-service' },
+      { name: 'Cyber TSCM Service', href: '/cyber-tscm-service' },
       {
         name: 'Personal investigation',
         nested: [
@@ -127,14 +124,6 @@ const NAV_LINKS: Array<{
           },
         ],
       },
-      { name: 'Corporate tscm service', href: '/corporate-tscm-service' },
-      { name: 'Residential TSCM Service', href: '/residential-tscm-service' },
-      { name: 'Cyber TSCM Service', href: '/cyber-tscm-service' },
-      { name: 'TSCM Services in Mumbai', href: '/tscm-services-in-mumbai' },
-      { name: 'TSCM Services in Delhi', href: '/tscm-services-in-delhi' },
-      { name: 'TSCM Services in Bangalore', href: '/tscm-services-in-bangalore' },
-      { name: 'TSCM Services in Ahmedabad', href: '/tscm-services-in-ahmedabad' },
-      { name: 'TSCM Services in Pune', href: '/tscm-services-in-pune' },
     ]
   },
   { 
@@ -151,9 +140,9 @@ const NAV_LINKS: Array<{
       { name: 'Bug Sweeping Services in Ahmedabad', href: '/bug-sweeping-services-in-ahmedabad' },
     ]
   },
-  { name: 'Case Studies', href: '/case-study' },
-  { name: 'Blog', href: '/blog' },
   { name: 'Publications', href: '/publications' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Case Studies', href: '/case-study' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact-us' },
 ];
@@ -173,14 +162,6 @@ export default function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  useEffect(() => {
-    if (!mobileMenuOpen) setNestedMenuKey(null);
-  }, [mobileMenuOpen]);
-
-  useEffect(() => {
-    setNestedMenuKey(null);
-  }, [openDropdown]);
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -194,20 +175,20 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="group flex min-w-0 max-w-[min(100%,11rem)] flex-col items-start justify-center gap-1 self-stretch py-1 sm:max-w-none sm:pr-2"
+            className="group flex min-w-0 max-w-[min(100%,11rem)] flex-col items-center justify-center gap-1 self-stretch py-1 text-center sm:max-w-none sm:pr-2"
           >
-            <div className="relative block w-full leading-none">
+            <div className="relative block w-full leading-none text-center">
               <Image
                 src="/images/logo-1.png"
                 alt="Indiebim - Your Privacy Protector"
                 width={140}
                 height={50}
-                className="h-8 w-auto object-contain object-left sm:h-9 lg:h-10"
+                className="mx-auto h-8 w-auto object-contain sm:h-9 lg:h-10"
                 priority
               />
             </div>
             <span
-              className={`block w-full text-left text-[10px] font-medium uppercase leading-tight tracking-[0.24em] sm:text-[11px] ${
+              className={`block w-full text-center text-[10px] font-medium uppercase leading-tight tracking-[0.24em] sm:text-[11px] ${
                 useLightNav ? 'text-white/75' : 'text-slate-500 group-hover:text-slate-700'
               }`}
             >
@@ -389,7 +370,14 @@ export default function Navbar() {
             className={`lg:hidden transition-colors ${
               useLightNav ? 'text-white hover:text-cyan-200' : 'text-slate-700 hover:text-slate-900'
             }`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => {
+              const nextOpen = !mobileMenuOpen;
+              setMobileMenuOpen(nextOpen);
+              if (!nextOpen) {
+                setOpenDropdown(null);
+                setNestedMenuKey(null);
+              }
+            }}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -422,7 +410,11 @@ export default function Navbar() {
                      </Link>
                      {link.dropdown && (
                         <button 
-                           onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                           onClick={() => {
+                              const nextDropdown = openDropdown === link.name ? null : link.name;
+                              setOpenDropdown(nextDropdown);
+                              setNestedMenuKey(null);
+                           }}
                            className="p-3 text-slate-600 hover:text-cyan-600"
                         >
                            <ChevronDown className={`w-5 h-5 transition-transform ${openDropdown === link.name ? 'rotate-180' : ''}`} />
