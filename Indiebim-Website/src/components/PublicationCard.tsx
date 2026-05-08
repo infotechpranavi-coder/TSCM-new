@@ -4,13 +4,14 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
 type PublicationCardProps = {
+  publisher?: string;
   title: string;
   description?: string;
   url: string;
   index?: number;
 };
 
-export default function PublicationCard({ title, description, url, index = 0 }: PublicationCardProps) {
+export default function PublicationCard({ publisher, title, description, url, index = 0 }: PublicationCardProps) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -22,7 +23,7 @@ export default function PublicationCard({ title, description, url, index = 0 }: 
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ y: -6 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.06)] ring-0 transition-[box-shadow,border-color] duration-500 hover:border-cyan-300/80 hover:shadow-[0_24px_50px_rgba(15,23,42,0.12),0_0_0_1px_rgba(34,211,238,0.12)]"
+      className="group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.06)] ring-0 transition-[box-shadow,border-color] duration-500 hover:border-cyan-300/80 hover:shadow-[0_24px_50px_rgba(15,23,42,0.12),0_0_0_1px_rgba(34,211,238,0.12)]"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-400/[0.07] via-transparent to-indigo-500/[0.06] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -33,6 +34,11 @@ export default function PublicationCard({ title, description, url, index = 0 }: 
       </div>
 
       <div className="relative flex min-h-0 flex-1 flex-col">
+        {publisher ? (
+          <div className="mb-4 inline-flex w-fit items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-600">
+            {publisher}
+          </div>
+        ) : null}
         <h2 className="min-h-0 flex-1 text-lg font-bold leading-snug tracking-tight text-slate-900 text-balance transition-colors duration-300 group-hover:text-cyan-950 line-clamp-4">
           {title}
         </h2>
