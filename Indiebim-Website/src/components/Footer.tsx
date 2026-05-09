@@ -18,6 +18,14 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
+function YouTubeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-gradient-to-b from-slate-50 to-white pb-8 pt-16">
@@ -63,6 +71,15 @@ export default function Footer() {
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@indiebim_tscmexperts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200/80 transition-colors hover:bg-red-50 hover:text-red-600"
+                aria-label="YouTube"
+              >
+                <YouTubeIcon className="h-5 w-5" />
               </a>
             </div>
           </div>

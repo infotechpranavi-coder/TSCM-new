@@ -304,13 +304,13 @@ export default function AboutUs() {
               transition={{ duration: 0.25 }}
               className="sm:col-span-2 overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl"
             >
-              <Image
-                src="/images/tscm.jpg"
-                alt="Indiebim surveillance inspection"
-                width={900}
-                height={620}
+              <video
+                src="/tscm video.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-[260px] w-full object-cover opacity-90 transition duration-700 hover:scale-[1.03] sm:h-[320px]"
-                priority
               />
               <div className="border-t border-white/10 px-5 py-4 text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Technical Counter-Surveillance</p>
@@ -417,39 +417,35 @@ export default function AboutUs() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             {...fadeUp}
-            className="space-y-10"
+            className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
           >
-            <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] shadow-sm">
-              <div className="grid gap-0 lg:grid-cols-[0.7fr_1.3fr] lg:items-stretch">
-                <div className="border-b border-slate-200 bg-slate-100 lg:border-b-0 lg:border-r">
-                  <img
-                    src={founderProfile.cardImage}
-                    alt={founderProfile.name}
-                    onError={(event) => {
-                      event.currentTarget.onerror = null;
-                      event.currentTarget.src = founderProfile.fallbackImage;
-                    }}
-                    className="h-[360px] w-full object-contain object-center p-4 sm:h-[440px] lg:h-full lg:min-h-[460px]"
-                  />
-                </div>
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-slate-200">
+              <img
+                src={founderProfile.cardImage}
+                alt={founderProfile.name}
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = founderProfile.fallbackImage;
+                }}
+                className="w-full object-cover object-center sm:h-[480px] lg:h-[560px]"
+              />
+            </div>
 
-                <div className="p-6 sm:p-8 lg:p-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700">Leadership Profile</p>
-                  <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 sm:text-4xl">
-                    {founderProfile.name}
-                  </h2>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                    {founderProfile.role}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-700">Leadership Profile</p>
+              <h2 className="mt-4 text-4xl font-black leading-tight text-slate-950 sm:text-5xl">
+                {founderProfile.name}
+              </h2>
+              <p className="mt-3 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
+                {founderProfile.role}
+              </p>
+
+              <div className="mt-8 space-y-5">
+                {founderProfile.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-base leading-relaxed text-slate-600 sm:text-lg">
+                    {paragraph}
                   </p>
-
-                  <div className="mt-6 space-y-4">
-                    {founderProfile.paragraphs.map((paragraph) => (
-                      <p key={paragraph} className="text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -464,30 +460,28 @@ export default function AboutUs() {
             description="The Indiebim team combines TSCM, risk management, cyber defense, and ethical hacking expertise to address both physical and network-based surveillance threats."
           />
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
                 {...fadeUp}
                 transition={{ ...fadeUp.transition, delay: index * 0.06 }}
                 whileHover={{ y: -6 }}
-                className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md sm:grid-cols-[124px_1fr]"
+                className="group flex flex-col items-center rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-cyan-200 hover:shadow-lg"
               >
-                <div className="relative h-36 bg-slate-100 sm:h-full">
+                <div className="relative mb-5 h-32 w-32 overflow-hidden rounded-full bg-slate-100 ring-4 ring-slate-50 transition-all duration-300 group-hover:ring-cyan-50">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-contain object-bottom p-3 transition duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, 124px"
+                    className="object-contain object-bottom transition duration-500 group-hover:scale-110"
+                    sizes="128px"
                   />
                 </div>
-                <div className="p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700">0{index + 1}</p>
-                  <h3 className="mt-2 text-xl font-black text-slate-950">{member.name}</h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">{member.role}</p>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{member.summary}</p>
-                </div>
+                <h3 className="text-xl font-black text-slate-950">{member.name}</h3>
+                <p className="mt-1.5 text-xs font-bold uppercase tracking-[0.18em] text-cyan-700">{member.role}</p>
+                <div className="mt-4 h-px w-10 bg-slate-200 transition-all duration-300 group-hover:w-16 group-hover:bg-cyan-200" />
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">{member.summary}</p>
               </motion.div>
             ))}
           </div>
@@ -541,66 +535,21 @@ export default function AboutUs() {
           </div>
 
           <div className="relative mt-12">
-            <div className="pointer-events-none absolute inset-0 hidden xl:block">
-              <div className="absolute left-[8%] right-[8%] top-[96px] h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
-              <div className="absolute left-[14%] right-[14%] top-[112px] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-              <div className="absolute left-[18%] right-[18%] top-[88px] h-24 rounded-full bg-cyan-400/8 blur-3xl" />
-            </div>
+
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5 xl:items-stretch">
               {processSteps.map((step, index) => (
+
                 <motion.div
                   key={step.title}
                   {...fadeUp}
                   transition={{ ...fadeUp.transition, delay: index * 0.06 }}
                   whileHover={{ y: -4 }}
-                  className="group relative h-full"
+                  className="group flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900 p-6 shadow-sm transition-all duration-300 hover:border-cyan-500/30 hover:shadow-[0_8px_30px_rgba(34,211,238,0.08)]"
                 >
-                  <div className="relative flex min-h-[320px] flex-col overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(19,30,54,0.96),rgba(12,20,40,0.94))] p-5 shadow-[0_18px_40px_rgba(2,6,23,0.22)] sm:p-6">
-                    <div className="absolute inset-x-0 top-0 h-px bg-cyan-300/40" />
-
-                    <div className="relative flex h-full flex-col">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.12)]">
-                            <span className="text-sm font-black">0{index + 1}</span>
-                          </div>
-                          <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-300">
-                              Stage {index + 1}
-                            </p>
-                            <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                              Secure Workflow
-                            </p>
-                          </div>
-                        </div>
-
-                        {index < processSteps.length - 1 && (
-                          <div className="hidden xl:flex items-center gap-2 text-cyan-300/60">
-                            <div className="h-px w-8 bg-gradient-to-r from-cyan-300/60 to-transparent" />
-                            <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="mt-8">
-                        <h3 className="max-w-[12rem] text-[1.45rem] font-black leading-[1.08] tracking-tight text-white sm:text-[1.6rem]">
-                          {step.title}
-                        </h3>
-                      </div>
-
-                      <div className="mt-6 flex flex-1 items-start gap-3 border-t border-white/8 pt-5">
-                        <div className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-cyan-300" />
-                        <p className="text-sm leading-7 text-slate-300">{step.detail}</p>
-                      </div>
-
-                      <div className="mt-5 border-t border-white/8 pt-4">
-                        <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                          Stage {index + 1}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-sm font-bold tracking-widest text-cyan-400">0{index + 1}</p>
+                  <h3 className="mt-4 text-xl font-bold leading-tight text-white">{step.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-400">{step.detail}</p>
                 </motion.div>
               ))}
             </div>

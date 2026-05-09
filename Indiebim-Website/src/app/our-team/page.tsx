@@ -241,35 +241,35 @@ export default function OurTeam() {
             text="The team combines executive judgment, field-tested counter-surveillance experience, and cyber risk awareness, creating a stronger response profile than a standard security vendor."
           />
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {leadership.map((member, index) => (
               <motion.article
                 key={member.name}
                 {...fadeUp}
                 transition={{ ...fadeUp.transition, delay: index * 0.05 }}
                 whileHover={{ y: -6 }}
-                className="overflow-hidden rounded-[26px] border border-white/70 bg-white/95 shadow-[0_18px_60px_rgba(15,23,42,0.06)]"
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col"
               >
-                <div className="bg-[linear-gradient(180deg,#effcff_0%,#f8fafc_100%)] px-6 pt-6">
-                  <div className="relative mx-auto h-[300px] w-full max-w-[220px]">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-contain object-bottom"
-                      sizes="(max-width: 1280px) 33vw, 220px"
-                    />
-                  </div>
+                {/* Photo — full image visible, no cropping */}
+                <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-contain object-bottom"
+                    sizes="(max-width: 1280px) 50vw, 33vw"
+                  />
                 </div>
 
-                <div className="p-6">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-cyan-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-800">
-                    <Sparkles className="h-3.5 w-3.5" />
+                {/* Info — compact */}
+                <div className="p-5 flex flex-col gap-1.5 border-t border-slate-100">
+                  <span className="inline-flex items-center gap-1.5 w-fit rounded-full border border-cyan-100 bg-cyan-50 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-800">
+                    <Sparkles className="h-3 w-3" />
                     {member.label}
-                  </div>
-                  <h3 className="mt-4 text-2xl font-bold text-slate-950">{member.name}</h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{member.role}</p>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{member.summary}</p>
+                  </span>
+                  <h3 className="text-lg font-bold text-slate-950">{member.name}</h3>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">{member.role}</p>
+                  <p className="mt-1 text-[13px] leading-6 text-slate-600">{member.summary}</p>
                 </div>
               </motion.article>
             ))}
@@ -287,33 +287,31 @@ export default function OurTeam() {
                 text="Beyond leadership, the team includes specialists focused on on-ground sweep operations and red-team thinking, which helps bridge physical and network-led surveillance risks."
               />
 
-              <div className="mt-8 grid gap-4">
+              <div className="mt-8 grid gap-5">
                 {tacticalSupport.map((member, index) => (
                   <motion.article
                     key={member.name}
                     {...fadeUp}
                     transition={{ ...fadeUp.transition, delay: index * 0.06 }}
                     whileHover={{ y: -4 }}
-                    className="grid overflow-hidden rounded-[22px] border border-white/70 bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.05)] sm:grid-cols-[160px_1fr]"
+                    className="flex gap-5 overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_14px_40px_rgba(15,23,42,0.06)] p-4 items-center"
                   >
-                    <div className="bg-[linear-gradient(180deg,#f0fdfa_0%,#f8fafc_100%)] p-4">
-                      <div className="relative mx-auto h-40 w-full max-w-[122px]">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="object-contain object-bottom"
-                          sizes="(max-width: 768px) 100vw, 122px"
-                        />
-                      </div>
+                    {/* Square photo */}
+                    <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-slate-100">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top"
+                        sizes="112px"
+                      />
                     </div>
-                    <div className="p-5 sm:p-6">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                        Support 0{index + 1}
-                      </p>
-                      <h3 className="mt-3 text-xl font-bold text-slate-950">{member.name}</h3>
-                      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-700">{member.role}</p>
-                      <p className="mt-4 text-sm leading-7 text-slate-600">{member.summary}</p>
+                    {/* Info */}
+                    <div className="flex flex-col gap-1">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Support 0{index + 1}</p>
+                      <h3 className="text-lg font-bold text-slate-950">{member.name}</h3>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-700">{member.role}</p>
+                      <p className="mt-1 text-sm leading-6 text-slate-600">{member.summary}</p>
                     </div>
                   </motion.article>
                 ))}

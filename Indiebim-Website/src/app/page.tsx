@@ -41,7 +41,7 @@ export default function Home() {
       eyebrow: 'Active Sweep',
       title: 'Counter-Surveillance',
       text: 'Real-world detection support for corporate, residential, and executive environments.',
-      image: '/images/banner-2-5-1.jpg',
+      image: '/TSCM_Interro-1024x768.jpeg',
       href: '/counter-surveillance',
       highlights: ['Executive travel checks', 'Live threat detection', 'Discreet deployment'],
     },
@@ -49,7 +49,7 @@ export default function Home() {
       eyebrow: 'Privacy Check',
       title: 'Bug Sweep',
       text: 'Targeted technical inspection for hidden devices, suspicious signals, and compromised spaces.',
-      image: '/images/bug.jpg',
+      image: '/TSCM-Bug-Sweep.jpg',
       href: '/business-bug-sweep',
       highlights: ['Office and home sweeps', 'Hidden device detection', 'Signal analysis'],
     },
@@ -57,7 +57,7 @@ export default function Home() {
       eyebrow: 'Secure Venue',
       title: 'TSCM Coverage',
       text: 'Minimal disruption, fast response, and discreet protection for sensitive meetings and travel stays.',
-      image: '/images/tscm.jpg',
+      image: '/lasorsa-tscm-bug-sweeps-1024x727-1.webp',
       href: '/cyber-tscm-service',
       highlights: ['Meeting room protection', 'Hybrid cyber checks', 'Rapid response teams'],
     },
@@ -154,6 +154,7 @@ export default function Home() {
     if (!el) return;
 
     let previousTime = performance.now();
+    let exactScroll = el.scrollLeft;
 
     const step = (currentTime: number) => {
       const maxScrollLeft = el.scrollWidth - el.clientWidth;
@@ -162,11 +163,18 @@ export default function Home() {
       previousTime = currentTime;
 
       if (!isPaused && maxScrollLeft > 0) {
-        el.scrollLeft += delta * 0.035;
-
-        if (el.scrollLeft >= maxScrollLeft) {
-          el.scrollLeft = 0;
+        // Sync exactScroll if user scrolled manually
+        if (Math.abs(exactScroll - el.scrollLeft) > 1.5) {
+          exactScroll = el.scrollLeft;
         }
+
+        exactScroll += delta * 0.04;
+
+        if (exactScroll >= maxScrollLeft) {
+          exactScroll = 0;
+        }
+
+        el.scrollLeft = exactScroll;
       }
 
       servicesAutoScrollFrameRef.current = window.requestAnimationFrame(step);
@@ -415,7 +423,7 @@ export default function Home() {
                 title: "TSCM",
                 icon: <Radio className="w-8 h-8 text-indigo-600" />,
                 desc: "Technical surveillance countermeasures (TSCM) describes the action of sweeping for devices that may be spying on you.",
-                image: "/images/tscm.jpg",
+                image: "/TSCM.jpeg",
                 href: "/tscm-services-in-delhi",
                 tone: "from-indigo-500 via-sky-500 to-cyan-400",
                 accent: "bg-indigo-50 text-indigo-700 border-indigo-200/80",
@@ -426,7 +434,7 @@ export default function Home() {
                 title: "BUG SWEEP",
                 icon: <Search className="w-8 h-8 text-emerald-500" />,
                 desc: "Bug Sweeping is all about debugging. It's a physical and technical countermeasures survey used to locate illicit electronic devices.",
-                image: "/images/bug.jpg",
+                image: "/TSCM-Bug-Sweep.jpg",
                 href: "/business-bug-sweep",
                 tone: "from-emerald-500 via-teal-500 to-cyan-400",
                 accent: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
@@ -437,7 +445,7 @@ export default function Home() {
                 title: "SUPPORT",
                 icon: <ShieldCheck className="w-8 h-8 text-rose-500" />,
                 desc: "We can be on-site within 24 to 48 hours after receipt of your Service Agreement to secure your critical environments.",
-                image: "/images/support.jpg",
+                image: "/Live-Monitor-TSCM (1).jpg",
                 href: "/contact-us",
                 tone: "from-rose-500 via-orange-500 to-amber-400",
                 accent: "bg-rose-50 text-rose-700 border-rose-200/80",
@@ -563,12 +571,13 @@ export default function Home() {
             >
                <div className="relative w-full max-w-sm overflow-hidden rounded-3xl shadow-2xl border border-slate-200">
                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 z-10 pointer-events-none rounded-3xl"></div>
-                 <Image
-                   src="/images/why-us.jpeg"
-                   alt="Why Choose Indiebim"
-                   width={400}
-                   height={560}
-                   className="w-full h-auto object-cover"
+                 <video
+                   src="/tscm wahid sir.mp4"
+                   autoPlay
+                   loop
+                   muted
+                   playsInline
+                   className="w-full h-auto object-cover aspect-[4/5] md:aspect-auto"
                  />
                </div>
                {/* Floating badge */}

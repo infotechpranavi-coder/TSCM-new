@@ -56,11 +56,7 @@ const NAV_LINKS: Array<{
     name: 'TSCM Services', 
     href: '/tscm-services',
     dropdown: [
-      { name: 'TSCM Services in Mumbai', href: '/tscm-services-in-mumbai' },
-      { name: 'TSCM Services in Delhi', href: '/tscm-services-in-delhi' },
-      { name: 'TSCM Services in Bangalore', href: '/tscm-services-in-bangalore' },
-      { name: 'TSCM Services in Ahmedabad', href: '/tscm-services-in-ahmedabad' },
-      { name: 'TSCM Services in Pune', href: '/tscm-services-in-pune' },
+
       { name: 'Corporate tscm service', href: '/corporate-tscm-service' },
       { name: 'Residential TSCM Service', href: '/residential-tscm-service' },
       { name: 'Cyber TSCM Service', href: '/cyber-tscm-service' },
@@ -133,11 +129,7 @@ const NAV_LINKS: Array<{
       { name: 'Business Bug Sweep', href: '/business-bug-sweep' },
       { name: 'Home Bug Sweep', href: '/home-bug-sweep' },
       { name: 'Debugging Services', href: '/debugging-services' },
-      { name: 'Bug Sweeping Services in Pune', href: '/bug-sweeping-services-in-pune' },
-      { name: 'Bug Sweeping Services in Mumbai', href: '/bug-sweeping-services-in-mumbai' },
-      { name: 'Bug Sweeping Services in Delhi', href: '/bug-sweeping-services-in-delhi' },
-      { name: 'Bug Sweeping Services in Bangalore', href: '/bug-sweeping-services-in-bangalore' },
-      { name: 'Bug Sweeping Services in Ahmedabad', href: '/bug-sweeping-services-in-ahmedabad' },
+
     ]
   },
   { name: 'Publications', href: '/publications' },

@@ -6,28 +6,38 @@ export type GalleryImage = {
 
 export const galleryImages: GalleryImage[] = [
   {
-    src: '/images/banner-2-5-1.jpg',
-    alt: 'Counter-surveillance field coverage',
-    title: 'Counter-Surveillance Coverage',
+    src: '/TSCM-Bug-Sweep.jpg',
+    alt: 'TSCM Bug Sweep',
+    title: 'TSCM Bug Sweep',
   },
   {
-    src: '/images/bug.jpg',
-    alt: 'Professional bug sweep inspection',
-    title: 'Bug Sweep Inspection',
+    src: '/lasorsa-tscm-bug-sweeps-1024x727-1.webp',
+    alt: 'TSCM Bug Sweeps Operation',
+    title: 'Bug Sweeps Operation',
   },
   {
-    src: '/images/tscm.jpg',
-    alt: 'TSCM security scanning setup',
-    title: 'TSCM Technical Sweep',
+    src: '/TSCM_Interro-1024x768.jpeg',
+    alt: 'TSCM Analysis and Interrogation',
+    title: 'TSCM Analysis',
   },
   {
-    src: '/images/support.jpg',
-    alt: 'Rapid response operational support',
-    title: 'Rapid Response Support',
+    src: '/TSCM.jpeg',
+    alt: 'TSCM Overview',
+    title: 'TSCM Overview',
   },
   {
-    src: '/images/why-us.jpeg',
-    alt: 'Indiebim team protection overview',
-    title: 'Trusted Protection Team',
+    src: '/Live-Monitor-TSCM (1).jpg',
+    alt: 'Live Monitor TSCM',
+    title: 'Live Monitor TSCM',
+  },
+  {
+    src: '/IMG-20260425-WA0040.jpg (2).jpeg',
+    alt: 'TSCM Field Operation',
+    title: 'Field Operation',
+  },
+  {
+    src: '/HI-28 (2)_page-0001.jpg',
+    alt: 'TSCM Equipment Showcase',
+    title: 'Equipment Showcase',
   },
 ];
