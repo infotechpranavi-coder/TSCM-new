@@ -2,7 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Mouse } from 'lucide-react';
 import PublicationCard from '@/components/PublicationCard';
+import PressReleaseDistributionSection from '@/components/PressReleaseDistributionSection';
 import { publications } from '@/data/publications';
+import {
+  PRESS_RELEASE_AUDIENCE_REACH,
+  PRESS_RELEASE_REPORT_TITLE,
+  PRESS_RELEASE_TOTAL_PLACEMENTS,
+  pressReleasePlacements,
+} from '@/data/pressReleaseDistribution';
 
 export const metadata: Metadata = {
   title: 'Publications | Indiebim',
@@ -29,8 +36,8 @@ export default function PublicationsPage() {
             Press &amp; industry coverage
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Curated links to articles and listings featuring Indiebim. Open any item in a new tab to read the full piece
-            on the publisher site.
+            Press release syndication with publication logos, plus curated article links. Open any item in a new tab to
+            read the full piece on the publisher site.
           </p>
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
             <Mouse className="h-4 w-4 text-cyan-600" />
@@ -47,6 +54,13 @@ export default function PublicationsPage() {
       </section>
 
       <section className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <PressReleaseDistributionSection
+          reportTitle={PRESS_RELEASE_REPORT_TITLE}
+          totalPlacements={PRESS_RELEASE_TOTAL_PLACEMENTS}
+          audienceReach={PRESS_RELEASE_AUDIENCE_REACH}
+          placements={pressReleasePlacements}
+        />
+
         <div className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/80 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-sm">
           <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 px-6 py-5">
             <div>

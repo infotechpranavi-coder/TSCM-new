@@ -1,43 +1,50 @@
-export type GalleryImage = {
+﻿export type GalleryImage = {
   src: string;
   alt: string;
   title: string;
 };
 
-export const galleryImages: GalleryImage[] = [
-  {
-    src: '/TSCM-Bug-Sweep.jpg',
-    alt: 'TSCM Bug Sweep',
-    title: 'TSCM Bug Sweep',
-  },
-  {
-    src: '/lasorsa-tscm-bug-sweeps-1024x727-1.webp',
-    alt: 'TSCM Bug Sweeps Operation',
-    title: 'Bug Sweeps Operation',
-  },
-  {
-    src: '/TSCM_Interro-1024x768.jpeg',
-    alt: 'TSCM Analysis and Interrogation',
-    title: 'TSCM Analysis',
-  },
-  {
-    src: '/TSCM.jpeg',
-    alt: 'TSCM Overview',
-    title: 'TSCM Overview',
-  },
-  {
-    src: '/Live-Monitor-TSCM (1).jpg',
-    alt: 'Live Monitor TSCM',
-    title: 'Live Monitor TSCM',
-  },
-  {
-    src: '/IMG-20260425-WA0040.jpg (2).jpeg',
-    alt: 'TSCM Field Operation',
-    title: 'Field Operation',
-  },
-  {
-    src: '/HI-28 (2)_page-0001.jpg',
-    alt: 'TSCM Equipment Showcase',
-    title: 'Equipment Showcase',
-  },
-];
+function gallerySrc(filename: string): string {
+  return `/gallery/${encodeURIComponent(filename)}`;
+}
+
+const galleryFilenames = [
+  'WhatsApp Image 2026-05-12 at 5.33.56 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.34.27 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.37.02 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.37.02 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.37.03 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.12 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.13 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.13 PM (2).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.13 PM (3).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.13 PM (4).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.13 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.14 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.14 PM (2).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.14 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.15 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.15 PM (2).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.15 PM (3).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.15 PM (4).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.15 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.16 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.16 PM (2).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.16 PM (3).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.16 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.17 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.42.17 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.48.04 PM.jpeg',
+  'WhatsApp Image 2026-05-12 at 5.48.05 PM (1).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.48.05 PM (2).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.48.05 PM (3).jpeg',
+  'WhatsApp Image 2026-05-12 at 5.48.05 PM.jpeg',
+] as const;
+
+export const galleryImages: GalleryImage[] = galleryFilenames.map((filename, index) => ({
+  src: gallerySrc(filename),
+  alt: `TSCM field operation ${index + 1}`,
+  title: `Field Operation ${index + 1}`,
+}));
+
+export const galleryPreviewImages = galleryImages.slice(0, 5);

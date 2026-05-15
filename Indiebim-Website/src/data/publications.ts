@@ -6,6 +6,71 @@ export type Publication = {
 
 export const publications: Publication[] = [
   {
+    publisher: 'Entrepreneur Street',
+    title: "Interview: Architecting India's Modern Security Ecosystem — A Conversation with Wahid Shaikh",
+    url: 'https://entrepreneurstreet.in/interview-architecting-indias-modern-security-ecosystem-a-conversation-with-wahid-shaikh/',
+  },
+  {
+    publisher: 'Entrepreneur Street',
+    title: "The Rise of Advanced Counter-Surveillance in India's Corporate Sector",
+    url: 'https://entrepreneurstreet.in/the-rise-of-advanced-counter-surveillance-in-indias-corporate-sector/',
+  },
+  {
+    publisher: 'Medium',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://medium.com/@dm2.spatzmedia/from-investigative-legacy-to-strategic-intelligence-powerhouse-b1b845ffafc3',
+  },
+  {
+    publisher: 'Tumblr',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://www.tumblr.com/spatzmedia/815856204811206656/from-investigative-legacy-to-strategic',
+  },
+  {
+    publisher: 'The Addit Magazine',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://theadditmagazine.com/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Primetime Alert',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://primetimealert.com/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Hindustan Business Times',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://hindustanbusinesstimes.com/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Hindustan Insider',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://hindustaninsider.in/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Trend Insider',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://trendinsider.in/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Urban Chronicle',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://urbanchronicle.in/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Desi Spotlight',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://desispotlight.in/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Entrepreneur Street',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://entrepreneurstreet.in/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
+    publisher: 'Disruptive Spotlight',
+    title: 'From Investigative Legacy to Strategic Intelligence Powerhouse',
+    url: 'https://disruptivespotlight.com/2026/05/06/from-investigative-legacy-to-strategic-intelligence-powerhouse/',
+  },
+  {
     publisher: 'Businesses Updates',
     title: "Indiebim Technology Solutions: Mumbai's Premier Technical Counter-Espionage Firm",
     url: 'https://businessesupdates.com/indiebim-technology-solutions-mumbais-premier-technical-counter-espionage-firm/',

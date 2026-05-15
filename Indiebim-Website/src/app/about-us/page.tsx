@@ -7,6 +7,7 @@ import {
   Activity,
   ChevronRight,
   Cpu,
+  ExternalLink,
   Eye,
   MapPin,
   Phone,
@@ -16,6 +17,9 @@ import {
   Waves,
   Wifi,
 } from 'lucide-react';
+
+const WIKIFLUX_WAHID_SHAIKH_URL =
+  'https://en.wikiflux.org/wiki/index.php/Wahid_Shaikh';
 
 const experienceAreas = [
   'Corporate and boardroom security for mergers, acquisitions, and intellectual property',
@@ -448,6 +452,65 @@ export default function AboutUs() {
                 ))}
               </div>
             </div>
+          </motion.div>
+
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.12 }} className="mt-14">
+            <SectionHeading
+              tag="Featured article"
+              title="Wahid Shaikh — WikiFlux profile"
+              description="Read an encyclopedia-style overview of our founder’s career, ecosystem, and industry impact. The preview below opens the full article in a new tab when you click anywhere on the card."
+            />
+
+            <motion.a
+              href={WIKIFLUX_WAHID_SHAIKH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.06 }}
+              whileHover={{ y: -4 }}
+              className="mt-8 block overflow-hidden rounded border border-[#a2a9b1] bg-white text-left shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-shadow duration-300 hover:border-[#72777d] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+            >
+              <div className="border-b border-[#eaecf0] bg-[#f8f9fa] px-4 py-2">
+                <p className="text-[11px] leading-snug text-[#54595d]">
+                  From <span className="font-medium text-[#202122]">WikiFlux</span>, the independent wiki
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-5 p-4 sm:flex-row sm:gap-6 sm:p-5">
+                <div className="order-2 min-w-0 flex-1 sm:order-1">
+                  <h3 className="font-serif text-[1.35rem] font-normal leading-snug text-[#202122] sm:text-[1.5rem]">
+                    Wahid Shaikh
+                  </h3>
+                  <p className="mt-3 text-[0.875rem] leading-[1.6] text-[#202122]">
+                    Indian investigative strategist and corporate security architect recognized for contributions to
+                    private investigation, intelligence, and technical surveillance counter-measures (TSCM) in India.
+                    Known for integrating field investigation with digital forensics and a unified security ecosystem
+                    across investigation, intelligence, and technology.
+                  </p>
+                  <p className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-[#3366cc]">
+                    Read the full article on WikiFlux
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-80" aria-hidden />
+                  </p>
+                </div>
+
+                <div className="order-1 mx-auto w-full max-w-[140px] shrink-0 border border-[#c8ccd1] bg-[#f8f9fa] p-2 sm:order-2 sm:mx-0">
+                  <div className="relative aspect-square w-full overflow-hidden bg-white">
+                    <Image
+                      src={founderProfile.fallbackImage}
+                      alt="Wahid Shaikh"
+                      fill
+                      className="object-cover object-center"
+                      sizes="140px"
+                    />
+                  </div>
+                  <p className="mt-2 px-0.5 text-center text-[10px] leading-tight text-[#54595d]">
+                    Founder &amp; Managing Director
+                  </p>
+                </div>
+              </div>
+            </motion.a>
           </motion.div>
         </div>
       </section>
