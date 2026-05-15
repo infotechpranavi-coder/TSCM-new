@@ -4,8 +4,8 @@
   title: string;
 };
 
-function gallerySrc(filename: string): string {
-  return `/gallery/${encodeURIComponent(filename)}`;
+function gallerySrc(folder: 'gallery' | 'new', filename: string): string {
+  return `/${folder}/${encodeURIComponent(filename)}`;
 }
 
 const galleryFilenames = [
@@ -41,8 +41,22 @@ const galleryFilenames = [
   'WhatsApp Image 2026-05-12 at 5.48.05 PM.jpeg',
 ] as const;
 
-export const galleryImages: GalleryImage[] = galleryFilenames.map((filename, index) => ({
-  src: gallerySrc(filename),
+const newGalleryFilenames = [
+  'IMG_0503 (1).jpg',
+  'IMG_0503.jpg',
+  'IMG_0515.jpg',
+  'IMG_0516.jpg',
+  'IMG_0518.jpg',
+  'IMG_0519.jpg',
+] as const;
+
+const galleryEntries = [
+  ...galleryFilenames.map((filename) => ({ folder: 'gallery' as const, filename })),
+  ...newGalleryFilenames.map((filename) => ({ folder: 'new' as const, filename })),
+];
+
+export const galleryImages: GalleryImage[] = galleryEntries.map(({ folder, filename }, index) => ({
+  src: gallerySrc(folder, filename),
   alt: `TSCM field operation ${index + 1}`,
   title: `Field Operation ${index + 1}`,
 }));
