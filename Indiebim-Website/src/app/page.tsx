@@ -809,7 +809,7 @@ export default function Home() {
                 <span className="text-slate-600 text-sm">Based on 22 reviews</span>
               </div>
               <Link
-                href="/clienttestimonial"
+                href="/client-testimonial"
                 className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700"
               >
                 View Full Client Testimonial
