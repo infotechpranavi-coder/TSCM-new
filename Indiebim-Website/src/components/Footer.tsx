@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-cyan-500/[0.06] blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7">
           {/* Brand */}
           <div className="space-y-4 xl:col-span-2">
             <Link href="/" className="group inline-flex flex-col items-center gap-1.5 text-center">
@@ -223,6 +223,27 @@ export default function Footer() {
           </div>
 
           <div>
+            <h3 className="mb-4 text-lg font-semibold text-slate-900">Publications &amp; Media</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/publications" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Publications
+                </Link>
+              </li>
+              <li>
+                <Link href="/media" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Media
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Gallery
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h3 className="mb-4 text-lg font-semibold text-slate-900">Resources</h3>
             <ul className="space-y-3">
               <li>
@@ -263,16 +284,6 @@ export default function Footer() {
               <li>
                 <Link href="/our-equipments" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
                   Our Equipments
-                </Link>
-              </li>
-              <li>
-                <Link href="/publications" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
-                  Publications
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
-                  Gallery
                 </Link>
               </li>
               <li>

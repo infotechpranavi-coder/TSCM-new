@@ -4,7 +4,7 @@
   title: string;
 };
 
-function gallerySrc(folder: 'gallery' | 'new', filename: string): string {
+function imageSrc(folder: string, filename: string): string {
   return `/${folder}/${encodeURIComponent(filename)}`;
 }
 
@@ -42,23 +42,32 @@ const galleryFilenames = [
 ] as const;
 
 const newGalleryFilenames = [
-  'IMG_0503 (1).jpg',
-  'IMG_0503.jpg',
-  'IMG_0515.jpg',
-  'IMG_0516.jpg',
-  'IMG_0518.jpg',
-  'IMG_0519.jpg',
+  'WhatsApp Image 2026-05-18 at 1.14.00 PM.jpeg',
+  'WhatsApp Image 2026-05-18 at 1.14.18 PM.jpeg',
 ] as const;
 
-const galleryEntries = [
-  ...galleryFilenames.map((filename) => ({ folder: 'gallery' as const, filename })),
-  ...newGalleryFilenames.map((filename) => ({ folder: 'new' as const, filename })),
+function toGalleryImages(
+  folder: string,
+  filenames: readonly string[],
+  startIndex: number
+): GalleryImage[] {
+  return filenames.map((filename, index) => {
+    const number = startIndex + index + 1;
+    return {
+      src: imageSrc(folder, filename),
+      alt: `TSCM field operation ${number}`,
+      title: `Field Operation ${number}`,
+    };
+  });
+}
+
+export const galleryImages: GalleryImage[] = [
+  ...toGalleryImages('gallery', galleryFilenames, 0),
+  ...toGalleryImages('newgallery', newGalleryFilenames, galleryFilenames.length),
 ];
 
-export const galleryImages: GalleryImage[] = galleryEntries.map(({ folder, filename }, index) => ({
-  src: gallerySrc(folder, filename),
-  alt: `TSCM field operation ${index + 1}`,
-  title: `Field Operation ${index + 1}`,
-}));
+const homeGalleryPreviewNumbers = [1, 3, 7, 10, 26] as const;
 
-export const galleryPreviewImages = galleryImages.slice(0, 5);
+export const galleryPreviewImages: GalleryImage[] = homeGalleryPreviewNumbers.map(
+  (number) => galleryImages[number - 1]
+);

@@ -132,8 +132,6 @@ const NAV_LINKS: Array<{
 
     ]
   },
-  { name: 'Publications', href: '/publications' },
-  { name: 'Gallery', href: '/gallery' },
   { name: 'Case Studies', href: '/case-study' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact-us' },

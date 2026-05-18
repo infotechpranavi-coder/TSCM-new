@@ -10,7 +10,6 @@ export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-slate-50 pb-24 pt-28">
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,33 +25,35 @@ export default function GalleryPage() {
           </p>
         </motion.div>
 
-        {/* Masonry-style grid — images show fully, no cropping */}
-        <div className="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3"
+        >
           {galleryImages.map((image, index) => (
             <motion.article
               key={image.src}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="group mb-4 break-inside-avoid overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm"
+              className="group mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
             >
-              {/* Image — full visible, no crop */}
               <div className="relative w-full">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width={800}
                   height={600}
-                  className="w-full h-auto object-contain"
+                  className="h-auto w-full object-contain"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   priority={index < 2}
                 />
               </div>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

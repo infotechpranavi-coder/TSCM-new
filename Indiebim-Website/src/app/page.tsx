@@ -18,7 +18,7 @@ import {
   EyeOff,
   ArrowRight,
 } from 'lucide-react';
-import { galleryImages } from '@/data/galleryImages';
+import { galleryPreviewImages } from '@/data/galleryImages';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -751,13 +751,13 @@ export default function Home() {
               href="/gallery"
               className="inline-flex items-center gap-2 self-start rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700 lg:self-auto"
             >
-              View Full Media
+              View Gallery
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {galleryImages.map((image, index) => (
+            {galleryPreviewImages.map((image, index) => (
               <motion.article
                 key={image.src}
                 initial={{ opacity: 0, y: 20 }}
@@ -777,9 +777,9 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-200">
-                      Photo {String(index + 1).padStart(2, '0')}
+                      {image.title}
                     </p>
-                    <p className="mt-1 text-sm font-semibold leading-6">{image.title}</p>
+                    <p className="mt-1 text-sm font-semibold leading-6">TSCM field operations</p>
                   </div>
                 </div>
               </motion.article>
