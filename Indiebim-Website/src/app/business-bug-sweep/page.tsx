@@ -9,7 +9,7 @@ export default function BusinessBugSweep() {
     <div className="flex flex-col min-h-screen bg-slate-50 pt-32 pb-24 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
-         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent"></div>
+         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent"></div>
          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px]"></div>
       </div>
 
@@ -27,7 +27,7 @@ export default function BusinessBugSweep() {
                animate={{ opacity: 1, y: 0 }}
                className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
             >
-               Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">Bug Sweep</span>
+               Business <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">Bug Sweep</span>
             </motion.h1>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -117,7 +117,7 @@ export default function BusinessBugSweep() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-cyan-50 to-blue-50 p-10 rounded-3xl border border-cyan-200 text-center max-w-4xl mx-auto"
+            className="bg-linear-to-r from-cyan-50 to-blue-50 p-10 rounded-3xl border border-cyan-200 text-center max-w-4xl mx-auto"
          >
             <h3 className="text-3xl font-bold text-slate-900 mb-6">Secure Your Business Environment Today</h3>
             <p className="text-slate-700 text-lg leading-relaxed mb-8">

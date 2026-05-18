@@ -132,7 +132,7 @@ export default function OurTeam() {
       <section className="relative overflow-hidden pt-32">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.18),_transparent_58%)]" />
-          <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          <div className="absolute inset-x-0 top-24 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
@@ -205,7 +205,7 @@ export default function OurTeam() {
                     priority
                     sizes="(max-width: 1024px) 100vw, 44vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Team Profile</p>
                     <p className="mt-2 max-w-md text-sm leading-7 text-slate-100">
@@ -251,7 +251,7 @@ export default function OurTeam() {
                 className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col"
               >
                 {/* Photo — full image visible, no cropping */}
-                <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100">
+                <div className="relative w-full aspect-square overflow-hidden bg-linear-to-b from-slate-50 to-slate-100">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -387,7 +387,7 @@ export default function OurTeam() {
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute -right-16 top-0 h-48 w-48 rounded-full bg-cyan-200/30 blur-3xl" />
               <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-slate-200/60 blur-3xl" />
-              <div className="absolute inset-y-0 left-[30%] hidden w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent lg:block" />
+              <div className="absolute inset-y-0 left-[30%] hidden w-px bg-linear-to-b from-transparent via-slate-200 to-transparent lg:block" />
             </div>
 
             <div className="relative grid gap-0 lg:grid-cols-[0.34fr_0.66fr]">

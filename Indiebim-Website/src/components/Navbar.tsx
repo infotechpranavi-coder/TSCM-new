@@ -157,7 +157,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         useSolidHeader
           ? 'border-b border-slate-200/90 bg-white/96 shadow-lg shadow-slate-900/10 backdrop-blur-md'
-          : 'border-b border-white/10 bg-gradient-to-b from-slate-950/92 via-slate-950/58 to-slate-950/8 backdrop-blur-[2px]'
+          : 'border-b border-white/10 bg-linear-to-b from-slate-950/92 via-slate-950/58 to-slate-950/8 backdrop-blur-[2px]'
       }`}
     >
       <div className="mx-auto h-20 max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -242,7 +242,7 @@ export default function Navbar() {
                                   aria-expanded={active}
                                   aria-haspopup="true"
                                 >
-                                  <span className="min-w-0 break-words pr-1">{dropLink.name}</span>
+                                  <span className="min-w-0 wrap-break-word pr-1">{dropLink.name}</span>
                                   <ChevronRight
                                     className={`h-4 w-4 shrink-0 transition-transform ${active ? 'translate-x-0.5 text-cyan-700' : 'text-slate-400'}`}
                                     aria-hidden
@@ -259,7 +259,7 @@ export default function Navbar() {
                                   rel="noopener noreferrer"
                                   className={`flex min-w-0 items-center gap-2 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-cyan-700 ${afterNested ? 'border-t border-slate-200' : ''}`}
                                 >
-                                  <span className="min-w-0 flex-1 break-words">{dropLink.name}</span>
+                                  <span className="min-w-0 flex-1 wrap-break-word">{dropLink.name}</span>
                                   <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden />
                                 </a>
                               );
@@ -268,7 +268,7 @@ export default function Navbar() {
                               <Link
                                 key={dropLink.name}
                                 href={dropLink.href}
-                                className={`block min-w-0 break-words px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-cyan-700 ${afterNested ? 'border-t border-slate-200' : ''}`}
+                                className={`block min-w-0 wrap-break-word px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-cyan-700 ${afterNested ? 'border-t border-slate-200' : ''}`}
                               >
                                 {dropLink.name}
                               </Link>
@@ -290,7 +290,7 @@ export default function Navbar() {
                                 transition={{ duration: 0.18, ease: 'easeOut' }}
                                 className="flex w-72 min-w-0 max-w-[min(18rem,calc(100vw-20rem))] shrink-0 flex-col overflow-x-hidden overflow-y-auto border-l border-cyan-200/60 bg-[linear-gradient(180deg,#f0fdfa_0%,#ffffff_55%)] py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                               >
-                                <p className="break-words px-4 pb-2 pt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-800">
+                                <p className="wrap-break-word px-4 pb-2 pt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-800">
                                   {nestedMenuKey.split('::')[1] ?? 'Services'}
                                 </p>
                                 <div className="min-w-0 pb-2">
@@ -302,7 +302,7 @@ export default function Navbar() {
                                       rel="noopener noreferrer"
                                       className="flex min-w-0 items-center gap-2 border-t border-slate-100/90 px-4 py-2.5 text-sm text-slate-700 transition-colors first:border-t-0 hover:bg-cyan-50/80 hover:text-cyan-800"
                                     >
-                                      <span className="min-w-0 flex-1 break-words leading-snug">{sub.name}</span>
+                                      <span className="min-w-0 flex-1 wrap-break-word leading-snug">{sub.name}</span>
                                       <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden />
                                     </a>
                                   ))}
@@ -325,7 +325,7 @@ export default function Navbar() {
                                   rel="noopener noreferrer"
                                   className="flex min-w-0 items-center gap-2 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-cyan-700"
                                 >
-                                  <span className="min-w-0 flex-1 break-words">{dropLink.name}</span>
+                                  <span className="min-w-0 flex-1 wrap-break-word">{dropLink.name}</span>
                                   <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden />
                                 </a>
                               );
@@ -334,7 +334,7 @@ export default function Navbar() {
                               <Link
                                 key={dropLink.name}
                                 href={dropLink.href}
-                                className="block min-w-0 break-words px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-cyan-700"
+                                className="block min-w-0 wrap-break-word px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-cyan-700"
                               >
                                 {dropLink.name}
                               </Link>
@@ -349,7 +349,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact-us"
-              className="rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-2.5 font-semibold text-white shadow-[0_0_15px_rgba(99,102,241,0.35)] transition-all hover:from-indigo-600 hover:to-violet-700 hover:shadow-[0_0_25px_rgba(99,102,241,0.5)]"
+              className="rounded-full bg-linear-to-r from-indigo-500 to-violet-600 px-5 py-2.5 font-semibold text-white shadow-[0_0_15px_rgba(99,102,241,0.35)] transition-all hover:from-indigo-600 hover:to-violet-700 hover:shadow-[0_0_25px_rgba(99,102,241,0.5)]"
             >
               Get Secure
             </Link>
@@ -389,7 +389,7 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                      <Link
                         href={link.href}
-                        className={`block flex-grow rounded-lg px-3 py-3 text-base font-medium transition-colors ${
+                        className={`block grow rounded-lg px-3 py-3 text-base font-medium transition-colors ${
                           isActiveLink(link.href)
                             ? 'bg-cyan-50 text-cyan-700'
                             : 'text-slate-700 hover:bg-slate-100 hover:text-cyan-600'

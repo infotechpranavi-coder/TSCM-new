@@ -1,0 +1,327 @@
+================================================================================
+INDIEBIM / TSCM.IN — JSON-LD SCHEMA PLACEMENT REPORT
+================================================================================
+Domain: https://tscm.in/
+Project: Indiebim-Website (Next.js)
+Purpose: Tell developers which schema block goes on which page
+Generated: Reference guide from Master Blueprint (10 core layers + 2 extensions)
+Status:   APPROVED FOR PRODUCTION (structural validation passed)
+
+NOTES FOR DEVELOPERS
+--------------------
+- Place JSON-LD inside <head> as: <script type="application/ld+json">...</script>
+- In Next.js: use a shared JsonLd component (see CRITICAL IMPLEMENTATION NOTES below)
+- Use https://tscm.in in all @id and URL fields (not localhost)
+- Homepage gets the full @graph (Section 1) ONLY ONCE
+- Other pages reference entities by @id: #organization, #corporate-entity, #website
+- Fix typo in blueprint sameAs: https://www.osintels.com (trailing smart quote removed)
+
+================================================================================
+STRUCTURAL VALIDATION (PASSED)
+================================================================================
+
+1. @graph consolidation on homepage (/) only — prevents duplicate entity penalties.
+2. Cross-domain authority via #corporate-entity and #executive-founder @id references
+   (bridges hsdetectives.com, wahidshaikh.com, orionsc.in without loop confusion).
+3. BreadcrumbList on every internal page except homepage — full crawl architecture.
+
+================================================================================
+CRITICAL IMPLEMENTATION NOTES (Next.js — REQUIRED)
+================================================================================
+
+1. ON-PAGE MATCH RULE (FAQPage & HowTo)
+   Google penalizes "hidden schema." FAQPage on /corporate-tscm-service or HowTo on
+   blog posts is ONLY allowed if JSON-LD text matches visible on-page content
+   word-for-word. If users cannot read it on screen, do not add the schema.
+
+2. NEXT.JS JSON-LD INJECTION (prevent build/render breaks)
+   Do not paste raw JSON with unescaped & or quotes into JSX. Use:
+
+   <script
+     type="application/ld+json"
+     dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+   />
+
+   Recommended: create src/components/JsonLd.tsx that accepts a schema object.
+
+3. POST-DEPLOYMENT VALIDATION
+   After staging or live deploy, test every template with:
+   - Google Rich Results Test: https://search.google.com/test/rich-results
+   - Schema Markup Validator: https://validator.schema.org/
+   Fix all errors and warnings before treating a page as complete.
+
+================================================================================
+SECTION 1 — HOMEPAGE ONLY (Global Entity & Trust)
+================================================================================
+
+Schema types (combined in one @graph):
+  - Corporation          (@id: https://tscm.in/#corporate-entity)
+  - ProfessionalService  (@id: https://tscm.in/#organization)
+  - WebSite              (@id: https://tscm.in/#website)
+
+WHERE TO ADD:
+  Page:  Homepage ONLY
+  URL:   https://tscm.in/
+  Route: /
+
+DO NOT add this full block on any other page.
+
+================================================================================
+SECTION 2 — Main Service & Location Pages
+================================================================================
+
+--------------------------------------------------------------------------------
+2. Service Schema (Enhanced — with technical equipment knowsAbout)
+--------------------------------------------------------------------------------
+Schema type: Service
+
+WHERE TO ADD — Main TSCM services:
+  - https://tscm.in/corporate-tscm-service          Route: /corporate-tscm-service
+  - https://tscm.in/residential-tscm-service        Route: /residential-tscm-service
+  - https://tscm.in/cyber-tscm-service              Route: /cyber-tscm-service
+  - https://tscm.in/tscm-services                   Route: /tscm-services
+  - https://tscm.in/counter-surveillance            Route: /counter-surveillance
+  - https://tscm.in/bug-sweep                       Route: /bug-sweep
+  - https://tscm.in/eavesdropping-detection         Route: /eavesdropping-detection
+
+WHERE TO ADD — City TSCM location hubs:
+  - https://tscm.in/tscm-services-in-mumbai         Route: /tscm-services-in-mumbai
+  - https://tscm.in/tscm-services-in-delhi          Route: /tscm-services-in-delhi
+  - https://tscm.in/tscm-services-in-bangalore       Route: /tscm-services-in-bangalore
+  - https://tscm.in/tscm-services-in-ahmedabad      Route: /tscm-services-in-ahmedabad
+  - https://tscm.in/tscm-services-in-pune           Route: /tscm-services-in-pune
+
+WHERE TO ADD — Bug sweep services:
+  - https://tscm.in/business-bug-sweep              Route: /business-bug-sweep
+  - https://tscm.in/home-bug-sweep                  Route: /home-bug-sweep
+  - https://tscm.in/debugging-services              Route: /debugging-services
+
+WHERE TO ADD — City bug sweep pages:
+  - https://tscm.in/bug-sweeping-services-in-mumbai     Route: /bug-sweeping-services-in-mumbai
+  - https://tscm.in/bug-sweeping-services-in-delhi        Route: /bug-sweeping-services-in-delhi
+  - https://tscm.in/bug-sweeping-services-in-bangalore   Route: /bug-sweeping-services-in-bangalore
+  - https://tscm.in/bug-sweeping-services-in-ahmedabad    Route: /bug-sweeping-services-in-ahmedabad
+  - https://tscm.in/bug-sweeping-services-in-pune         Route: /bug-sweeping-services-in-pune
+
+Customize per page: name, description, @id, areaServed, knowsAbout equipment list.
+
+--------------------------------------------------------------------------------
+3. Review Schema (Service reviews — stars in search)
+--------------------------------------------------------------------------------
+Schema type: Review
+
+WHERE TO ADD (primary):
+  - https://tscm.in/client-testimonial              Route: /client-testimonial
+
+WHERE TO ADD (optional — one flagship service):
+  - https://tscm.in/corporate-tscm-service          Route: /corporate-tscm-service
+
+WHERE TO ADD (optional):
+  - https://tscm.in/                                Route: / (homepage, if Google reviews shown)
+
+Use Organization as author (corporate titles), not personal client names.
+
+--------------------------------------------------------------------------------
+4. FAQPage Schema (Search dropdown FAQs)
+--------------------------------------------------------------------------------
+Schema type: FAQPage
+
+WHERE TO ADD (required):
+  - https://tscm.in/faq                             Route: /faq
+
+WHERE TO ADD (optional — only if on-page FAQ text matches JSON exactly):
+  - https://tscm.in/corporate-tscm-service
+  - https://tscm.in/bug-sweep
+  - https://tscm.in/tscm-services
+
+================================================================================
+SECTION 3 — Deep Sub-Service Pages
+================================================================================
+
+--------------------------------------------------------------------------------
+5. Service Schema (Specialized variant — narrow sub-services)
+--------------------------------------------------------------------------------
+Schema type: Service (narrow name + description)
+
+WHERE TO ADD:
+  - https://tscm.in/cyber-tscm-service              Route: /cyber-tscm-service
+  - https://tscm.in/debugging-services              Route: /debugging-services
+  - https://tscm.in/home-bug-sweep                  Route: /home-bug-sweep
+  - https://tscm.in/business-bug-sweep              Route: /business-bug-sweep
+  - https://tscm.in/technical-counter-surveillance  Route: /technical-counter-surveillance
+  - https://tscm.in/warning-signs-of-bugging        Route: /warning-signs-of-bugging
+
+Example variant: "TSCM Mobile Virus & Spyware Scan" on mobile/cyber forensic pages.
+
+--------------------------------------------------------------------------------
+6. BreadcrumbList Schema
+--------------------------------------------------------------------------------
+Schema type: BreadcrumbList
+
+WHERE TO ADD:
+  EVERY internal page EXCEPT the homepage.
+
+Examples:
+  /corporate-tscm-service  → Home > Corporate TSCM
+  /faq                     → Home > FAQ
+  /blog/[slug]             → Home > Blog > [Article title]
+  /about-us                → Home > About Us
+
+Customize itemListElement (position, name, item URL) per page.
+
+================================================================================
+SECTION 4 — About Us & Leadership Pages
+================================================================================
+
+--------------------------------------------------------------------------------
+7. ProfilePage Schema
+--------------------------------------------------------------------------------
+Schema type: ProfilePage
+
+WHERE TO ADD:
+  - https://tscm.in/about-us                        Route: /about-us
+
+--------------------------------------------------------------------------------
+8. Person Schema (E-E-A-T — founder / specialist)
+--------------------------------------------------------------------------------
+Schema type: Person
+
+WHERE TO ADD (same script as ProfilePage, inside @graph):
+  - https://tscm.in/about-us                        Route: /about-us
+  @id: https://tscm.in/#executive-founder
+  Name: Wahid Shaikh (per blueprint)
+
+WHERE TO ADD (optional):
+  - https://tscm.in/our-team                        Route: /our-team
+  (only if dedicated founder bio section uses same @id)
+
+================================================================================
+SECTION 5 — Blogs, Insights & Guides
+================================================================================
+
+--------------------------------------------------------------------------------
+9. BlogPosting Schema
+--------------------------------------------------------------------------------
+Schema type: BlogPosting
+
+WHERE TO ADD:
+  - Each blog article: https://tscm.in/blog/[slug]  Route: /blog/[slug]
+
+OPTIONAL:
+  - Case studies: https://tscm.in/case-study/[slug] Route: /case-study/[slug]
+  (or use Article / dedicated CaseStudy type later)
+
+Per article: headline, description, image, datePublished, dateModified, author @id.
+
+--------------------------------------------------------------------------------
+10. HowTo / TechArticle Schema
+--------------------------------------------------------------------------------
+Schema type: HowTo (or TechArticle for technical guides)
+
+WHERE TO ADD:
+  - Procedural blog posts: /blog/[slug] (step-by-step sweep guides only)
+  - https://tscm.in/warning-signs-of-bugging        Route: /warning-signs-of-bugging
+  - https://tscm.in/technical-glossary              Route: /technical-glossary
+    (only if content is structured as clear steps)
+
+Include: name, description, totalTime, step[] with HowToStep name + text.
+
+================================================================================
+SECTION 6 — EXTENSION LAYERS (Beyond the core 10)
+================================================================================
+
+--------------------------------------------------------------------------------
+11. ContactPage Schema
+--------------------------------------------------------------------------------
+Schema type: ContactPage
+
+WHERE TO ADD:
+  - https://tscm.in/contact-us                        Route: /contact-us
+
+Link to provider: { "@id": "https://tscm.in/#organization" }
+Include visible address, phone, email matching the contact page body.
+
+--------------------------------------------------------------------------------
+12. NewsArticle / PressRelease Schema (Layer 11)
+--------------------------------------------------------------------------------
+Schema types: NewsArticle or PressRelease (pick one per item; be consistent)
+
+WHERE TO ADD:
+  - https://tscm.in/media                             Route: /media (hub NewsArticle)
+  - https://tscm.in/publications                      Route: /publications (hub NewsArticle)
+  - Individual PR archive pages (IMPLEMENTED):
+      /media/indiebim-announces-advanced-tscm-capabilities     NewsArticle
+      /media/building-indias-most-trusted-corporate-security-ecosystem  PressRelease
+      /media/mid-day-inspiring-personalities-2026              NewsArticle (coverage)
+      /media/samacharwani-wahid-shaikh-security-intelligence   NewsArticle (coverage)
+  - Add future announcements in src/data/pressReleases.ts → auto /media/[slug]
+
+Use when publishing high-authority PR updates, Mid-Day features, Samacharwani
+coverage, or print media appearances. publisher @id → #corporate-entity.
+headline, image, datePublished, and articleBody or url must match visible content.
+
+================================================================================
+QUICK REFERENCE — Schema Name → Primary Page
+================================================================================
+
+Corporation + ProfessionalService + WebSite  →  /  (homepage ONLY)
+Service (main + equipment)                   →  /corporate-tscm-service, /residential-tscm-service,
+                                                /cyber-tscm-service, /tscm-services, /bug-sweep,
+                                                city TSCM & bug sweep URLs
+Review                                       →  /client-testimonial, optionally /corporate-tscm-service
+FAQPage                                      →  /faq (+ service pages only if FAQs match on-page)
+Service (narrow variant)                     →  /debugging-services, /home-bug-sweep, etc.
+BreadcrumbList                               →  All pages except /
+ProfilePage + Person                         →  /about-us
+BlogPosting                                  →  /blog/[slug]
+HowTo                                        →  Procedural guides & selected /blog/[slug]
+ContactPage                                  →  /contact-us
+NewsArticle / PressRelease                   →  /media, /publications, PR landing pages
+
+================================================================================
+PAGES THAT TYPICALLY DO NOT NEED THE CORE 10 SCHEMAS
+================================================================================
+
+/clients
+/gallery
+/certification
+/privacy-policy
+/terms-of-service
+/refund-and-cancellation-policy
+/membership
+/compliance-corner
+/client-protocol
+/our-ethics
+/industries-we-serve (optional WebPage or Service — not in core 10)
+
+MOVED TO EXTENSION LAYERS (Section 6):
+  /contact-us   → ContactPage (Layer 11)
+  /media        → NewsArticle / PressRelease (Layer 12)
+  /publications → NewsArticle / PressRelease (Layer 12)
+
+================================================================================
+ENTITY @id REFERENCE (use across site)
+================================================================================
+
+https://tscm.in/#corporate-entity     Corporation (Indiebim Technology Solutions Pvt Ltd)
+https://tscm.in/#organization         ProfessionalService (Indiebim TSCM Services)
+https://tscm.in/#website              WebSite
+https://tscm.in/#executive-founder    Person (Wahid Shaikh)
+
+================================================================================
+IMPLEMENTATION CHECKLIST (developer sign-off)
+================================================================================
+
+[ ] Homepage @graph live on https://tscm.in/ only
+[ ] All service pages have Service + BreadcrumbList
+[ ] /faq has FAQPage; service-page FAQs only if text matches exactly
+[ ] /about-us has ProfilePage + Person @graph
+[ ] /blog/[slug] has BlogPosting per post
+[ ] /contact-us has ContactPage
+[ ] /media and /publications have NewsArticle when press content is visible
+[ ] Rich Results Test passed on representative URLs (home, service, FAQ, blog, about)
+[ ] No duplicate Corporation/WebSite blocks off homepage
+
+================================================================================
+END OF REPORT — APPROVED FOR PRODUCTION
+================================================================================

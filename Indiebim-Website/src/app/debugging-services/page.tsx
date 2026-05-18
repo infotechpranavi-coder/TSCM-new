@@ -46,7 +46,7 @@ export default function DebuggingServices() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
           >
-            Debugging <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">Services</span>
+            Debugging <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">Services</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export default function DebuggingServices() {
             sizes="(max-width: 768px) 100vw, 1280px"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
           <div className="absolute inset-0 flex items-center">
             <div className="p-8 md:p-14">
               <p className="text-cyan-400 font-bold uppercase tracking-widest text-sm mb-3">Bug Detection</p>
@@ -141,7 +141,7 @@ export default function DebuggingServices() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-cyan-50 to-white p-8 md:p-10 rounded-3xl border border-cyan-200"
+            className="bg-linear-to-br from-cyan-50 to-white p-8 md:p-10 rounded-3xl border border-cyan-200"
           >
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-700 mb-4">What our service includes</p>
             <ul className="space-y-4">
@@ -202,7 +202,7 @@ export default function DebuggingServices() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-4xl mx-auto bg-gradient-to-t from-cyan-950/20 to-white p-10 rounded-3xl border border-cyan-500/10"
+          className="text-center max-w-4xl mx-auto bg-linear-to-t from-cyan-950/20 to-white p-10 rounded-3xl border border-cyan-500/10"
         >
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-700">
             <ScanSearch className="h-7 w-7" />

@@ -20,7 +20,7 @@ export default function ServicePageSidebar({ city = "India" }: ServicePageSideba
           className="object-cover object-center"
           sizes="(max-width: 1024px) 100vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
           <p className="text-white text-xs font-bold uppercase tracking-widest opacity-80">
             Counter-Intelligence Expert

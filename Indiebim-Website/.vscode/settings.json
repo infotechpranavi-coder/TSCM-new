@@ -1,0 +1,19 @@
+{
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/dist/**",
+    "**/scripts/**",
+    "**/*.mjs",
+    "**/fix-*.mjs",
+    "**/write-*.mjs"
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.configFile": "src/app/globals.css",
+  "files.watcherExclude": {
+    "**/scripts/fix-*.mjs": true,
+    "**/scripts/write-*.mjs": true,
+    "**/scripts/fix-*.mjs": true
+  }
+}

@@ -28,9 +28,9 @@ function YouTubeIcon({ className }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-slate-200 bg-gradient-to-b from-slate-50 to-white pb-8 pt-16">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-full max-w-3xl -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500/45 to-transparent" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-cyan-500/[0.06] blur-[100px]" />
+    <footer className="relative overflow-hidden border-t border-slate-200 bg-linear-to-b from-slate-50 to-white pb-8 pt-16">
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-full max-w-3xl -translate-x-1/2 bg-linear-to-r from-transparent via-cyan-500/45 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-cyan-500/6 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7">
@@ -55,7 +55,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 pt-1">
               <a
-                href="https://www.facebook.com/bugsweepers"
+                href="https://www.facebook.com/indiebimtscmexperts/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200/80 transition-colors hover:bg-cyan-50 hover:text-cyan-700"

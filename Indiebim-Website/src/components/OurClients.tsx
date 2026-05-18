@@ -25,7 +25,7 @@ export function OurClients() {
           </Link>
         </div>
 
-        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="relative overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="client-marquee flex w-max items-center gap-10 py-2">
             {items.map((client, index) => (
               <a

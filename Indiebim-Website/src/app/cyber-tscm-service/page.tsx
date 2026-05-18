@@ -23,7 +23,7 @@ export default function CyberTSCMService() {
                animate={{ opacity: 1, y: 0 }}
                className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
             >
-               Cyber <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">TSCM Services</span>
+               Cyber <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">TSCM Services</span>
             </motion.h1>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export default function CyberTSCMService() {
                sizes="(max-width: 768px) 100vw, 1280px"
                priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
             <div className="absolute inset-0 flex items-center">
                <div className="p-8 md:p-14">
                   <p className="text-cyan-400 font-bold uppercase tracking-widest text-sm mb-3">Digital Defence</p>
@@ -148,7 +148,7 @@ export default function CyberTSCMService() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto bg-gradient-to-t from-cyan-950/30 to-transparent p-10 rounded-3xl border border-cyan-500/10"
+            className="text-center max-w-2xl mx-auto bg-linear-to-t from-cyan-950/30 to-transparent p-10 rounded-3xl border border-cyan-500/10"
          >
             <h3 className="text-3xl font-bold text-slate-900 mb-4">Secure Your Digital Space Today</h3>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">

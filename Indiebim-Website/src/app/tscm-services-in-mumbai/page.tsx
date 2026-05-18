@@ -13,7 +13,7 @@ export default function TSCMServicesMumbai() {
     <div className="flex flex-col min-h-screen bg-slate-50 pt-32 pb-24 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
-         <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-100/50 to-transparent"></div>
+         <div className="absolute top-0 left-0 w-full h-[500px] bg-linear-to-b from-blue-100/50 to-transparent"></div>
          <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-cyan-900/5 rounded-full blur-[100px]"></div>
       </div>
 
@@ -31,7 +31,7 @@ export default function TSCMServicesMumbai() {
                animate={{ opacity: 1, y: 0 }}
                className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
             >
-               TSCM Services in <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">{city}</span>
+               TSCM Services in <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">{city}</span>
             </motion.h1>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function TSCMServicesMumbai() {
                     className="object-cover object-center"
                     sizes="320px"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/50 to-transparent" />
                </div>
             </div>
          </div>

@@ -644,7 +644,7 @@ export default function AboutUs() {
                   className="group relative overflow-hidden rounded-[1.9rem] border border-slate-200/90 bg-white/90 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] backdrop-blur transition-all duration-300 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
                 >
                   <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-cyan-300/20 blur-3xl opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-300/80 to-transparent" />
 
                   <div className="relative">
                     <div className="flex items-start justify-between gap-4">
@@ -674,7 +674,7 @@ export default function AboutUs() {
                       {section.title}
                     </h3>
 
-                    <div className="mt-5 h-px w-24 bg-gradient-to-r from-cyan-300 via-cyan-200 to-transparent" />
+                    <div className="mt-5 h-px w-24 bg-linear-to-r from-cyan-300 via-cyan-200 to-transparent" />
 
                     <div className="mt-6 space-y-4">
                       {section.points.map((point, pointIndex) => (

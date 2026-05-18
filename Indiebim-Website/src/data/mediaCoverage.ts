@@ -4,6 +4,8 @@ export type MediaCoverageItem = {
   title: string;
   description: string;
   url: string;
+  /** On-site press archive at /media/[archiveSlug] */
+  archiveSlug?: string;
   date?: string;
   imageSrc?: string;
   imageAlt?: string;
@@ -18,6 +20,7 @@ export const featuredPressImage = {
 export const mediaCoverageItems: MediaCoverageItem[] = [
   {
     id: 'mid-day-2026',
+    archiveSlug: 'mid-day-inspiring-personalities-2026',
     publisher: 'Mid-Day',
     title:
       'Meet 8 Inspiring Personalities Building Legacy, Authority & Shaping the Future in 2026',
@@ -30,6 +33,7 @@ export const mediaCoverageItems: MediaCoverageItem[] = [
   },
   {
     id: 'samacharwani-wahid-shaikh',
+    archiveSlug: 'samacharwani-wahid-shaikh-security-intelligence',
     publisher: 'Samacharwani',
     title: 'Wahid Shaikh: A Trusted Name in Strategic Intelligence and the Security Sector',
     description:

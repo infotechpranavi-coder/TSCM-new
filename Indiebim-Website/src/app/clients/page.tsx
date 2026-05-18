@@ -9,10 +9,10 @@ export default function ClientsPage() {
   return (
     <div className="relative overflow-hidden bg-[linear-gradient(180deg,#eef8ff_0%,#ffffff_38%,#f8fafc_100%)] pb-24 pt-32">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-[-8rem] top-20 h-72 w-72 rounded-full bg-cyan-300/35 blur-3xl" />
-        <div className="absolute right-[-6rem] top-40 h-80 w-80 rounded-full bg-sky-300/25 blur-3xl" />
+        <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-cyan-300/35 blur-3xl" />
+        <div className="absolute -right-24 top-40 h-80 w-80 rounded-full bg-sky-300/25 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" />
-        <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:74px_74px]" />
+        <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-size-[74px_74px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,7 +29,7 @@ export default function ClientsPage() {
 
           <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
             Clients who trust
-            <span className="bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700 bg-clip-text text-transparent">
               {' '}
               privacy-first protection
             </span>
@@ -98,7 +98,7 @@ export default function ClientsPage() {
                   href={client.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[9.5rem] flex-col items-center justify-center gap-4 text-center"
+                  className="flex min-h-38 flex-col items-center justify-center gap-4 text-center"
                 >
                   <div className="flex h-16 w-full items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 px-3 py-3">
                     <ClientLogo

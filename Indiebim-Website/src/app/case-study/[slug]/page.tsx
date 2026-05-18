@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import CaseStudyDetail from '@/components/CaseStudyDetail';
 import { caseStudies, getCaseStudyBySlug } from '@/data/caseStudies';
+import { buildBreadcrumbSchema } from '@/data/schema/breadcrumbs';
+import { buildCaseStudyArticleSchema } from '@/data/schema/special';
 
 type CaseStudyDetailPageProps = {
   params: Promise<{
@@ -26,5 +28,28 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyDetailPag
   const previousStudy = currentIndex > 0 ? caseStudies[currentIndex - 1] : undefined;
   const nextStudy = currentIndex < caseStudies.length - 1 ? caseStudies[currentIndex + 1] : undefined;
 
-  return <CaseStudyDetail study={study} previousStudy={previousStudy} nextStudy={nextStudy} />;
+  const articleSchema = buildCaseStudyArticleSchema({
+    slug: study.slug,
+    headline: study.title,
+    description: study.summary,
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home' },
+    { name: 'Case Studies', path: '/case-study' },
+    { name: study.title, path: `/case-study/${study.slug}` },
+  ]);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <CaseStudyDetail study={study} previousStudy={previousStudy} nextStudy={nextStudy} />
+    </>
+  );
 }

@@ -48,7 +48,7 @@ export default function GlobalFAQ() {
 
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fafc_0%,#ecfeff_45%,#f8fafc_100%)] py-16 sm:py-20">
-      <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_top_left,rgba(14,116,144,0.14),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.12),transparent_28%)]" />
+      <div className="absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_top_left,rgba(14,116,144,0.14),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.12),transparent_28%)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center justify-between gap-4">

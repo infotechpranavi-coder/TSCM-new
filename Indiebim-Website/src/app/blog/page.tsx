@@ -34,8 +34,8 @@ export default function BlogPage() {
         <div className="absolute inset-x-0 top-0 h-[460px] bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.2),transparent_56%)]" />
         <div className="absolute right-[-10%] top-[220px] h-[340px] w-[340px] rounded-full bg-cyan-200/30 blur-[120px]" />
         <div className="absolute left-[-8%] top-[520px] h-[300px] w-[300px] rounded-full bg-sky-200/30 blur-[120px]" />
-        <div className="absolute inset-x-0 top-28 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-        <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] [background-size:88px_88px]" />
+        <div className="absolute inset-x-0 top-28 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
+        <div className="absolute inset-0 opacity-25 bg-[linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] bg-size-[88px_88px]" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -178,7 +178,7 @@ export default function BlogPage() {
                 transition={{ delay: index * 0.05 }}
                 className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-white/70 bg-white/90 p-6 shadow-[0_16px_50px_rgba(15,23,42,0.06)] transition-all hover:-translate-y-2 hover:shadow-[0_26px_70px_rgba(15,23,42,0.1)]"
               >
-                <div className="mb-5 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 transition-all duration-300 group-hover:w-28" />
+                <div className="mb-5 h-1 w-20 rounded-full bg-linear-to-r from-cyan-500 via-sky-500 to-indigo-500 transition-all duration-300 group-hover:w-28" />
                 <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
                   <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
                     <CalendarDays className="w-4 h-4 text-cyan-600" />

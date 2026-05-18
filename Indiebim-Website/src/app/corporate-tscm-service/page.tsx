@@ -33,7 +33,7 @@ export default function CorporateTSCMService() {
   return (
     <div className="min-h-screen bg-slate-50 pt-32 pb-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 h-[800px] w-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent" />
+        <div className="absolute top-0 right-0 h-[800px] w-[800px] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-blue-900/10 blur-[100px]" />
       </div>
 
@@ -51,7 +51,7 @@ export default function CorporateTSCMService() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
           >
-            Corporate <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">Espionage Detection</span>
+            Corporate <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">Espionage Detection</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export default function CorporateTSCMService() {
               sizes="(max-width: 1024px) 100vw, 44vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <p className="text-cyan-300 text-xs font-bold uppercase tracking-[0.24em]">Read More</p>
               <p className="mt-3 max-w-md text-white text-sm leading-7">
@@ -189,7 +189,7 @@ export default function CorporateTSCMService() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-cyan-50 to-white p-8 md:p-10 rounded-3xl border border-cyan-200"
+            className="bg-linear-to-br from-cyan-50 to-white p-8 md:p-10 rounded-3xl border border-cyan-200"
           >
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-700 mb-4">Service coverage</p>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -259,7 +259,7 @@ export default function CorporateTSCMService() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-cyan-50 to-white p-10 md:p-16 rounded-3xl border border-cyan-200 flex flex-col lg:flex-row items-center gap-12"
+          className="bg-linear-to-br from-cyan-50 to-white p-10 md:p-16 rounded-3xl border border-cyan-200 flex flex-col lg:flex-row items-center gap-12"
         >
           <div className="flex-1">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">Need a professional corporate espionage survey?</h3>
@@ -285,7 +285,7 @@ export default function CorporateTSCMService() {
               className="object-cover object-center"
               sizes="320px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Deployment Ready</p>
               <p className="text-white font-bold text-lg leading-tight">Corporate bug sweep and TSCM support</p>

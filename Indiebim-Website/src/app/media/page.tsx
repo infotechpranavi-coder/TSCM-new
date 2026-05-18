@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { galleryPreviewImages } from '@/data/galleryImages';
 import { featuredPressImage, mediaCoverageItems } from '@/data/mediaCoverage';
+import { getPressReleasesByCategory } from '@/data/pressReleases';
 
 const mediaSections = [
   {
@@ -51,6 +52,8 @@ const mediaSections = [
 ] as const;
 
 export default function MediaPage() {
+  const announcements = getPressReleasesByCategory('announcement');
+
   return (
     <main className="min-h-screen bg-slate-50 pb-24 pt-28">
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%,#f8fafc_100%)]">
@@ -69,6 +72,39 @@ export default function MediaPage() {
             and blog updates from our counter-surveillance and TSCM operations.
           </p>
         </motion.div>
+      </section>
+
+      {/* Official announcements */}
+      <section className="mx-auto max-w-7xl border-t border-slate-200 px-4 py-16 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-700">Newsroom</p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+            Corporate announcements
+          </h2>
+          <p className="mt-4 text-base leading-8 text-slate-600">
+            Official Indiebim press releases and time-sensitive corporate updates — archived on tscm.in
+            for search and media reference.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {announcements.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/media/${item.slug}`}
+              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-cyan-200 hover:shadow-md"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-700">
+                {item.schemaType} · {item.datePublished}
+              </p>
+              <h3 className="mt-4 text-xl font-bold leading-snug text-slate-950">{item.headline}</h3>
+              <p className="mt-3 grow text-sm leading-7 text-slate-600">{item.description}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-700">
+                Read announcement
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Press & coverage */}
@@ -96,7 +132,7 @@ export default function MediaPage() {
             transition={{ duration: 0.45, delay: 0.1 }}
             className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
           >
-            <div className="relative aspect-[3/4] w-full sm:aspect-[4/5] lg:aspect-auto lg:min-h-[520px]">
+            <div className="relative aspect-3/4 w-full sm:aspect-4/5 lg:aspect-auto lg:min-h-[520px]">
               <Image
                 src={featuredPressImage.src}
                 alt={featuredPressImage.alt}
@@ -147,16 +183,27 @@ export default function MediaPage() {
                   </div>
                 </div>
                 <h3 className="mt-5 text-xl font-bold leading-snug text-slate-950">{item.title}</h3>
-                <p className="mt-3 flex-grow text-sm leading-7 text-slate-600">{item.description}</p>
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-5 py-2.5 text-sm font-semibold text-cyan-800 transition hover:border-cyan-400 hover:bg-cyan-100"
-                >
-                  Read article
-                  <ExternalLink className="h-4 w-4" />
-                </a>
+                <p className="mt-3 grow text-sm leading-7 text-slate-600">{item.description}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {item.archiveSlug ? (
+                    <Link
+                      href={`/media/${item.archiveSlug}`}
+                      className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-700"
+                    >
+                      View archive
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  ) : null}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-5 py-2.5 text-sm font-semibold text-cyan-800 transition hover:border-cyan-400 hover:bg-cyan-100"
+                  >
+                    Read on publisher
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
                 </div>
               </motion.article>
             ))}
@@ -199,9 +246,9 @@ export default function MediaPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="group overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.08)]"
+              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.08)]"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-4/5 overflow-hidden">
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -210,7 +257,7 @@ export default function MediaPage() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   priority={index < 2}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-200">
                     {image.title}

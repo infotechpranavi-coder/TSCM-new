@@ -9,7 +9,7 @@ export default function HomeBugSweep() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 pt-32 pb-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent"></div>
+         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent"></div>
          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px]"></div>
       </div>
 
@@ -20,7 +20,7 @@ export default function HomeBugSweep() {
                animate={{ opacity: 1, y: 0 }}
                className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
             >
-               Home <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">Bug Sweep</span>
+               Home <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">Bug Sweep</span>
             </motion.h1>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export default function HomeBugSweep() {
                sizes="(max-width: 768px) 100vw, 1280px"
                priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/30 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-slate-900/70 via-slate-900/30 to-transparent" />
             <div className="absolute inset-0 flex items-center">
                <div className="p-8 md:p-14">
                   <p className="text-cyan-400 font-bold uppercase tracking-widest text-sm mb-3">Home Protection</p>

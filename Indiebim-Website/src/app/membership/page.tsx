@@ -119,7 +119,7 @@ export default function MembershipPage() {
             className="text-4xl font-black leading-tight text-white md:text-6xl"
           >
             Investigative Organizations
-            <span className="block bg-gradient-to-r from-amber-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-amber-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent">
               Standards, Ethics, and Global Reach
             </span>
           </motion.h1>
@@ -160,10 +160,10 @@ export default function MembershipPage() {
               transition={{ delay: index * 0.06 }}
               className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/8 p-7 shadow-[0_18px_60px_rgba(15,23,42,0.35)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/10"
             >
-              <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${organization.accent}`} />
+              <div className={`absolute inset-x-0 top-0 h-1.5 bg-linear-to-r ${organization.accent}`} />
 
               <div className="mb-6 flex items-start justify-between gap-4">
-                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${organization.accent} text-white shadow-lg`}>
+                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br ${organization.accent} text-white shadow-lg`}>
                   {organization.icon}
                 </div>
                 <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">

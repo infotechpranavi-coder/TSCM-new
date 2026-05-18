@@ -100,7 +100,7 @@ export default function WarningSignsOfBuggingPage() {
     <div className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#edf7fb_52%,#f8fafc_100%)] pb-24 pt-32 text-slate-900">
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] text-slate-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_28%),radial-gradient(circle_at_top_right,rgba(244,114,182,0.1),transparent_24%)]" />
-        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:88px_88px]" />
+        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] bg-size-[88px_88px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="max-w-5xl">
@@ -110,7 +110,7 @@ export default function WarningSignsOfBuggingPage() {
             </div>
             <h1 className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
               Technical Counter-Surveillance
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+              <span className="block text-transparent bg-clip-text bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700">
                 Identifying the Warning Signs of Bugging
               </span>
             </h1>

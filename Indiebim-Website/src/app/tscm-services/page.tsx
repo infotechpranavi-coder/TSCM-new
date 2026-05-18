@@ -97,7 +97,7 @@ export default function TscmServicesPage() {
   return (
     <div className="min-h-screen bg-slate-50 pt-32 pb-24 relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 right-0 h-[720px] w-[720px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100/45 via-transparent to-transparent" />
+        <div className="absolute top-0 right-0 h-[720px] w-[720px] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-100/45 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[100px]" />
       </div>
 
@@ -116,7 +116,7 @@ export default function TscmServicesPage() {
             className="text-4xl font-extrabold leading-tight text-slate-900 md:text-6xl"
           >
             TSCM{' '}
-            <span className="bg-gradient-to-r from-cyan-600 to-blue-700 bg-clip-text text-transparent">Services</span>
+            <span className="bg-linear-to-r from-cyan-600 to-blue-700 bg-clip-text text-transparent">Services</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -270,7 +270,7 @@ export default function TscmServicesPage() {
               sizes="(max-width: 1280px) 100vw, 1280px"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-slate-950/75" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/92 to-slate-950/75" />
           <div className="relative flex flex-col items-start gap-6 px-8 py-12 sm:flex-row sm:items-center sm:justify-between sm:px-12">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Next step</p>

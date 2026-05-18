@@ -310,7 +310,7 @@ export default function FAQPage() {
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute inset-0 bg-[radial-gradient(ellipse_90%_80%_at_15%_-20%,rgba(34,211,238,0.16),transparent),radial-gradient(ellipse_70%_55%_at_95%_5%,rgba(99,102,241,0.09),transparent)]"
         />
-        <div className="absolute inset-0 opacity-[0.45] [background-image:linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:88px_88px]" />
+        <div className="absolute inset-0 opacity-[0.45] bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-size-[88px_88px]" />
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8">
           <div className="max-w-3xl pt-2">

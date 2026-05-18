@@ -364,7 +364,7 @@ export default function OurEquipments() {
                       <h3 className="mt-3 text-3xl font-bold tracking-tight text-slate-950">
                         {category.title}
                       </h3>
-                      <div className={`mt-5 h-px w-24 bg-gradient-to-r ${tones.line}`} />
+                      <div className={`mt-5 h-px w-24 bg-linear-to-r ${tones.line}`} />
                       <p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
                         {category.summary}
                       </p>
@@ -383,7 +383,7 @@ export default function OurEquipments() {
                             className="group relative overflow-hidden rounded-[26px] border border-white/80 bg-white/95 p-5 shadow-[0_14px_36px_rgba(15,23,42,0.06)] backdrop-blur transition-all sm:p-6"
                           >
                             <div className={`absolute -right-8 top-0 h-24 w-24 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${tones.glow} opacity-70`} />
-                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80" />
+                            <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80" />
 
                             <div className="relative flex h-full flex-col">
                               <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
@@ -407,7 +407,7 @@ export default function OurEquipments() {
                                 </div>
                               </div>
 
-                              <div className="mt-5 h-px w-full bg-gradient-to-r from-slate-200 via-white to-transparent" />
+                              <div className="mt-5 h-px w-full bg-linear-to-r from-slate-200 via-white to-transparent" />
 
                               <div className="mt-5 grid flex-1 gap-4">
                                 <p className="max-w-xl text-sm leading-7 text-slate-600">{item.desc}</p>

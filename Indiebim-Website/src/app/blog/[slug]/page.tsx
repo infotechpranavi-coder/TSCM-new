@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, CalendarDays, ChevronRight, ShieldCheck, Sparkles, User2 } from 'lucide-react';
 import { blogPosts, getBlogPostBySlug } from '@/data/blogPosts';
+import { buildBreadcrumbSchema } from '@/data/schema/breadcrumbs';
+import { buildBlogPostingSchema, parseDisplayDateToIso } from '@/data/schema/special';
 
 type BlogDetailPageProps = {
   params: Promise<{
@@ -29,11 +31,34 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     Math.ceil(post.paragraphs.join(' ').split(/\s+/).filter(Boolean).length / 180)
   );
 
+  const published = parseDisplayDateToIso(post.date);
+  const blogPostingSchema = buildBlogPostingSchema({
+    slug: post.slug,
+    headline: post.title,
+    description: post.paragraphs[0],
+    datePublished: published,
+    dateModified: published,
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home' },
+    { name: 'Blog', path: '/blog' },
+    { name: post.title, path: `/blog/${post.slug}` },
+  ]);
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <div className="min-h-screen bg-[#f6f8fb] pt-32 pb-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-x-0 top-0 h-[440px] bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.18),_transparent_58%)]" />
-        <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-[440px] bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_58%)]" />
+        <div className="absolute inset-x-0 top-24 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -165,5 +190,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         </section>
       </div>
     </div>
+    </>
   );
 }

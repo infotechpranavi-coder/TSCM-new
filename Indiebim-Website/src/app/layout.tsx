@@ -7,7 +7,13 @@ import GlobalFAQ from '@/components/GlobalFAQ';
 
 export const metadata: Metadata = {
   title: 'Corporate Data Leak Assessment | Counter Surveillance | TSCM',
-  description: 'Any sensitive corporate data that has been unintentionally disclosed, leaked or spilled to the public by any electronic methods due to improper handling.',
+  description:
+    'Any sensitive corporate data that has been unintentionally disclosed, leaked or spilled to the public by any electronic methods due to improper handling.',
+  icons: {
+    icon: [{ url: '/images/logo-1.png', type: 'image/png' }],
+    shortcut: '/images/logo-1.png',
+    apple: '/images/logo-1.png',
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="grow">{children}</main>
         <GlobalFAQ />
         <Footer />
       </body>

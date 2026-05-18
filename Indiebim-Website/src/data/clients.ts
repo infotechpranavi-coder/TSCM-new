@@ -40,9 +40,11 @@ export const homepageCarouselClients: ClientBrand[] = clientsData.homepageCarous
   (client) => enrichClient(client, homepageClientDomains[client.name])
 );
 
-export const clients: ClientBrand[] = clientsData.clients.map((client) =>
-  enrichClient(client)
-);
+const CLIENTS_PAGE_EXCLUDED = new Set(['Indiebim']);
+
+export const clients: ClientBrand[] = clientsData.clients
+  .filter((client) => !CLIENTS_PAGE_EXCLUDED.has(client.name))
+  .map((client) => enrichClient(client));
 
 export const logoFallbacks: LogoFallbacks = clientsData.logoFallbacks;
 

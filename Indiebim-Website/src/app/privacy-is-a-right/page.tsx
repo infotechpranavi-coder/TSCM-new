@@ -112,7 +112,7 @@ export default function PrivacyIsARightPage() {
     <div className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#eef7fb_52%,#f8fafc_100%)] pt-32 pb-24 text-slate-900">
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] text-slate-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_28%),radial-gradient(circle_at_top_right,rgba(244,114,182,0.1),transparent_24%)]" />
-        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:88px_88px]" />
+        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] bg-size-[88px_88px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -123,7 +123,7 @@ export default function PrivacyIsARightPage() {
               </div>
               <h1 className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Privacy is a Right
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+                <span className="block text-transparent bg-clip-text bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700">
                   The Manifesto for Safer Living and Human Dignity
                 </span>
               </h1>
@@ -175,7 +175,7 @@ export default function PrivacyIsARightPage() {
                   key={section.id}
                   className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)] sm:p-7"
                 >
-                  <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${section.tone}`} />
+                  <div className={`absolute inset-x-0 top-0 h-1.5 bg-linear-to-r ${section.tone}`} />
                   <div className="relative grid gap-5 lg:grid-cols-[240px_1fr]">
                     <div>
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-200 bg-cyan-50 text-cyan-700">

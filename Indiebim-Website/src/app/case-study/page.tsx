@@ -14,7 +14,7 @@ export default function CaseStudyPage() {
     <div className="min-h-screen bg-slate-50">
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] pt-24 text-slate-900 sm:pt-28 lg:pt-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_30%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-300/60 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -28,7 +28,7 @@ export default function CaseStudyPage() {
               </p>
               <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Counter-Surveillance
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+                <span className="block text-transparent bg-clip-text bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700">
                   Case Studies
                 </span>
               </h1>
@@ -62,7 +62,7 @@ export default function CaseStudyPage() {
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-cyan-400/20 via-sky-500/10 to-transparent blur-2xl" />
+              <div className="absolute -inset-4 rounded-[32px] bg-linear-to-br from-cyan-400/20 via-sky-500/10 to-transparent blur-2xl" />
               <div className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-3 shadow-[0_24px_80px_rgba(15,23,42,0.1)] backdrop-blur-sm">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[22px]">
                   <Image
@@ -73,7 +73,7 @@ export default function CaseStudyPage() {
                     sizes="(max-width: 1024px) 100vw, 440px"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/75 via-slate-900/15 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
                       Security Intelligence
@@ -121,7 +121,7 @@ export default function CaseStudyPage() {
                 transition={{ delay: Math.min(index * 0.03, 0.32) }}
                 className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-white p-4 shadow-[0_16px_48px_rgba(15,23,42,0.07)] transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-200 hover:shadow-[0_24px_70px_rgba(14,116,144,0.14)]"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-500" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-cyan-400 via-sky-500 to-indigo-500" />
 
                 <div className="relative mb-3 aspect-[16/9] overflow-hidden rounded-[18px]">
                   <Image
@@ -131,7 +131,7 @@ export default function CaseStudyPage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/10 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-slate-900/10 to-transparent" />
                   <div className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/40 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     Study {study.id}

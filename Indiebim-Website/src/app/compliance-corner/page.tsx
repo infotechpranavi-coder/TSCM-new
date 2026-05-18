@@ -90,7 +90,7 @@ export default function ComplianceCornerPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.25rem] border border-slate-200/80 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_55%)] text-slate-900 shadow-[0_30px_90px_rgba(15,23,42,0.08)]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_32%),radial-gradient(circle_at_80%_20%,rgba(99,102,241,0.1),transparent_24%)]" />
-          <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:72px_72px]" />
+          <div className="absolute inset-0 opacity-50 bg-[linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] bg-size-[72px_72px]" />
           <div className="relative grid gap-10 p-8 sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-800">
@@ -99,7 +99,7 @@ export default function ComplianceCornerPage() {
               </div>
               <h1 className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl">
                 India 2026 Security Mandates
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+                <span className="block text-transparent bg-clip-text bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700">
                   Legal Compliance Is Now Part of Core Security
                 </span>
               </h1>

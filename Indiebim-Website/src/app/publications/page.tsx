@@ -23,7 +23,7 @@ const PLACEHOLDER_DESCRIPTION =
 export default function PublicationsPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_35%,#f8fafc_100%)] pb-24 pt-32 text-slate-900">
-      <div className="pointer-events-none fixed inset-0 opacity-[0.45] [background-image:linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="pointer-events-none fixed inset-0 opacity-[0.45] bg-[linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] bg-size-[72px_72px]" />
 
       <section className="relative border-b border-slate-200/80 bg-white/70 backdrop-blur-sm">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_15%_-15%,rgba(34,211,238,0.14),transparent),radial-gradient(ellipse_55%_45%_at_92%_10%,rgba(99,102,241,0.08),transparent)]" />
@@ -39,6 +39,13 @@ export default function PublicationsPage() {
             Press release syndication with publication logos, plus curated article links. Open any item in a new tab to
             read the full piece on the publisher site.
           </p>
+          <Link
+            href="/media/building-indias-most-trusted-corporate-security-ecosystem"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700"
+          >
+            Read official press release archive
+            <ArrowRight className="h-4 w-4" />
+          </Link>
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
             <Mouse className="h-4 w-4 text-cyan-600" />
             Scroll inside the publication panel to browse more articles.
@@ -61,7 +68,7 @@ export default function PublicationsPage() {
           placements={pressReleasePlacements}
         />
 
-        <div className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/80 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-sm">
+        <div className="overflow-hidden rounded-4xl border border-slate-200/80 bg-white/80 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-sm">
           <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 px-6 py-5">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-700">Media showcase</p>
@@ -72,7 +79,7 @@ export default function PublicationsPage() {
             </div>
           </div>
 
-          <div className="publication-scroll max-h-[39rem] overflow-y-auto px-6 py-6 lg:max-h-[40rem]">
+          <div className="publication-scroll max-h-156 overflow-y-auto px-6 py-6 lg:max-h-160">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {publications.map((item, index) => (
                 <PublicationCard

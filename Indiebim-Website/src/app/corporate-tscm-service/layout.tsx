@@ -1,0 +1,29 @@
+import { buildBreadcrumbSchema } from '@/data/schema/breadcrumbs';
+import { buildServiceSchema, SERVICE_PAGE_SCHEMAS, SERVICE_BREADCRUMB_LABELS } from '@/data/schema/services';
+import { corporateReviewSchema } from '@/data/schema/special';
+
+const routePath = '/corporate-tscm-service';
+
+const schemas = [
+  buildServiceSchema(SERVICE_PAGE_SCHEMAS[routePath]),
+  corporateReviewSchema,
+  buildBreadcrumbSchema([
+    { name: 'Home' },
+    { name: SERVICE_BREADCRUMB_LABELS[routePath], path: routePath },
+  ]),
+];
+
+export default function SchemaLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      {schemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      {children}
+    </>
+  );
+}

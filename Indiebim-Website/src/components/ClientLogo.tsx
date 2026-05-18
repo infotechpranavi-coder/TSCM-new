@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { CLIENT_PLACEHOLDER_LOGO } from '@/data/clientLogos';
 
 type ClientLogoProps = {
   name: string;
@@ -10,6 +11,8 @@ type ClientLogoProps = {
 };
 
 export function ClientLogo({ name, logo, domain, className }: ClientLogoProps) {
+  const isPlaceholder = logo === CLIENT_PLACEHOLDER_LOGO;
+
   const sources = useMemo(() => {
     const list = [logo];
     const isLocal = logo.startsWith('/clients/logos/');
@@ -25,8 +28,12 @@ export function ClientLogo({ name, logo, domain, className }: ClientLogoProps) {
   return (
     <img
       src={sources[sourceIndex]}
-      alt={`${name} logo`}
-      className={className}
+      alt={isPlaceholder ? `${name} — corporate client` : `${name} logo`}
+      className={
+        isPlaceholder
+          ? 'h-11 w-11 object-contain object-center'
+          : className
+      }
       loading="lazy"
       onError={() => {
         setSourceIndex((current) => (current < sources.length - 1 ? current + 1 : current));

@@ -434,12 +434,12 @@ export default function IndustriesWeServe() {
           >
             <div className="absolute inset-0 rounded-[2.5rem] bg-[linear-gradient(135deg,#04111f_0%,#07192b_54%,#0f172a_100%)]" />
             <div className="absolute inset-0 rounded-[2.5rem] bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_85%_22%,rgba(56,189,248,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_28%)]" />
-            <div className="absolute inset-0 rounded-[2.5rem] opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:72px_72px]" />
-            <div className="absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent lg:block" />
+            <div className="absolute inset-0 rounded-[2.5rem] opacity-20 bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-size-[72px_72px]" />
+            <div className="absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-linear-to-r from-transparent via-white/10 to-transparent lg:block" />
 
             <div className="relative grid gap-10 px-7 py-10 sm:px-8 sm:py-12 lg:grid-cols-[1fr_290px] lg:items-start lg:px-10">
               <div className="relative">
-                <div className="absolute -left-4 top-0 hidden h-full w-px bg-gradient-to-b from-cyan-300/0 via-cyan-300/35 to-cyan-300/0 lg:block" />
+                <div className="absolute -left-4 top-0 hidden h-full w-px bg-linear-to-b from-cyan-300/0 via-cyan-300/35 to-cyan-300/0 lg:block" />
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">
                   About Indiebim
                 </p>
@@ -469,7 +469,7 @@ export default function IndustriesWeServe() {
               </div>
 
               <div className="relative border-t border-white/10 pt-6 lg:border-t-0 lg:pl-8">
-                <div className="absolute left-0 top-0 hidden h-full w-px bg-gradient-to-b from-white/0 via-white/12 to-white/0 lg:block" />
+                <div className="absolute left-0 top-0 hidden h-full w-px bg-linear-to-b from-white/0 via-white/12 to-white/0 lg:block" />
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Start Securely</p>
                 <p className="mt-3 text-lg font-bold text-white">Choose how you want to connect with our team.</p>
 

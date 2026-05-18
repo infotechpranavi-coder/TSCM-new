@@ -45,11 +45,23 @@ export const LOCAL_CLIENT_LOGO_EXT: Record<string, 'png' | 'jpg'> = {
   'zenpharma-com': 'png',
 };
 
+export const CLIENT_PLACEHOLDER_LOGO = '/clients/logos/placeholder-building.png';
+
+/** Clients without a brand logo file use the shared building icon. */
+export const PLACEHOLDER_LOGO_DOMAINS = new Set([
+  'avantgroup.co.in',
+  'indexlogistics.in',
+]);
+
 export function domainToLogoSlug(domain: string): string {
   return domain.replace(/\./g, '-');
 }
 
 export function getLocalClientLogo(domain: string): string | null {
+  if (PLACEHOLDER_LOGO_DOMAINS.has(domain)) {
+    return CLIENT_PLACEHOLDER_LOGO;
+  }
+
   const slug = domainToLogoSlug(domain);
   const ext = LOCAL_CLIENT_LOGO_EXT[slug];
   if (!ext) return null;

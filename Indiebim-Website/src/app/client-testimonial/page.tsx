@@ -49,7 +49,7 @@ export default function ClientTestimonial() {
     <div className="flex flex-col min-h-screen bg-slate-50 pt-32 pb-24 relative">
       {/* Background Decor */}
       <div className="fixed inset-0 pointer-events-none">
-         <div className="absolute top-0 right-0 w-full h-[600px] bg-gradient-to-b from-cyan-100/50 to-transparent"></div>
+         <div className="absolute top-0 right-0 w-full h-[600px] bg-linear-to-b from-cyan-100/50 to-transparent"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -59,7 +59,7 @@ export default function ClientTestimonial() {
                animate={{ opacity: 1, y: 0 }}
                className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6"
             >
-               Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">Testimonials</span>
+               Client <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">Testimonials</span>
             </motion.h1>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ export default function ClientTestimonial() {
                   </p>
                   
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shrink-0">
+                    <div className="w-10 h-10 bg-linear-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shrink-0">
                       {review.name.charAt(0)}
                     </div>
                     <div>

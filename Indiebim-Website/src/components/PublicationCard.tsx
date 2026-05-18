@@ -25,12 +25,12 @@ export default function PublicationCard({ publisher, title, description, url, in
       whileHover={{ y: -6 }}
       className="group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.06)] ring-0 transition-[box-shadow,border-color] duration-500 hover:border-cyan-300/80 hover:shadow-[0_24px_50px_rgba(15,23,42,0.12),0_0_0_1px_rgba(34,211,238,0.12)]"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-400/[0.07] via-transparent to-indigo-500/[0.06] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-cyan-400/[0.07] via-transparent to-indigo-500/[0.06] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
-        <div className="absolute -left-[40%] top-0 h-full w-[45%] -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:left-[120%] group-hover:opacity-100" />
+        <div className="absolute -left-[40%] top-0 h-full w-[45%] -skew-x-12 bg-linear-to-r from-transparent via-white/50 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:left-[120%] group-hover:opacity-100" />
       </div>
 
       <div className="relative flex min-h-0 flex-1 flex-col">

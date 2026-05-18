@@ -98,7 +98,7 @@ export default function CaseStudyDetail({
               <div className="mt-8 space-y-8">
                 {study.sections.map((section, index) => (
                   <section key={section.heading} className="relative rounded-3xl bg-slate-50 p-6 sm:p-7">
-                    <div className="absolute bottom-6 left-0 top-6 w-1 rounded-full bg-gradient-to-b from-cyan-500 to-sky-600" />
+                    <div className="absolute bottom-6 left-0 top-6 w-1 rounded-full bg-linear-to-b from-cyan-500 to-sky-600" />
                     <div className="pl-5">
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-cyan-700 shadow-sm">

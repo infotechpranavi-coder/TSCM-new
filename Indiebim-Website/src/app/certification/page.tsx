@@ -9,7 +9,7 @@ export default function CertificationPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-50 pt-32 pb-24">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-0 h-[520px] w-full bg-gradient-to-b from-cyan-100/60 via-white to-transparent" />
+        <div className="absolute top-0 left-0 h-[520px] w-full bg-linear-to-b from-cyan-100/60 via-white to-transparent" />
         <div className="absolute right-0 top-10 h-[420px] w-[420px] rounded-full bg-cyan-500/10 blur-[100px]" />
         <div className="absolute bottom-0 left-0 h-[340px] w-[340px] rounded-full bg-amber-400/10 blur-[90px]" />
       </div>
@@ -32,7 +32,7 @@ export default function CertificationPage() {
             className="text-4xl font-black leading-tight text-slate-900 md:text-6xl"
           >
             Certification &
-            <span className="block bg-gradient-to-r from-cyan-700 via-sky-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-cyan-700 via-sky-600 to-amber-500 bg-clip-text text-transparent">
               Professional Assurance
             </span>
           </motion.h1>

@@ -62,7 +62,7 @@ export default function BugSweepPage() {
             className="text-4xl font-extrabold leading-tight text-slate-900 md:text-6xl"
           >
             Bug{' '}
-            <span className="bg-gradient-to-r from-cyan-600 to-blue-700 bg-clip-text text-transparent">Sweep</span>
+            <span className="bg-linear-to-r from-cyan-600 to-blue-700 bg-clip-text text-transparent">Sweep</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -134,7 +134,7 @@ export default function BugSweepPage() {
               sizes="(max-width: 1280px) 100vw, 1280px"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-slate-950/75" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/92 to-slate-950/75" />
           <div className="relative flex flex-col items-start gap-6 px-8 py-12 sm:flex-row sm:items-center sm:justify-between sm:px-12">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Book a sweep</p>

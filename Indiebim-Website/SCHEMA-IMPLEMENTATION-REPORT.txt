@@ -1,0 +1,182 @@
+================================================================================
+INDIEBIM / TSCM.IN — JSON-LD SCHEMA IMPLEMENTATION REPORT
+================================================================================
+Domain:     https://tscm.in/
+Project:    Indiebim-Website (Next.js)
+Generated:  2026-05-15 (updated Layer 11 press archives)
+Status:     IMPLEMENTED — includes individual press release NewsArticle/PressRelease pages
+Reference:  SCHEMA-PLACEMENT-REPORT.txt (blueprint)
+
+IMPLEMENTATION METHOD
+---------------------
+- JSON-LD injected via inline <script type="application/ld+json"> in route
+  layout.tsx files or server page.tsx (no shared JsonLd component).
+- Schema data/builders: src/data/schema/ (homepage.ts, services.ts,
+  breadcrumbs.ts, special.ts, site.ts)
+- Scripts use: dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+
+================================================================================
+PAGE-BY-PAGE SCHEMA MAP (LIVE)
+================================================================================
+
+Route                              | Schema types on page
+-----------------------------------|-----------------------------------------------
+/ (homepage)                       | Corporation + ProfessionalService + WebSite
+                                   | (@graph — homepage ONLY)
+                                   | File: src/app/page.tsx
+
+/corporate-tscm-service            | Service (equipment) + Review + BreadcrumbList
+/residential-tscm-service          | Service (equipment) + BreadcrumbList
+/cyber-tscm-service                | Service (narrow, no equipment list) + BreadcrumbList
+/tscm-services                     | Service (equipment) + BreadcrumbList
+/counter-surveillance              | Service (equipment) + BreadcrumbList
+/bug-sweep                         | Service (equipment) + BreadcrumbList
+/eavesdropping-detection           | Service (equipment) + BreadcrumbList
+/business-bug-sweep                | Service (narrow) + BreadcrumbList
+/home-bug-sweep                    | Service (narrow) + BreadcrumbList
+/debugging-services                | Service (narrow) + BreadcrumbList
+/technical-counter-surveillance    | Service (narrow) + BreadcrumbList
+/warning-signs-of-bugging          | Service (narrow) + BreadcrumbList
+/tscm-services-in-mumbai           | Service (equipment) + BreadcrumbList
+/tscm-services-in-delhi            | Service (equipment) + BreadcrumbList
+/tscm-services-in-bangalore        | Service (equipment) + BreadcrumbList
+/tscm-services-in-ahmedabad        | Service (equipment) + BreadcrumbList
+/tscm-services-in-pune             | Service (equipment) + BreadcrumbList
+/bug-sweeping-services-in-mumbai   | Service (equipment) + BreadcrumbList
+/bug-sweeping-services-in-delhi    | Service (equipment) + BreadcrumbList
+/bug-sweeping-services-in-bangalore| Service (equipment) + BreadcrumbList
+/bug-sweeping-services-in-ahmedabad| Service (equipment) + BreadcrumbList
+/bug-sweeping-services-in-pune     | Service (equipment) + BreadcrumbList
+                                   | Files: src/app/<route>/layout.tsx
+
+/faq                               | FAQPage + BreadcrumbList
+                                   | File: src/app/faq/layout.tsx
+
+/client-testimonial                | Review + BreadcrumbList
+                                   | File: src/app/client-testimonial/layout.tsx
+
+/about-us                          | ProfilePage + Person (@graph) + BreadcrumbList
+                                   | File: src/app/about-us/layout.tsx
+
+/contact-us                        | ContactPage + BreadcrumbList
+                                   | File: src/app/contact-us/layout.tsx
+
+/media                             | NewsArticle (hub) + BreadcrumbList
+                                   | File: src/app/media/layout.tsx
+
+/media/[slug]                      | NewsArticle OR PressRelease + BreadcrumbList (per item)
+                                   | File: src/app/media/[slug]/page.tsx
+                                   | Archives:
+                                   |   /media/indiebim-announces-advanced-tscm-capabilities
+                                   |     → NewsArticle (corporate announcement)
+                                   |   /media/building-indias-most-trusted-corporate-security-ecosystem
+                                   |     → PressRelease (syndicated PR — 108+ placements)
+                                   |   /media/mid-day-inspiring-personalities-2026
+                                   |     → NewsArticle (coverage archive)
+                                   |   /media/samacharwani-wahid-shaikh-security-intelligence
+                                   |     → NewsArticle (coverage archive)
+
+/publications                      | NewsArticle (hub) + BreadcrumbList
+                                   | File: src/app/publications/layout.tsx
+                                   | Links to official PR archive at /media/building-indias-...
+
+/blog                              | BreadcrumbList only (listing page)
+                                   | File: src/app/blog/layout.tsx
+
+/blog/[slug]                       | BlogPosting + BreadcrumbList (per article)
+                                   | File: src/app/blog/[slug]/page.tsx
+
+/case-study                        | BreadcrumbList only (listing page)
+                                   | File: src/app/case-study/layout.tsx
+
+/case-study/[slug]                 | Article + BreadcrumbList (per case study)
+                                   | File: src/app/case-study/[slug]/page.tsx
+
+================================================================================
+BREADCRUMB-ONLY PAGES (internal navigation schema)
+================================================================================
+These pages have BreadcrumbList only (no core Service/FAQ/Review blocks):
+
+/clients, /gallery, /certification, /industries-we-serve
+/our-team, /our-equipments, /our-ethics, /membership
+/client-protocol, /compliance-corner
+/privacy-policy, /terms-of-service, /refund-and-cancellation-policy
+/privacy-is-a-right, /tscm-myths-vs-reality, /technical-glossary
+
+Files: src/app/<route>/layout.tsx (each route)
+
+================================================================================
+INTENTIONALLY NOT ADDED (per blueprint guardrails)
+================================================================================
+
+1. FAQPage on service pages (/corporate-tscm-service, /bug-sweep, /tscm-services)
+   — Skipped: on-page FAQ text must match JSON-LD word-for-word (Google policy).
+
+2. HowTo schema (/warning-signs-of-bugging, /technical-glossary, procedural blogs)
+   — Not implemented: requires visible step-by-step content on the page that
+     matches HowToStep text exactly. Add only when page content is restructured.
+
+3. Duplicate Corporation / WebSite / ProfessionalService @graph
+   — Not placed on any page except homepage (/).
+
+4. Review on homepage (/)
+   — Optional in blueprint; not added (reviews live on /client-testimonial).
+
+5. Person @id on /our-team
+   — Optional; not added (founder graph is on /about-us only).
+
+================================================================================
+ENTITY @id REFERENCE (used in live markup)
+================================================================================
+
+https://tscm.in/#corporate-entity     Corporation
+https://tscm.in/#organization         ProfessionalService (provider)
+https://tscm.in/#website              WebSite
+https://tscm.in/#executive-founder    Person (Wahid Shaikh — /about-us)
+
+Service pages use: https://tscm.in/<path>/#subservice
+
+================================================================================
+POST-DEPLOY VALIDATION CHECKLIST
+================================================================================
+
+[ ] Rich Results Test — https://search.google.com/test/rich-results
+    Test: /, /corporate-tscm-service, /faq, /about-us, /blog/<slug>, /contact-us,
+          /media/indiebim-announces-advanced-tscm-capabilities
+[ ] Schema.org Validator — https://validator.schema.org/
+[ ] Confirm no duplicate @graph entity blocks off homepage
+[ ] Confirm FAQ answers on /faq match visible accordion text
+
+================================================================================
+QUICK SUMMARY — SCHEMA TYPE → WHERE LIVE
+================================================================================
+
+Corporation + ProfessionalService + WebSite  →  / only
+Service (+ equipment where applicable)       →  22 service/location routes (see above)
+Review                                       →  /client-testimonial, /corporate-tscm-service
+FAQPage                                      →  /faq
+ProfilePage + Person                         →  /about-us
+BlogPosting                                  →  /blog/[slug] (each post)
+Article (case study)                         →  /case-study/[slug] (each study)
+ContactPage                                  →  /contact-us
+NewsArticle (hub)                            →  /media, /publications
+NewsArticle (per archive)                    →  /media/[slug] (announcements + coverage)
+PressRelease (per archive)                   →  /media/building-indias-most-trusted-corporate-security-ecosystem
+BreadcrumbList                               →  All internal pages except /
+HowTo                                        →  NOT YET (content match required)
+
+================================================================================
+LAYER 11 — PRESS RELEASE / NEWS ARCHIVE (COMPLETE)
+================================================================================
+Individual on-site press archives at /media/[slug] each carry JSON-LD matching
+visible headline, description, dates, and body copy. Author is Indiebim Corporate
+Communications for official releases; external publisher name for coverage archives.
+Publisher @id always references https://tscm.in/#corporate-entity.
+
+To add a new announcement: edit src/data/pressReleases.ts and redeploy.
+Google Rich Results Test URL after deploy:
+  https://tscm.in/media/indiebim-announces-advanced-tscm-capabilities
+
+================================================================================
+END OF IMPLEMENTATION REPORT
+================================================================================

@@ -75,7 +75,7 @@ const preSweepSteps = [
 export default function TscmMythsVsRealityPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_42%,#f8fafc_100%)] pb-24 pt-32 text-slate-900">
-      <div className="pointer-events-none fixed inset-0 opacity-[0.4] [background-image:linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="pointer-events-none fixed inset-0 opacity-[0.4] bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-size-[72px_72px]" />
 
       {/* Hero */}
       <section className="relative border-b border-slate-200/80">
@@ -87,7 +87,7 @@ export default function TscmMythsVsRealityPage() {
           </div>
           <h1 className="mt-6 max-w-4xl text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
             TSCM myths vs.{' '}
-            <span className="bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700 bg-clip-text text-transparent">
               reality
             </span>
           </h1>
@@ -123,7 +123,7 @@ export default function TscmMythsVsRealityPage() {
                 className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_16px_50px_rgba(15,23,42,0.06)] transition-shadow duration-300 hover:shadow-[0_24px_60px_rgba(15,23,42,0.09)]"
               >
                 <div className="grid gap-0 lg:grid-cols-2">
-                  <div className="relative border-b border-slate-100 bg-gradient-to-br from-rose-50/90 to-orange-50/50 p-6 sm:p-8 lg:border-b-0 lg:border-r">
+                  <div className="relative border-b border-slate-100 bg-linear-to-br from-rose-50/90 to-orange-50/50 p-6 sm:p-8 lg:border-b-0 lg:border-r">
                     <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-rose-700">
                       <FileWarning className="h-3.5 w-3.5" />
                       Myth
@@ -133,7 +133,7 @@ export default function TscmMythsVsRealityPage() {
                     </div>
                     <p className="text-lg font-bold leading-snug text-slate-900">&ldquo;{pair.myth}&rdquo;</p>
                   </div>
-                  <div className="relative bg-gradient-to-br from-cyan-50/50 to-white p-6 sm:p-8">
+                  <div className="relative bg-linear-to-br from-cyan-50/50 to-white p-6 sm:p-8">
                     <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-800">
                       <CheckCircle2 className="h-3.5 w-3.5" />
                       Reality
@@ -169,7 +169,7 @@ export default function TscmMythsVsRealityPage() {
                   key={step.title}
                   className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm transition-all duration-300 hover:border-cyan-200 hover:bg-white hover:shadow-md"
                 >
-                  <div className={`absolute left-0 top-0 h-full w-1 bg-gradient-to-b ${step.tone}`} />
+                  <div className={`absolute left-0 top-0 h-full w-1 bg-linear-to-b ${step.tone}`} />
                   <div className="flex gap-4 pl-2">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-slate-800 shadow-sm ring-1 ring-slate-200/80">
                       <Icon className="h-6 w-6" />
@@ -190,7 +190,7 @@ export default function TscmMythsVsRealityPage() {
       {/* 2026 Regulatory */}
       <section className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 text-white shadow-[0_28px_80px_rgba(15,23,42,0.2)]">
-          <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:64px_64px]" />
+          <div className="pointer-events-none absolute inset-0 opacity-30 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[64px_64px]" />
           <div className="relative grid gap-10 p-8 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">

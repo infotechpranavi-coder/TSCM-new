@@ -79,7 +79,7 @@ export default function ClientProtocolPage() {
     <div className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#edf7fb_52%,#f8fafc_100%)] pt-32 pb-24 text-slate-900">
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-[linear-gradient(180deg,#fff1f2_0%,#f0f9ff_45%,#ffffff_100%)] text-slate-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.12),transparent_26%),radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_26%)]" />
-        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:88px_88px]" />
+        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] bg-size-[88px_88px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -90,7 +90,7 @@ export default function ClientProtocolPage() {
               </div>
               <h1 className="mt-6 text-4xl font-black leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Client Protocol
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-700">
+                <span className="block text-transparent bg-clip-text bg-linear-to-r from-cyan-600 via-sky-600 to-indigo-700">
                   What to Do if You Suspect Eavesdropping
                 </span>
               </h1>
@@ -156,7 +156,7 @@ export default function ClientProtocolPage() {
                   key={step.id}
                   className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)] sm:p-7"
                 >
-                  <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${step.tone}`} />
+                  <div className={`absolute inset-x-0 top-0 h-1.5 bg-linear-to-r ${step.tone}`} />
                   <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-cyan-100/60 blur-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="relative grid gap-5 lg:grid-cols-[220px_1fr]">
                     <div>

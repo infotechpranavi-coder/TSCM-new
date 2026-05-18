@@ -88,7 +88,7 @@ export default function CounterSurveillancePage() {
                 priority
                 sizes="(max-width: 1024px) 100vw, 44vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-slate-950/15 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Read More</p>
                 <p className="mt-2 max-w-md text-sm leading-7 text-slate-100">

@@ -12,7 +12,7 @@ export default function BugSweepingServicesDelhi() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 pt-32 pb-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent"></div>
+         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-100/50 via-transparent to-transparent"></div>
          <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-blue-900/5 rounded-full blur-[100px]"></div>
       </div>
 
@@ -30,7 +30,7 @@ export default function BugSweepingServicesDelhi() {
                animate={{ opacity: 1, y: 0 }}
                className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight"
             >
-               Bug Sweeping Services in <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">{city}</span>
+               Bug Sweeping Services in <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-blue-700">{city}</span>
             </motion.h1>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export default function BugSweepingServicesDelhi() {
                     className="object-cover object-center"
                     sizes="320px"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/50 to-transparent" />
                </div>
             </div>
          </div>
