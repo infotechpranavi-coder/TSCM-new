@@ -46,3 +46,20 @@ html {
   border-radius: 999px;
   border: 2px solid rgba(226, 232, 240, 0.9);
 }
+
+@keyframes client-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.client-marquee {
+  animation: client-marquee 45s linear infinite;
+}
+
+.client-marquee:hover {
+  animation-play-state: paused;
+}

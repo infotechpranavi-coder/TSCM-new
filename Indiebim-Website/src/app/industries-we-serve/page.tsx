@@ -11,6 +11,7 @@ import {
   Phone,
   Sparkles,
 } from 'lucide-react';
+import { industriesGalleryImages } from '@/data/galleryImages';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -25,10 +26,9 @@ const heroFade = {
   transition: { duration: 0.55, ease: 'easeOut' as const },
 };
 
-const industries = [
+const industriesBase = [
   {
     name: 'Aviation',
-    image: '/images/banner-2-5-1.jpg',
     label: 'High Mobility',
     summary: 'Aircraft, charter movement, and executive travel environments where conversations happen in transit.',
     detail:
@@ -36,7 +36,6 @@ const industries = [
   },
   {
     name: 'Banking & Finance',
-    image: '/images/tscm.jpg',
     label: 'High Sensitivity',
     summary: 'Rooms handling deal flow, compliance discussions, board material, and financial strategy.',
     detail:
@@ -44,7 +43,6 @@ const industries = [
   },
   {
     name: 'Government',
-    image: '/images/inner-banner-1-1-1.jpg',
     label: 'Protected Briefings',
     summary: 'Assignments where privacy, protocol, and controlled communications matter at every stage.',
     detail:
@@ -52,7 +50,6 @@ const industries = [
   },
   {
     name: 'Healthcare',
-    image: '/images/why-us.jpeg',
     label: 'Critical Trust',
     summary: 'Executive offices, medical leadership rooms, and sensitive patient-data discussion zones.',
     detail:
@@ -60,7 +57,6 @@ const industries = [
   },
   {
     name: 'Corporate & C-Suite',
-    image: '/images/3-1-1.jpg',
     label: 'Boardroom Risk',
     summary: 'Leadership teams, investors, legal counsel, and strategic meetings that cannot leak.',
     detail:
@@ -68,13 +64,17 @@ const industries = [
   },
   {
     name: 'Defence & Space',
-    image: '/images/13-1.jpg',
     label: 'Mission Critical',
     summary: 'Programs that demand tighter procedural discipline and stronger technical scrutiny.',
     detail:
       'Defence and advanced technical sectors need teams that can work around sensitive infrastructure without reducing the assignment to cosmetic scanning.',
   },
-];
+] as const;
+
+const industries = industriesBase.map((industry, index) => ({
+  ...industry,
+  image: industriesGalleryImages[index].src,
+}));
 
 const sectors = [
   {

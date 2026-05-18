@@ -1,32 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Award, BadgeCheck, CheckCircle2, ClipboardCheck, Globe2, ShieldCheck } from 'lucide-react';
-
-const certifications = [
-  {
-    title: 'Professional Standards',
-    description: 'Our work is guided by documented operating procedures, structured reporting, and consistent quality benchmarks across assignments.',
-    icon: <BadgeCheck className="h-6 w-6" />,
-  },
-  {
-    title: 'Ethics & Confidentiality',
-    description: 'Every engagement is handled with discretion, privacy-first practices, and strict attention to ethical investigative conduct.',
-    icon: <ShieldCheck className="h-6 w-6" />,
-  },
-  {
-    title: 'Operational Readiness',
-    description: 'Field processes, evidence handling, and client communication follow a disciplined workflow designed for reliability and trust.',
-    icon: <ClipboardCheck className="h-6 w-6" />,
-  },
-];
-
-const highlights = [
-  'Quality-focused investigative process',
-  'Confidential client handling standards',
-  'Professional reporting and documentation',
-  'Responsive support for sensitive cases',
-];
+import { Award } from 'lucide-react';
+import { certificateImages } from '@/data/certificates';
 
 export default function CertificationPage() {
   return (
@@ -38,7 +15,7 @@ export default function CertificationPage() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-18 max-w-4xl text-center">
+        <div className="mx-auto mb-12 max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,79 +43,32 @@ export default function CertificationPage() {
             transition={{ delay: 0.12 }}
             className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg"
           >
-            This page highlights the professional principles, quality expectations, and operating standards that support our investigative and counter-surveillance services.
+            Official certificates and training credentials held by our team in TSCM and
+            counter-surveillance.
           </motion.p>
         </div>
 
-        <div className="mb-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-sm"
-          >
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-700">
-                <Globe2 className="h-6 w-6" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900">Why certification matters</h2>
-                <p className="text-sm text-slate-500">Built for trust, consistency, and accountability</p>
-              </div>
-            </div>
-            <p className="mb-6 text-slate-600 leading-relaxed">
-              In privacy-sensitive work, clients need more than claims. A strong certification-focused presentation helps communicate discipline, credibility, and commitment to recognized standards in process, ethics, and client delivery.
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-600" />
-                  <span className="text-sm font-medium text-slate-700">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08 }}
-            className="rounded-3xl bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-950 p-8 text-white shadow-xl"
-          >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Core Promise</p>
-            <h2 className="mb-4 text-3xl font-bold">Professional quality backed by disciplined execution</h2>
-            <p className="mb-8 leading-relaxed text-slate-300">
-              Our certification page is designed to reinforce confidence for clients evaluating service credibility, process maturity, and operational professionalism.
-            </p>
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-                <div className="text-sm font-semibold text-white">Documentation</div>
-                <div className="mt-1 text-sm text-slate-300">Clear reporting, structured findings, and dependable communication.</div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-                <div className="text-sm font-semibold text-white">Integrity</div>
-                <div className="mt-1 text-sm text-slate-300">Ethical conduct and confidentiality-centered case handling.</div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {certifications.map((item, index) => (
+        <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
+          {certificateImages.map((certificate, index) => (
             <motion.article
-              key={item.title}
-              initial={{ opacity: 0, y: 28 }}
+              key={certificate.src}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              transition={{ delay: index * 0.05 }}
+              className="group mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-cyan-200 hover:shadow-md"
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-700">
-                {item.icon}
+              <div className="relative bg-slate-100 p-3 sm:p-4">
+                <Image
+                  src={certificate.src}
+                  alt={certificate.alt}
+                  width={900}
+                  height={1200}
+                  className="h-auto w-full object-contain"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={index < 3}
+                />
               </div>
-              <h3 className="mb-3 text-xl font-bold text-slate-900">{item.title}</h3>
-              <p className="text-sm leading-7 text-slate-600">{item.description}</p>
             </motion.article>
           ))}
         </div>

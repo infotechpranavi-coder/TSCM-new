@@ -1,48 +1,58 @@
-export const CLIENTS = [
-  'JKumar',
-  'L&T',
-  'Hiranandani',
-  'ICICI Bank',
-  'Axis Bank',
-  'RBL Bank',
-  'ArcelorMittal',
-  'Disney',
-  'Hotstar',
-  'Kailash Parbat',
-  'JSW Group',
-  'Index Logistic',
-  'Kotak Bank',
-  'HYT Engineering',
-  'IBI Group',
-  'Indiebim',
-  'Iiris Consulting',
-  'Avant Group',
-  'UPL',
-  'Deloitte',
-  'Quality Life',
-  'Quantum Leap',
-  'Maruti Motors',
-  'Success Gyan',
-  'Regent Hotel',
-  'Shankar Multi',
-  'TVS',
-  'World Wide Tech',
-  'Amitek',
-  'Chamunda Ind.',
-  'Infra Market',
-  'Action Group',
-  'Saint-Gobain',
-  'Corona Remedies',
-  'Jai-Kisan',
-  'Urban Money',
-  'Aeon Credit',
-  'Maria Decor',
-  'Yes Bank',
-  'Orion Strategic',
-  'KW Dubai',
-  'Third Bridge',
-  'India Law Office',
-  'Zen Pharma',
-  'Dermax',
-  'Examplad Media',
-] as const;
+import clientsData from './clients.json';
+import {
+  getLocalClientLogo,
+  homepageClientDomains,
+} from './clientLogos';
+
+export type ClientBrand = {
+  name: string;
+  website: string;
+  logo: string;
+  domain?: string;
+};
+
+export type LogoFallbacks = {
+  clearbit: string;
+  googleFavicon: string;
+};
+
+function resolveClientLogo(client: { domain?: string; logo: string }): string {
+  if (client.domain) {
+    const localLogo = getLocalClientLogo(client.domain);
+    if (localLogo) return localLogo;
+  }
+  return client.logo;
+}
+
+function enrichClient<T extends ClientBrand>(
+  client: T,
+  domain?: string
+): ClientBrand {
+  const resolvedDomain = domain ?? client.domain;
+  const withDomain = { ...client, domain: resolvedDomain };
+  return {
+    ...withDomain,
+    logo: resolveClientLogo(withDomain),
+  };
+}
+
+export const homepageCarouselClients: ClientBrand[] = clientsData.homepageCarousel.map(
+  (client) => enrichClient(client, homepageClientDomains[client.name])
+);
+
+export const clients: ClientBrand[] = clientsData.clients.map((client) =>
+  enrichClient(client)
+);
+
+export const logoFallbacks: LogoFallbacks = clientsData.logoFallbacks;
+
+/** @deprecated Use `clients` for full brand data. */
+export const CLIENTS = clients.map((client) => client.name) as readonly string[];
+
+export function getClearbitLogo(domain: string): string {
+  return logoFallbacks.clearbit.replace('{domain}', domain);
+}
+
+export function getGoogleFaviconLogo(domain: string): string {
+  return logoFallbacks.googleFavicon.replace('{domain}', domain);
+}

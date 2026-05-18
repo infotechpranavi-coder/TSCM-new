@@ -71,3 +71,10 @@ const homeGalleryPreviewNumbers = [1, 3, 7, 10, 26] as const;
 export const galleryPreviewImages: GalleryImage[] = homeGalleryPreviewNumbers.map(
   (number) => galleryImages[number - 1]
 );
+
+/** Gallery indices used on /industries-we-serve (ops 1, 3, 7, 10, 26, 31). */
+export const industriesGalleryImageIndices = [0, 2, 6, 9, 25, 30] as const;
+
+export const industriesGalleryImages: GalleryImage[] = industriesGalleryImageIndices.map(
+  (index) => galleryImages[index]
+);

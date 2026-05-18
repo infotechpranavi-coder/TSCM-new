@@ -19,6 +19,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { galleryPreviewImages } from '@/data/galleryImages';
+import { OurClients } from '@/components/OurClients';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -729,6 +730,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <OurClients />
 
       {/* TESTIMONIALS */}
       <section className="relative overflow-hidden border-y border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_46%,#ecfeff_100%)] py-24">
