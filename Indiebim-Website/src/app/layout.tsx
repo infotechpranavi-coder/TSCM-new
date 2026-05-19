@@ -1,10 +1,12 @@
 ﻿import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GlobalFAQ from '@/components/GlobalFAQ';
 import FloatingContactButtons from '@/components/FloatingContactButtons';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleAnalyticsPageView from '@/components/GoogleAnalyticsPageView';
 
 
 export const metadata: Metadata = {
@@ -29,6 +31,9 @@ export default function RootLayout({
         <GoogleAnalytics />
       </head>
       <body className="min-h-screen flex flex-col">
+        <Suspense fallback={null}>
+          <GoogleAnalyticsPageView />
+        </Suspense>
         <Navbar />
         <main className="grow">{children}</main>
         <GlobalFAQ />

@@ -1,21 +1,25 @@
 import Script from 'next/script';
+import { GA_MEASUREMENT_ID } from '@/lib/analytics';
 
-const GA_MEASUREMENT_ID = 'G-N89NS5XSZF';
-
+/** Loads gtag once in <head> — inherited by every route via root layout. */
 export default function GoogleAnalytics() {
   return (
     <>
       <Script
+        id="gtag-js"
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}');
+          gtag('config', '${GA_MEASUREMENT_ID}', {
+            page_path: window.location.pathname,
+          });
         `}
       </Script>
     </>
