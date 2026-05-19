@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ExternalLink, Mail, MapPin, Phone, Send, ShieldAlert, ShieldCheck } from 'lucide-react';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const WHATSAPP_HREF =
   'https://wa.me/919967107077?text=Hello%20Team%2C%20I%20would%20like%20to%20discreetly%20discuss%20a%20TSCM%20%2F%20bug%20sweeping%20requirement%20for%20our%20premises.';
@@ -39,10 +39,19 @@ const serviceOptions = [
   'Other Enquiry',
 ] as const;
 
+type Captcha = { a: number; b: number; answer: number };
+
 export default function ContactUs() {
-  const [captcha, setCaptcha] = useState(createCaptcha);
+  const [captcha, setCaptcha] = useState<Captcha | null>(null);
   const [captchaInput, setCaptchaInput] = useState('');
   const [captchaError, setCaptchaError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  useEffect(() => {
+    setCaptcha(createCaptcha());
+  }, []);
 
   const refreshCaptcha = useCallback(() => {
     setCaptcha(createCaptcha());
@@ -50,20 +59,64 @@ export default function ContactUs() {
     setCaptchaError('');
   }, []);
 
-  const captchaLabel = useMemo(
-    () => `What is ${captcha.a} + ${captcha.b}?`,
-    [captcha.a, captcha.b],
-  );
+  const captchaLabel = captcha
+    ? `What is ${captcha.a} + ${captcha.b}?`
+    : 'Solve the calculation below';
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitError('');
+    setSubmitSuccess(false);
+
+    if (!captcha) {
+      setCaptchaError('Security check is still loading. Please wait a moment.');
+      return;
+    }
+
     const parsed = Number.parseInt(captchaInput.trim(), 10);
     if (Number.isNaN(parsed) || parsed !== captcha.answer) {
       setCaptchaError('Incorrect answer. Please solve the calculation and try again.');
       return;
     }
     setCaptchaError('');
-    // Form backend integration can be wired here.
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      firstName: String(formData.get('firstName') ?? ''),
+      lastName: String(formData.get('lastName') ?? ''),
+      email: String(formData.get('email') ?? ''),
+      phone: String(formData.get('phone') ?? ''),
+      service: String(formData.get('service') ?? ''),
+      preferredResponse: String(formData.get('preferredResponse') ?? ''),
+      message: String(formData.get('message') ?? ''),
+      consent: formData.get('consent') === 'on',
+      captcha: { a: captcha.a, b: captcha.b, answer: parsed },
+    };
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = (await res.json()) as { error?: string; success?: boolean };
+
+      if (!res.ok) {
+        setSubmitError(data.error ?? 'Unable to send your message. Please try again.');
+        return;
+      }
+
+      setSubmitSuccess(true);
+      form.reset();
+      refreshCaptcha();
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -194,8 +247,11 @@ export default function ContactUs() {
                     <label htmlFor="contact-first" className="text-xs font-semibold text-slate-700">First name</label>
                     <input
                       id="contact-first"
+                      name="firstName"
                       type="text"
-                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                      required
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                       placeholder="Given name"
                     />
                   </div>
@@ -203,8 +259,11 @@ export default function ContactUs() {
                     <label htmlFor="contact-last" className="text-xs font-semibold text-slate-700">Last name</label>
                     <input
                       id="contact-last"
+                      name="lastName"
                       type="text"
-                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                      required
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                       placeholder="Family name"
                     />
                   </div>
@@ -212,8 +271,11 @@ export default function ContactUs() {
                     <label htmlFor="contact-email" className="text-xs font-semibold text-slate-700">Email</label>
                     <input
                       id="contact-email"
+                      name="email"
                       type="email"
-                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                      required
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                       placeholder="name@organization.com"
                     />
                   </div>
@@ -221,8 +283,10 @@ export default function ContactUs() {
                     <label htmlFor="contact-phone" className="text-xs font-semibold text-slate-700">Phone</label>
                     <input
                       id="contact-phone"
+                      name="phone"
                       type="tel"
-                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                       placeholder="+91 …"
                     />
                   </div>
@@ -236,7 +300,9 @@ export default function ContactUs() {
                     <label htmlFor="contact-service" className="text-xs font-semibold text-slate-700">Service required</label>
                     <select
                       id="contact-service"
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                      name="service"
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                       defaultValue={serviceOptions[0]}
                     >
                       {serviceOptions.map((opt) => (
@@ -248,7 +314,9 @@ export default function ContactUs() {
                     <label htmlFor="contact-response" className="text-xs font-semibold text-slate-700">Preferred response</label>
                     <select
                       id="contact-response"
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                      name="preferredResponse"
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                     >
                       <option>Phone call</option>
                       <option>Email</option>
@@ -262,8 +330,11 @@ export default function ContactUs() {
                 <label htmlFor="contact-message" className="text-xs font-semibold text-slate-700">Message</label>
                 <textarea
                   id="contact-message"
+                  name="message"
                   rows={4}
-                  className="w-full resize-y rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
+                  required
+                  disabled={isSubmitting}
+                  className="w-full resize-y rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
                   placeholder="City or region, type of space, and a neutral summary..."
                 />
               </div>
@@ -279,9 +350,12 @@ export default function ContactUs() {
               <div className="flex items-start gap-3">
                 <input
                   id="contact-consent"
+                  name="consent"
                   type="checkbox"
                   defaultChecked
-                  className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500"
+                  required
+                  disabled={isSubmitting}
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 disabled:opacity-60"
                 />
                 <label htmlFor="contact-consent" className="text-sm text-slate-600 leading-relaxed">
                   I understand this enquiry will be handled under strict confidentiality and used only to respond to my request.
@@ -306,6 +380,7 @@ export default function ContactUs() {
                     className="w-28 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20"
                     placeholder="Answer"
                     required
+                    disabled={!captcha || isSubmitting}
                     aria-invalid={captchaError ? true : undefined}
                     aria-describedby={captchaError ? 'contact-captcha-error' : undefined}
                   />
@@ -324,11 +399,24 @@ export default function ContactUs() {
                 ) : null}
               </div>
 
+              {submitError ? (
+                <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
+                  {submitError}
+                </p>
+              ) : null}
+
+              {submitSuccess ? (
+                <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800" role="status">
+                  Thank you. Your message was sent securely. We will respond within 24 hours.
+                </p>
+              ) : null}
+
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700"
+                disabled={!captcha || isSubmitting}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Send secure message
+                {isSubmitting ? 'Sending…' : 'Send secure message'}
                 <Send className="h-4 w-4" />
               </button>
 
