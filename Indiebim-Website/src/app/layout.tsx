@@ -3,6 +3,8 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GlobalFAQ from '@/components/GlobalFAQ';
+import FloatingContactButtons from '@/components/FloatingContactButtons';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 
 export const metadata: Metadata = {
@@ -23,11 +25,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="grow">{children}</main>
         <GlobalFAQ />
         <Footer />
+        <FloatingContactButtons />
       </body>
     </html>
   );

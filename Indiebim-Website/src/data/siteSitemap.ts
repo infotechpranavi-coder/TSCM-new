@@ -51,6 +51,7 @@ export const sitemapSections: SitemapSection[] = [
       link('/business-bug-sweep', 'Business Bug Sweep'),
       link('/home-bug-sweep', 'Home Bug Sweep'),
       link('/debugging-services', 'Debugging Services'),
+      link('/vehicle-tscm', 'Vehicle TSCM'),
     ],
   },
   {

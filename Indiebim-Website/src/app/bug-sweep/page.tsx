@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Building2, ChevronRight, Home, ScanSearch } from 'lucide-react';
+import { Building2, Car, ChevronRight, Home, ScanSearch } from 'lucide-react';
 
 const bugSweepServices = [
   {
@@ -29,6 +29,14 @@ const bugSweepServices = [
       'Structured electronic and physical debugging across multiple environments, with clear findings and next-step guidance.',
     href: '/debugging-services',
     icon: ScanSearch,
+  },
+  {
+    id: 'vehicle-tscm',
+    title: 'Vehicle TSCM',
+    description:
+      'GPS tracker detection and vehicle bug sweeping for executive cars, fleets, and hired transport—Mumbai and pan-India.',
+    href: '/vehicle-tscm',
+    icon: Car,
   },
 ] as const;
 
@@ -91,7 +99,7 @@ export default function BugSweepPage() {
           ))}
         </motion.nav>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <motion.div className="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {bugSweepServices.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -119,7 +127,7 @@ export default function BugSweepPage() {
               </motion.article>
             );
           })}
-        </div>
+        </motion.div>
 
         <motion.div
           {...fadeUp}

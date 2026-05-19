@@ -149,6 +149,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/vehicle-tscm" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
+                  Vehicle TSCM
+                </Link>
+              </li>
+              <li>
                 <Link href="/bug-sweeping-services-in-mumbai" className="text-sm text-slate-600 transition-colors hover:text-cyan-700">
                   Bug Sweeping Services in Mumbai
                 </Link>

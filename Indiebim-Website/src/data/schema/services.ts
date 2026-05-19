@@ -100,6 +100,13 @@ export const SERVICE_PAGE_SCHEMAS: Record<string, ServiceSchemaInput> = {
       'Advanced debugging services to locate concealed transmitters, compromised devices, and surveillance hardware.',
     withEquipment: false,
   },
+  '/vehicle-tscm': {
+    path: '/vehicle-tscm',
+    name: 'Vehicle TSCM',
+    description:
+      'Professional Vehicle TSCM and GPS tracker detection for executive cars, corporate fleets, and hired vehicles across India.',
+    withEquipment: false,
+  },
   '/technical-counter-surveillance': {
     path: '/technical-counter-surveillance',
     name: 'Technical Counter-Surveillance',
@@ -177,6 +184,7 @@ export const SERVICE_BREADCRUMB_LABELS: Record<string, string> = {
   '/business-bug-sweep': 'Business Bug Sweep',
   '/home-bug-sweep': 'Home Bug Sweep',
   '/debugging-services': 'Debugging Services',
+  '/vehicle-tscm': 'Vehicle TSCM',
   '/technical-counter-surveillance': 'Technical Counter-Surveillance',
   '/warning-signs-of-bugging': 'Warning Signs of Bugging',
   '/tscm-services-in-mumbai': 'TSCM Services Mumbai',

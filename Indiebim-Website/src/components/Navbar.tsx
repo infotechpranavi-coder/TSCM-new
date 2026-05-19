@@ -129,7 +129,7 @@ const NAV_LINKS: Array<{
       { name: 'Business Bug Sweep', href: '/business-bug-sweep' },
       { name: 'Home Bug Sweep', href: '/home-bug-sweep' },
       { name: 'Debugging Services', href: '/debugging-services' },
-
+      { name: 'Vehicle TSCM', href: '/vehicle-tscm' },
     ]
   },
   { name: 'Case Studies', href: '/case-study' },
