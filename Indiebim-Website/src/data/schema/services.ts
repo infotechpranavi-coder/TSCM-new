@@ -75,9 +75,15 @@ export const SERVICE_PAGE_SCHEMAS: Record<string, ServiceSchemaInput> = {
   },
   '/eavesdropping-detection': {
     path: '/eavesdropping-detection',
-    name: 'Eavesdropping Detection',
+    name: 'Eavesdropping Detection Services',
     description:
-      'Specialist eavesdropping detection using spectrum analysis, NLJD, and physical inspection protocols.',
+      'Professional electronic eavesdropping detection across India — identifying hidden listening devices, covert audio transmitters, compromised phones and room microphones using RF spectrum analysis, NLJD, and acoustic pathway inspection.',
+  },
+  '/counterespionage-investigations': {
+    path: '/counterespionage-investigations',
+    name: 'Counterespionage Investigations',
+    description:
+      'Discreet counterespionage investigations that identify how information is being exposed, contain corporate leaks, and strengthen lasting counter-intelligence controls.',
   },
   '/business-bug-sweep': {
     path: '/business-bug-sweep',
@@ -99,6 +105,12 @@ export const SERVICE_PAGE_SCHEMAS: Record<string, ServiceSchemaInput> = {
     description:
       'Advanced debugging services to locate concealed transmitters, compromised devices, and surveillance hardware.',
     withEquipment: false,
+  },
+  '/rf-bug-detection': {
+    path: '/rf-bug-detection',
+    name: 'RF Bug Detection Services',
+    description:
+      'Professional RF bug detection focused on wireless transmissions from active listening devices, cameras and covert transmitters using spectrum analysis and source confirmation.',
   },
   '/vehicle-tscm': {
     path: '/vehicle-tscm',
@@ -180,10 +192,12 @@ export const SERVICE_BREADCRUMB_LABELS: Record<string, string> = {
   '/tscm-services': 'TSCM Services',
   '/counter-surveillance': 'Counter-Surveillance',
   '/bug-sweep': 'Bug Sweep',
-  '/eavesdropping-detection': 'Eavesdropping Detection',
+  '/eavesdropping-detection': 'Eavesdropping Detection Services',
+  '/counterespionage-investigations': 'Counterespionage Investigations',
   '/business-bug-sweep': 'Business Bug Sweep',
   '/home-bug-sweep': 'Home Bug Sweep',
   '/debugging-services': 'Debugging Services',
+  '/rf-bug-detection': 'RF Bug Detection Services',
   '/vehicle-tscm': 'Vehicle TSCM',
   '/technical-counter-surveillance': 'Technical Counter-Surveillance',
   '/warning-signs-of-bugging': 'Warning Signs of Bugging',

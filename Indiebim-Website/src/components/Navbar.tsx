@@ -60,6 +60,8 @@ const NAV_LINKS: Array<{
       { name: 'Corporate tscm service', href: '/corporate-tscm-service' },
       { name: 'Residential TSCM Service', href: '/residential-tscm-service' },
       { name: 'Cyber TSCM Service', href: '/cyber-tscm-service' },
+      { name: 'Eavesdropping Detection Services', href: '/eavesdropping-detection' },
+      { name: 'Counterespionage Investigations', href: '/counterespionage-investigations' },
       {
         name: 'Personal investigation',
         nested: [
@@ -129,6 +131,7 @@ const NAV_LINKS: Array<{
       { name: 'Business Bug Sweep', href: '/business-bug-sweep' },
       { name: 'Home Bug Sweep', href: '/home-bug-sweep' },
       { name: 'Debugging Services', href: '/debugging-services' },
+      { name: 'RF Bug Detection Services', href: '/rf-bug-detection' },
       { name: 'Vehicle TSCM', href: '/vehicle-tscm' },
     ]
   },
